@@ -1,5 +1,7 @@
 {
   "name": "polivet",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
