@@ -6,6 +6,19 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import().then(m => m.TabsPageModule)
   }*/
+  {
+    path: 'paginal-inicial',
+    loadChildren: () => import('./pages/paginal-inicial/paginal-inicial.module').then(m => m.PaginalInicialPageModule)
+  },
+  {
+    path: 'inicio-sesion',
+    loadChildren: () => import('./app.module').then(m => m.AppModule)
+  },
+  {
+    path: '',
+    redirectTo: 'inicio-sesion',
+    pathMatch: 'full'
+  },
 ];
 @NgModule({
   imports: [
