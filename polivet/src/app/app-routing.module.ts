@@ -3,23 +3,21 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  /*{
+  {
     path: '',
-    loadChildren: () => import().then(m => m.TabsPageModule)
-  }*/
+    redirectTo:'inicio-sesion',
+    pathMatch: 'full'
+  },
   {
     path: 'inicio-sesion',
-    component: AppComponent
+    loadChildren: () => import('./pages/inicio-sesion/inicio-sesion.module').then(m => m.InicioSesionPageModule)
   },
   {
     path: 'paginal-inicial',
     loadChildren: () => import('./pages/paginal-inicial/paginal-inicial.module').then(m => m.PaginalInicialPageModule)
   },
-  {
-    path: '',
-    redirectTo: 'inicio-sesion',
-    pathMatch: 'full'
-  },
+
+
 ];
 @NgModule({
   imports: [

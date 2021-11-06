@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio-sesion.page.scss'],
 })
 export class InicioSesionPage implements OnInit {
-
-  constructor() { }
+  correo: string
+  contrasena: string
+  constructor(public router: Router) { }
 
   ngOnInit() {
+  }
+  loguin(){
+    console.log("probnando")
+    this.router.navigate(['paginal-inicial'])
   }
 
 }
