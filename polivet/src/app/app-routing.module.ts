@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   /*{
@@ -7,12 +8,12 @@ const routes: Routes = [
     loadChildren: () => import().then(m => m.TabsPageModule)
   }*/
   {
-    path: 'paginal-inicial',
-    loadChildren: () => import('./pages/paginal-inicial/paginal-inicial.module').then(m => m.PaginalInicialPageModule)
+    path: 'inicio-sesion',
+    component: AppComponent
   },
   {
-    path: 'inicio-sesion',
-    loadChildren: () => import('./app.module').then(m => m.AppModule)
+    path: 'paginal-inicial',
+    loadChildren: () => import('./pages/paginal-inicial/paginal-inicial.module').then(m => m.PaginalInicialPageModule)
   },
   {
     path: '',
