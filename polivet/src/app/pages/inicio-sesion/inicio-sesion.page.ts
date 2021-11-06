@@ -14,7 +14,9 @@ export class InicioSesionPage implements OnInit {
   ngOnInit() {
   }
   loguin(){
-    console.log("probnando")
+    console.log("probando")
+    console.log('correo', this.correo)
+    console.log("contra", this.contrasena)
     this.router.navigate(['paginal-inicial'])
   }
 
