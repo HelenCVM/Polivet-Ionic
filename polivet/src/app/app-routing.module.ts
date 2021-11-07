@@ -15,7 +15,11 @@ const routes: Routes = [
   {
     path: 'paginal-inicial',
     loadChildren: () => import('./pages/paginal-inicial/paginal-inicial.module').then(m => m.PaginalInicialPageModule)
+  },  {
+    path: 'menu-drawer',
+    loadChildren: () => import('./pages/menu-drawer/menu-drawer.module').then( m => m.MenuDrawerPageModule)
   },
+
 
 
 ];
