@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'receta-medica',
     loadChildren: () => import('./pages/receta-medica/receta-medica.module').then( m => m.RecetaMedicaPageModule)
   },
+  {
+    path: 'consulta-medica',
+    loadChildren: () => import('./pages/consulta-medica/consulta-medica.module').then( m => m.ConsultaMedicaPageModule)
+  },
 
 
 
