@@ -19,6 +19,26 @@ const routes: Routes = [
     path: 'menu-drawer',
     loadChildren: () => import('./pages/menu-drawer/menu-drawer.module').then( m => m.MenuDrawerPageModule)
   },
+  {
+    path: 'mi-perfil',
+    loadChildren: () => import('./pages/mi-perfil/mi-perfil.module').then( m => m.MiPerfilPageModule)
+  },
+  {
+    path: 'historias-clinicas',
+    loadChildren: () => import('./pages/historias-clinicas/historias-clinicas.module').then( m => m.HistoriasClinicasPageModule)
+  },
+  {
+    path: 'propietario',
+    loadChildren: () => import('./pages/propietario/propietario.module').then( m => m.PropietarioPageModule)
+  },
+  {
+    path: 'mascota',
+    loadChildren: () => import('./pages/mascota/mascota.module').then( m => m.MascotaPageModule)
+  },
+  {
+    path: 'receta-medica',
+    loadChildren: () => import('./pages/receta-medica/receta-medica.module').then( m => m.RecetaMedicaPageModule)
+  },
 
 
 
