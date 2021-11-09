@@ -26,26 +26,29 @@
     <br>
     <h1>Bienvenidos!</h1>
   </div>
+
+  <form  class="form-group text-center" (ngSubmit)="addInicio(InicioDetails)" #userForm="ngForm" >
+
   <div class="container">
     <ion-item>
-      <ion-input ion-input large clear [(ngModel)]="correo" placeholder="Dirección de Correo" required="true"
-        style="text-align: center;">
+      <ion-input ion-input large clear [(ngModel)]="InicioDetails.correo" placeholder="Dirección de Correo" required="true"
+        style="text-align: center;" [ngModelOptions]="{standalone: true}">
         <ion-icon name="person"></ion-icon>
       </ion-input>
     </ion-item>
 
 
     <ion-item>
-      <ion-input [(ngModel)]="contrasena" type="password" placeholder="Contraseña" required="true"
-        style="text-align: center;">
+      <ion-input [(ngModel)]="InicioDetails.contrasena" type="password" placeholder="Contraseña" required="true"
+        style="text-align: center;" [ngModelOptions]="{standalone: true}">
         <ion-icon name="key"></ion-icon>
       </ion-input>
 
     </ion-item>
     <ion-item>
-      <ion-button style="justify-content: center; text-align: center;" (click)="loguin()">Iniciar sesion</ion-button>
+      <ion-button style="justify-content: center; text-align: center;" type="submit" [disabled]="!userForm.form.valid"   >Iniciar sesion</ion-button>
     </ion-item>
 
   </div>
-
+</form>
 </ion-content>

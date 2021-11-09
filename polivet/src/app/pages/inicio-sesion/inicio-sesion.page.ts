@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 import { Router } from '@angular/router';
+import {Medico} from 'src/app/Modelo/Medico';
+import {IniciosesionService} from '../../Services/iniciosesion.service';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -7,17 +9,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio-sesion.page.scss'],
 })
 export class InicioSesionPage implements OnInit {
-  correo: string
-  contrasena: string
-  constructor(public router: Router) { }
+ usuario: Medico
 
-  ngOnInit() {
+ @Input() InicioDetails = {
+  correo:'', contrasena:''
+}
+
+constructor(public router: Router,public inicioservice:IniciosesionService ) { }
+
+  ngOnInit(): void{
   }
 
   loguin(){
     console.log("probando")
-    console.log('correo', this.correo)
-    console.log("contra", this.contrasena)
+    //console.log('correo', this.correo)
+    //console.log("contra", this.contrasena)
     this.router.navigate(['paginal-inicial'])
   }
+
+  addInicio(dataBill) {
+    this.inicioservice.iniciar(this.InicioDetails).subscribe((data: {}) => {
+      console.log('data')
+      let correop=data
+      console.log('Estamos en el ADDINICIOSESION')
+      console.log(correop)
+      if(correop =='No creado'){
+        return this.router.navigate(['/inicio-sesion'])
+      }else{
+        return this.router.navigate(['/paginal-inicial/'])
+      }
+
+    })
+  }
+
 }
