@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Propietario } from 'src/app/Modelo/Propietario';
 
 @Component({
   selector: 'app-propietario',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class PropietarioPage implements OnInit {
 
   constructor() { }
-
+  propietario: Propietario= new Propietario();
   ngOnInit() {
   }
 
