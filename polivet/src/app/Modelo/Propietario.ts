@@ -1,8 +1,9 @@
 export class Propietario{
-    uid:string
-    nombre:string
-    apellido:string
-    correo:string
-    contrasena:string
+    idPropietario:string
+    direccion:string
+    propietario:string
+    telefono:string
+    ciudad:string
+    correo:String
   
 }
