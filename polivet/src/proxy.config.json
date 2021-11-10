@@ -1,0 +1,7 @@
+{
+    "/TesisVeterinaria/rest/prueba/*": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

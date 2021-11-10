@@ -8,7 +8,7 @@ import { Medico } from '../Modelo/Medico';
 export class IniciosesionService {
   private url: string;
   constructor(private http:HttpClient) {
-    this.url='http://localhost:8081/TesisVeterinaria/rest/prueba/inicio';
+    this.url='/TesisVeterinaria/rest/prueba/inicio';
   }
 
   iniciar(usuario:Medico){
