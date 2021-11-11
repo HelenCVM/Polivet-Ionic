@@ -8,17 +8,18 @@ import { Medico } from '../Modelo/Medico';
 export class IniciosesionService {
   private url: string;
   constructor(private http:HttpClient) {
-    this.url='/TesisVeterinaria/rest/prueba/inicio';
+    this.url='http://localhost:8081/TesisVeterinaria/rest/prueba/inicio';
   }
 
   iniciar(usuario:Medico){
-
+    console.log('dfkfhgdsfh-')
     console.log(usuario);
 
     const body = new HttpParams()
     .set('correo',usuario.correo)
     .set('contrasena',usuario.contrasena);
-
+    console.log('dfkfhgdsfh--')
+    console.log(this.url)
     return this.http.post(
       this.url,
       body.toString(),
