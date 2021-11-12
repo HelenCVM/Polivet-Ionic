@@ -11,12 +11,26 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PropietarioServiceService } from './Services/propietario-service.service';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
-  providers: [SplashScreen,StatusBar, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    SplashScreen,
+    StatusBar,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    PropietarioServiceService,
+
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

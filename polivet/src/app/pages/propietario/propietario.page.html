@@ -36,7 +36,7 @@
   
     <ion-item>
       <ion-input type="numeric" placeholder="Cédula" [(ngModel)]="propietario.idPropietario" style="text-align: center;"
-        required="true">
+        required="true" maxLength="10">
         <ion-icon name="finger-print"></ion-icon>
       </ion-input>
     </ion-item>
@@ -45,6 +45,12 @@
       <ion-input placeholder="Propietario" [(ngModel)]="propietario.propietario" style="text-align: center;"
         required="true">
         <ion-icon name="person-outline"></ion-icon>
+      </ion-input>
+    </ion-item>  
+
+    <ion-item>
+      <ion-input placeholder="Ciudad" [(ngModel)]="propietario.ciudad" style="text-align: center;" required="true">
+        <ion-icon name="locate"></ion-icon>
       </ion-input>
     </ion-item>
 
@@ -56,20 +62,14 @@
     </ion-item>
 
     <ion-item>
-      <ion-input placeholder="Ciudad" [(ngModel)]="propietario.ciudad" style="text-align: center;" required="true">
-        <ion-icon name="locate"></ion-icon>
-      </ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input placeholder="Teléfono" [(ngModel)]="propietario.telefono" style="text-align: center;" required="true">
-        <ion-icon name="call-outline"></ion-icon>
+      <ion-input placeholder="Teléfono" [(ngModel)]="propietario.telefono" style="text-align: center;" required="true"  maxLength="10">
+        <ion-icon name="call-outline" ></ion-icon>
       </ion-input>
     </ion-item>
 
 
     <ion-item>
-      <ion-input placeholder="Correo" [(ngModel)]="propietario.correo" style="text-align: center;" required="true">
+      <ion-input placeholder="Correo" [(ngModel)]="propietario.correo" style="text-align: center;" required="true" email>
         <ion-icon name="mail-outline"></ion-icon>
       </ion-input>
     </ion-item>
@@ -83,7 +83,7 @@
           </ion-col>
 
           <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-            <ion-button   color="shade" (click)="guardar()">Registrar</ion-button>
+            <ion-button   color="shade" (click)="guardar()">Siguiente</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
