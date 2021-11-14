@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationExtras } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { Propietario } from 'src/app/Modelo/Propietario';
 import { PropietarioServiceService } from 'src/app/Services/propietario-service.service';
 
@@ -10,22 +10,40 @@ import { PropietarioServiceService } from 'src/app/Services/propietario-service.
 })
 export class PropietarioPage implements OnInit {
 
-  constructor(public propietarioService: PropietarioServiceService) { }
-  propietario: Propietario= new Propietario();
-  ngOnInit() {
+  propietario: Propietario = new Propietario();
+
+  @Input() InicioDetails = {
+    idPropietario: '', nombrePropietario: '',
+    direccion: '', ciudad: '', telefono: '',
+    correo: ''
   }
 
-  guardar(){
-    console.log(this.propietario)
-    this.propietarioService.crearPropietario(this.propietario)
-    let navigationExtras: NavigationExtras={
-      queryParams:{
-        propietario: this.propietario
-      }
-
-    }
+  constructor(public propietarioService: PropietarioServiceService, public router: Router) {
 
 
+  }
+
+
+  ngOnInit(): void {
+  }
+
+
+
+
+  guardar(dataBill) {
+    this.router.navigate(['/mascota/',this.InicioDetails.idPropietario])
+    this.propietarioService.crearPropietario(this.InicioDetails).subscribe((data: {}) => {
+      let propietarios = data
+      console.log('Estamos en el propietario')
+      console.log(this.propietario)
+     
+      console.log("routerrr")
+
+    });
+
+  }
+  cancelar(){
+    this.router.navigate(['/paginal-inicial'])
   }
 
 }

@@ -15,7 +15,8 @@ const routes: Routes = [
   {
     path: 'paginal-inicial',
     loadChildren: () => import('./pages/paginal-inicial/paginal-inicial.module').then(m => m.PaginalInicialPageModule)
-  },  {
+  },
+  {
     path: 'menu-drawer',
     loadChildren: () => import('./pages/menu-drawer/menu-drawer.module').then( m => m.MenuDrawerPageModule)
   },
@@ -32,7 +33,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/propietario/propietario.module').then( m => m.PropietarioPageModule)
   },
   {
-    path: 'mascota',
+    path: 'mascota/:idPropietario',
     loadChildren: () => import('./pages/mascota/mascota.module').then( m => m.MascotaPageModule)
   },
   {
