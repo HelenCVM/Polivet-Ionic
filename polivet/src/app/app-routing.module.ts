@@ -13,14 +13,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/inicio-sesion/inicio-sesion.module').then(m => m.InicioSesionPageModule)
   },
   {
-    path: 'paginal-inicial',
+    path: 'paginal-inicial/:correop',
     loadChildren: () => import('./pages/paginal-inicial/paginal-inicial.module').then(m => m.PaginalInicialPageModule)
-  },  {
+  },
+  {
     path: 'menu-drawer',
     loadChildren: () => import('./pages/menu-drawer/menu-drawer.module').then( m => m.MenuDrawerPageModule)
   },
   {
-    path: 'mi-perfil',
+    path: 'mi-perfil/:correopda',
     loadChildren: () => import('./pages/mi-perfil/mi-perfil.module').then( m => m.MiPerfilPageModule)
   },
   {

@@ -1,30 +1,89 @@
 <ion-header>
   <ion-toolbar>
-      <div align="right">
-          <img src="../assets/imagenes/Logo.png"  height="50" alt=""  >
-      </div>
+    <div align="right">
+      <img src="../assets/imagenes/Logo.png" height="50" alt="">
+    </div>
 
-      <ion-buttons slot="start">
-          <ion-menu-button menu="main-menu" color="light"> </ion-menu-button>
-      </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu" color="light"> </ion-menu-button>
+    </ion-buttons>
 
   </ion-toolbar>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"></script>
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"></script>
-  <title>Inicio sesion</title>
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
 </ion-header>
+
 <ion-content>
-  <p>Mi perfil</p>
-</ion-content>
+  <br>
+  <br>
+   <div class="form-container">
+       <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Datos personales</em></p>
+
+     <ion-item>
+       <ion-label type="numeric"style="text-align: center;"
+         required="true">
+         <ion-icon name="finger-print"></ion-icon>
+         Cedula de identidad:<p>{{Medico.cedulaId}}</p>
+       </ion-label>
+     </ion-item>
+
+     <ion-item>
+       <ion-label  style="text-align: center;"
+         required="true">
+         <ion-icon name="person-outline"></ion-icon>
+         Nombre y apellidos :<p>{{Medico.nombres}} {{Medico.apellidos}}</p>
+       </ion-label>
+     </ion-item>
+
+     <ion-item>
+      <ion-label  style="text-align: center;" required="true">
+        <ion-icon name="mail-outline"></ion-icon>
+        E-mail :<p>{{Medico.correo}}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  style="text-align: center;" required="true">
+        <ion-icon name="call-outline"></ion-icon>
+        Telefono celular :<p>{{Medico.celular}}</p>
+      </ion-label>
+    </ion-item>
+
+     <ion-item>
+       <ion-label   style="text-align: center;" required="true">
+         <ion-icon name="locate"></ion-icon>
+         Direccion:<p>{{Medico.direccion}}</p>
+       </ion-label>
+     </ion-item>
+
+     <ion-item>
+      <ion-label   style="text-align: center;" required="true">
+        <ion-icon name="bookmarks"></ion-icon>
+        Titulo:<p>{{Medico.titulo}}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label   style="text-align: center;" required="true">
+        <ion-icon name="clipboard"></ion-icon>
+        Especialidad:<p>{{Medico.especialidad}}</p>
+      </ion-label>
+    </ion-item>
+
+
+
+   </div>
+ </ion-content>
