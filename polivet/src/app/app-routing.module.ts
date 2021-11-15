@@ -13,7 +13,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/inicio-sesion/inicio-sesion.module').then(m => m.InicioSesionPageModule)
   },
   {
+<<<<<<< HEAD
     path: 'paginal-inicial/:correop',
+=======
+    path: 'paginal-inicial',
+>>>>>>> e529de54910ed0db683c6ba8792600e114fc7ccf
     loadChildren: () => import('./pages/paginal-inicial/paginal-inicial.module').then(m => m.PaginalInicialPageModule)
   },
   {
@@ -33,7 +37,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/propietario/propietario.module').then( m => m.PropietarioPageModule)
   },
   {
-    path: 'mascota',
+    path: 'mascota/:idPropietario',
     loadChildren: () => import('./pages/mascota/mascota.module').then( m => m.MascotaPageModule)
   },
   {
