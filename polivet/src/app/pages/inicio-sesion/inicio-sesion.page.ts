@@ -37,7 +37,7 @@ constructor(public router: Router,public inicioservice:IniciosesionService ) { }
       if(correop =='No creado'){
         return this.router.navigate(['/inicio-sesion'])
       }else{
-        return this.router.navigate(['/paginal-inicial/'])
+        return this.router.navigate(['/paginal-inicial/',correop])
       }
 
     })
