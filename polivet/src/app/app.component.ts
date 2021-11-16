@@ -25,7 +25,7 @@ export class AppComponent {
     });
   }
 
-  navigate(){
+  navigate() {
     this.router.navigate(['/paginal-inicial'])
   }
 }

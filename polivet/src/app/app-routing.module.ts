@@ -41,7 +41,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/receta-medica/receta-medica.module').then( m => m.RecetaMedicaPageModule)
   },
   {
-    path: 'consulta-medica',
+    path: 'consulta-medica/:idMascota',
     loadChildren: () => import('./pages/consulta-medica/consulta-medica.module').then( m => m.ConsultaMedicaPageModule)
   },
 

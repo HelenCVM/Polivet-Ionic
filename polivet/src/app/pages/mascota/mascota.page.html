@@ -29,7 +29,7 @@
 <ion-content>
     <br>
     <br>
-    <form (ngSubmit)="guardar(InicioDetails)" #userForm="ngForm">
+    <form (ngSubmit)="guardarMascota(InicioDetails)" #userForm="ngForm">
         <div class="form-container">
             <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Registro
                     Mascota </em></p>
@@ -57,30 +57,34 @@
 
             <ion-item>
                 <ion-label>Sexo</ion-label>
-                <ion-select (ionChange)=guardarMascota($event) placeholder="Seleccione " style="text-align: center;" okText="Ok" cancelText="Cancelar">
-                  <ion-select-option value="M">Macho</ion-select-option>
-                  <ion-select-option value="H">Hembra</ion-select-option>
-                  <ion-icon name="mail-outline"></ion-icon>
+                <ion-select (ionChange)=guardarSexo($event) placeholder="Seleccione " style="text-align: center;"
+                    okText="Ok" cancelText="Cancelar">
+                    <ion-select-option value="Macho">Macho</ion-select-option>
+                    <ion-select-option value="Hembra">Hembra</ion-select-option>
+                    <ion-icon name="mail-outline"></ion-icon>
 
                 </ion-select>
-              </ion-item>
-
-              <ion-item>
-                <ion-label>Fecha Nacimiento</ion-label>
-                <ion-datetime placeholder="Seleccione" display-timezone="utc"></ion-datetime>
-              </ion-item>
-
-            <ion-item>
-                <ion-input placeholder="Edad" [(ngModel)]="InicioDetails.edad" style="text-align: center;"
-                    required="true" email [ngModelOptions]="{standalone: true}" type="numeric">
-                    <ion-icon name="reorder-four-outline"></ion-icon>                </ion-input>
             </ion-item>
 
             <ion-item>
-                <ion-textarea  placeholder="Color y señales particulares" [(ngModel)]="InicioDetails.colorYSenalesParti"
-                    style="text-align: center;" required="true"  [ngModelOptions]="{standalone: true}">
-                 
-                </ion-textarea >
+                <ion-label>Fecha Nacimiento</ion-label>
+                <ion-datetime placeholder="Seleccione" display-timezone="utc" displayFormat="YYYY-MM-DD	" doneText="Ok"
+                    cancelText="Cancelar" (ionChange)=guardarFechaNac($event)></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+                <ion-input placeholder="Edad" [(ngModel)]="InicioDetails.edad" style="text-align: center;"
+                    required="true" [ngModelOptions]="{standalone: true}" type="numeric">
+                    <ion-icon name="reorder-four-outline"></ion-icon>
+                </ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-textarea placeholder="Color y señales particulares..."
+                    [(ngModel)]="InicioDetails.coloYSenalesParti" style="text-align: center;" required="true"
+                    [ngModelOptions]="{standalone: true}">
+
+                </ion-textarea>
             </ion-item>
 
 

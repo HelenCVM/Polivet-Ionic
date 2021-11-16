@@ -12,6 +12,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PropietarioServiceService } from './Services/propietario-service.service';
+import { MascotaServiceService } from './Services/mascota-service.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { PropietarioServiceService } from './Services/propietario-service.servic
     StatusBar,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     PropietarioServiceService,
+    MascotaServiceService,
 
   ],
   bootstrap: [AppComponent],
