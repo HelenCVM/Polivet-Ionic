@@ -35,50 +35,326 @@
                 </em>
 
             </p>
-            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> 1. Constantes Fisiológicas
-            </em>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> 1. Constantes
+                    Fisiológicas
+                </em>
 
-        </p>
+            </p>
+
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-input placeholder="Peso" [(ngModel)]="InicioDetails.peso" style="text-align: center;"
+                                required="true" [ngModelOptions]="{standalone: true}">
+                                <ion-icon name="paw"></ion-icon>
+                            </ion-input>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-input placeholder="T" [(ngModel)]="InicioDetails.t" style="text-align: center;"
+                                required="true" [ngModelOptions]="{standalone: true}">
+                                <ion-icon name="paw"></ion-icon>
+                            </ion-input>
+                        </ion-item>
+
+                    </ion-col>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-input placeholder="F.Card" [(ngModel)]="InicioDetails.fcard"
+                                style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+                                <ion-icon name="paw"></ion-icon>
+                            </ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+
+                        <ion-item>
+                            <ion-input placeholder="F.Res" [(ngModel)]="InicioDetails.fres" style="text-align: center;"
+                                required="true" [ngModelOptions]="{standalone: true}">
+                                <ion-icon name="paw"></ion-icon>
+                            </ion-input>
+                        </ion-item>
+                    </ion-col>
 
 
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-input placeholder="Pulso" [(ngModel)]="InicioDetails.pulso" style="text-align: center;"
+                                required="true" [ngModelOptions]="{standalone: true}">
+                                <ion-icon name="paw"></ion-icon>
+                            </ion-input>
+                        </ion-item>
+
+                    </ion-col>
+
+
+
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-input placeholder="Otras" [(ngModel)]="InicioDetails.otras" style="text-align: center;"
+                                required="true" [ngModelOptions]="{standalone: true}">
+                                <ion-icon name="paw"></ion-icon>
+                            </ion-input>
+                        </ion-item>
+
+                    </ion-col>
+
+
+                </ion-row>
+
+
+                <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-input placeholder="Mucosas" [(ngModel)]="InicioDetails.mucosas"
+                                style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+                                <ion-icon name="paw"></ion-icon>
+                            </ion-input>
+                        </ion-item>
+
+                    </ion-col>
+
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+
+                        <ion-item>
+                            <ion-input placeholder="Turgencia Piel" [(ngModel)]="InicioDetails.turgenciaPiel"
+                                style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+                                <ion-icon name="paw"></ion-icon>
+                            </ion-input>
+                        </ion-item>
+
+                    </ion-col>
+
+
+                </ion-row>
+                <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+
+                        <ion-item>
+                            <ion-label> ASA</ion-label>
+                            <ion-select (ionChange)=guardarASA($event) placeholder="Seleccione "
+                                style="text-align: center;" okText="Ok" cancelText="Cancelar">
+                                <ion-select-option value="I">I</ion-select-option>
+                                <ion-select-option value="II">II</ion-select-option>
+                                <ion-select-option value="III">III</ion-select-option>
+                                <ion-select-option value="IV">IV</ion-select-option>
+                                <ion-select-option value="V">V</ion-select-option>
+
+                                <ion-icon name="mail-outline"></ion-icon>
+
+                            </ion-select>
+                        </ion-item>
+
+                    </ion-col>
+
+                </ion-row>
+                <ion-row>
+
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-label>Estado Fisico</ion-label>
+                            <ion-select (ionChange)=guardarEstadoF($event) placeholder="Seleccione "
+                                style="text-align: center;" okText="Ok" cancelText="Cancelar">
+                                <ion-select-option value="Normal">Normal</ion-select-option>
+                                <ion-select-option value="Caquexia">Caquexia</ion-select-option>
+                                <ion-select-option value="Bajo Peso">Bajo Peso</ion-select-option>
+                                <ion-select-option value="Sobre Peso">Sobre Peso</ion-select-option>
+                                <ion-select-option value="Obeso">Obeso</ion-select-option>
+
+                                <ion-icon name="mail-outline"></ion-icon>
+
+                            </ion-select>
+                        </ion-item>
+
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-label>Estado Mental</ion-label>
+                            <ion-select (ionChange)=guardarEstadoM($event) placeholder="Seleccione "
+                                style="text-align: center;" okText="Ok" cancelText="Cancelar">
+                                <ion-select-option value="Vigil">Vigil</ion-select-option>
+                                <ion-select-option value="Deprimido">Deprimido</ion-select-option>
+                                <ion-select-option value="Exitado">Exitado</ion-select-option>
+                                <ion-select-option value="Dolor">Dolor</ion-select-option>
+                                <ion-icon name="mail-outline"></ion-icon>
+
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+
+            </ion-grid>
+
+
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> 2. Motivo de la
+                    consulta
+                </em>
+
+            </p>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-textarea placeholder="Motivo Consulta..." [(ngModel)]="InicioDetails.motivoConsulta"
+                                style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+
+                            </ion-textarea>
+                        </ion-item>
+
+                    </ion-col>
+
+                </ion-row>
+            </ion-grid>
+
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> 3. Historia
+                </em> </p>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+
+                        <ion-item>
+                            <ion-label> Vacunación</ion-label>
+                            <ion-select (ionChange)=guardarEstadoM($event) placeholder="" style="text-align: center;"
+                                okText="Ok" cancelText="Cancelar">
+                                <ion-select-option value="Vigil">Si</ion-select-option>
+                                <ion-select-option value="Deprimido">No</ion-select-option>
+                                <ion-icon name="mail-outline"></ion-icon>
+
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+
+                        <ion-item>
+                            <ion-label>Desparasitación</ion-label>
+                            <ion-select (ionChange)=guardarEstadoM($event) placeholder="" style="text-align: center;"
+                                okText="Ok" cancelText="Cancelar">
+                                <ion-select-option value="Si">Si</ion-select-option>
+                                <ion-select-option value="No">No</ion-select-option>
+                                <ion-icon name="mail-outline"></ion-icon>
+
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-label>Estado Reproductivo</ion-label>
+                            <ion-select (ionChange)=guardarEstadoM($event) placeholder="" style="text-align: center;"
+                                okText="Ok" cancelText="Cancelar">
+                                <ion-select-option value="Gestante">Gestante</ion-select-option>
+                                <ion-select-option value="Esteril">Esteril</ion-select-option>
+                                <ion-select-option value="Lactante">Lactante</ion-select-option>
+                                <ion-select-option value="Celo">Celo</ion-select-option>
+                                <ion-select-option value="Entero">Entero</ion-select-option>
+                                <ion-icon name="mail-outline"></ion-icon>
+
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+
+                </ion-row>
+
+
+                <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+
+                        <ion-item>
+                            <ion-input placeholder="Producto" [(ngModel)]="InicioDetails.especie"
+                                style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+                                <ion-icon name="transgender"></ion-icon>
+                            </ion-input>
+                        </ion-item>
+                    </ion-col>
+
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-label>Fechas</ion-label>
+                            <ion-datetime placeholder="" display-timezone="utc" displayFormat="YYYY-MM-DD	"
+                                doneText="Ok" cancelText="Cancelar" (ionChange)=guardarFechaNac($event)></ion-datetime>
+                        </ion-item>
+
+                    </ion-col>
+
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+
+                        <ion-item>
+                            <ion-label>Procedencia</ion-label>
+                            <ion-select (ionChange)=guardarEstadoM($event) placeholder="" style="text-align: center;"
+                                okText="Ok" cancelText="Cancelar">
+                                <ion-select-option value="Rural">Rural</ion-select-option>
+                                <ion-select-option value="Urbano">Urbano</ion-select-option>
+                                <ion-icon name="mail-outline"></ion-icon>
+
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+
+                </ion-row>
+            </ion-grid>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Anamnesis
+            </em> </p>
             <ion-item>
-                <ion-input placeholder="Peso" [(ngModel)]="InicioDetails.peso" style="text-align: center;"
-                    required="true" [ngModelOptions]="{standalone: true}">
-                    <ion-icon name="paw"></ion-icon>
-                </ion-input>
+                <ion-textarea placeholder="Anamnesis" [(ngModel)]="InicioDetails.motivoConsulta"
+                    style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+
+                </ion-textarea>
+            </ion-item>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Signos Clinicos
+            </em> </p>
+            <ion-item>
+                <ion-textarea placeholder="Signos Clinicos" [(ngModel)]="InicioDetails.motivoConsulta"
+                    style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+
+                </ion-textarea>
+            </ion-item>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Diagnostico
+            </em> </p>
+            <ion-item>
+                <ion-textarea placeholder="Diagnostico" [(ngModel)]="InicioDetails.motivoConsulta"
+                    style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+
+                </ion-textarea>
             </ion-item>
 
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Pronostico
+            </em> </p>
             <ion-item>
-                <ion-input placeholder="T" [(ngModel)]="InicioDetails.t" style="text-align: center;"
-                    required="true" [ngModelOptions]="{standalone: true}">
-                    <ion-icon name="paw"></ion-icon>
-                </ion-input>
+                <ion-textarea placeholder="Pronostico" [(ngModel)]="InicioDetails.motivoConsulta"
+                    style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+
+                </ion-textarea>
             </ion-item>
 
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Tratamiento
+            </em> </p>
             <ion-item>
-                <ion-input placeholder="F.Card" [(ngModel)]="InicioDetails.fcard" style="text-align: center;"
-                    required="true" [ngModelOptions]="{standalone: true}">
-                    <ion-icon name="paw"></ion-icon>
-                </ion-input>
+                <ion-textarea placeholder="Tratamiento" [(ngModel)]="InicioDetails.motivoConsulta"
+                    style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+
+                </ion-textarea>
             </ion-item>
 
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Observaciones
+            </em> </p>
+            
             <ion-item>
-                <ion-input placeholder="F.Res" [(ngModel)]="InicioDetails.fres" style="text-align: center;"
-                    required="true" [ngModelOptions]="{standalone: true}">
-                    <ion-icon name="paw"></ion-icon>
-                </ion-input>
-            </ion-item>
+                <ion-textarea placeholder="Observaciones" [(ngModel)]="InicioDetails.motivoConsulta"
+                    style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
 
+                </ion-textarea>
+            </ion-item>
 
 
         </div>
-
-
-
     </form>
-
-
-
-
-
 </ion-content>

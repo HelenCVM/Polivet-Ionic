@@ -10,7 +10,7 @@ export class ConsultaMedicaPage implements OnInit {
   idMascota: any
   @Input() InicioDetails = {
    peso: '',t:'',fcard:'',fres:'',mucosas:'',asa:'', turgenciaPiel:''
-   , pulso:'', otras:'', estadoFisico:'', estadoMental:'',
+   , pulso:'', otras:'', estadoFisico:'', estadoMental:'',motivoConsulta:'',
   }
 
 
