@@ -11,6 +11,10 @@ export class ConsultaMedicaPage implements OnInit {
   @Input() InicioDetails = {
    peso: '',t:'',fcard:'',fres:'',mucosas:'',asa:'', turgenciaPiel:''
    , pulso:'', otras:'', estadoFisico:'', estadoMental:'',motivoConsulta:'',
+    vacunacion:'',desparasitacion:'',estadoRepro:'', producto:'', fechas:'',
+    procedencia:'',anamnesis:'', signosClini:'', diagnostico:'',
+    pronostico:'', tratamiento:'', observaciones:'',
+
   }
 
 
