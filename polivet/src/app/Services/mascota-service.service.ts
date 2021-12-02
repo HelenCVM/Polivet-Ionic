@@ -9,9 +9,10 @@ import { Mascota } from '../Modelo/Mascota';
 export class MascotaServiceService {
 
   private url: string;
+  private urlEspecie: string;
   constructor(public  http:HttpClient){
-    this.url='http://localhost:8080/TesisVeterinaria/rest/prueba/registrarMascota'
-
+    this.url='/TesisVeterinaria/rest/prueba/registrarMascota'
+    this.urlEspecie='http://localhost:8080/TesisVeterinaria/rest/prueba/obtenerEspecieMascota'
    }
 
    crearMascota(mascota:Mascota){
@@ -26,8 +27,7 @@ export class MascotaServiceService {
     .set('edad',mascota.edad)
     .set('coloYSenalesParti',mascota.coloYSenalesParti)
 
-    return this.http.post(
-      this.url, 
+    return this.http.post(this.url, 
       body.toString(),
       {
         headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
@@ -36,5 +36,14 @@ export class MascotaServiceService {
       }
 
     );
+  }
+
+  obtenerRaza(){
+    console.log("Estamos en el service")
+    return this.http.get("/TesisVeterinaria/rest/prueba/obtenerEspecieMascota")
+  }
+  obtenerEspecie(){
+    console.log("Estamos en el service especie")
+    return this.http.get("/TesisVeterinaria/rest/prueba/obtenerRazaMascota")
   }
 }

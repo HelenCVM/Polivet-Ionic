@@ -40,19 +40,29 @@
                     <ion-icon name="paw"></ion-icon>
                 </ion-input>
             </ion-item>
+
             <ion-item>
-                <ion-input placeholder="Especie" [(ngModel)]="InicioDetails.especie" style="text-align: center;"
-                    required="true" [ngModelOptions]="{standalone: true}">
-                    <ion-icon name="transgender"></ion-icon>
-                </ion-input>
+                <ion-label>Especie</ion-label>
+                <ion-select (ionChange)=guardarEspecie($event) placeholder="Seleccione " style="text-align: center;"
+                    okText="Ok" cancelText="Cancelar">
+                    <ion-select-option *ngFor="let item of especies" [value]="item.nombreEspecie">
+                        {{item.nombreEspecie}}                                           
+                    </ion-select-option>
+                   
+                    <ion-icon name="mail-outline"></ion-icon>
+                </ion-select>
             </ion-item>
 
             <ion-item>
-                <ion-input placeholder="Raza" [(ngModel)]="InicioDetails.raza" style="text-align: center;"
-                    required="true" [ngModelOptions]="{standalone: true}">
-                    <ion-icon name="move"></ion-icon>
-
-                </ion-input>
+                <ion-label>Raza</ion-label>
+                <ion-select (ionChange)=guardarRaza($event) placeholder="Seleccione " style="text-align: center;"
+                    okText="Ok" cancelText="Cancelar">
+                    <ion-select-option *ngFor="let item of razas" [value]="item.nombre">
+                        {{item.nombre}}                        
+                    </ion-select-option>
+                   
+                    <ion-icon name="mail-outline"></ion-icon>
+                </ion-select>
             </ion-item>
 
             <ion-item>
@@ -73,9 +83,11 @@
             </ion-item>
 
             <ion-item>
+                
                 <ion-input placeholder="Edad" [(ngModel)]="InicioDetails.edad" style="text-align: center;"
                     required="true" [ngModelOptions]="{standalone: true}" type="numeric">
                     <ion-icon name="reorder-four-outline"></ion-icon>
+                    <ion-label>Edad</ion-label>
                 </ion-input>
             </ion-item>
 

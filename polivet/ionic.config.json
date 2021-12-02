@@ -3,5 +3,11 @@
   "integrations": {
     "cordova": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/TesisVeterinaria/rest/prueba/*",
+      "proxyUrl": "http://localhost:8080/TesisVeterinaria/rest/prueba/"
+    }
+  ]
 }
