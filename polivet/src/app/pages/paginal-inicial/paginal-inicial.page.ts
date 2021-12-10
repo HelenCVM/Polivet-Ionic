@@ -14,7 +14,7 @@ export class PaginalInicialPage implements OnInit {
   constructor(private actRoute:ActivatedRoute,  public router: Router,private http: HttpClient) {
     this.correop =actRoute.snapshot.params.correop;
     this.correopda = this.correop
-    this.router.navigate(['/mi-perfil/',this.correopda])
+    //this.router.navigate(['/mi-perfil/',this.correopda])
     //this.http.get('/mi-perfil/'+this.correopda);
   }
 

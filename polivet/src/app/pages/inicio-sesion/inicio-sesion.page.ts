@@ -28,19 +28,19 @@ constructor(public router: Router,public inicioservice:IniciosesionService ) { }
   }
 
   addInicio(dataBill) {
-    //this.inicioservice.iniciar(this.InicioDetails).subscribe((data: {}) => {
-     // console.log('dghgdshghdf')
-      //console.log('data')
-      //let correop=data
-      //console.log('Estamos en el ADDINICIOSESION')
-      //console.log(correop)
-      //if(correop =='No creado'){
-        //return this.router.navigate(['/inicio-sesion'])
-      //}else{
-        //return this.router.navigate(['/paginal-inicial/',correop])
-      //}
+    this.inicioservice.iniciar(this.InicioDetails).subscribe((data: {}) => {
+     console.log('dghgdshghdf')
+      console.log('data')
+      let correop=data
+      console.log('Estamos en el ADDINICIOSESION')
+      console.log(correop)
+      if(correop =='No creado'){
+        return this.router.navigate(['/inicio-sesion'])
+      }else{
+        return this.router.navigate(['/paginal-inicial/',correop])
+      }
 
-    //})
+    })
   }
 
 }
