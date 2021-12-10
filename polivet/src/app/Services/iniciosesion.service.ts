@@ -14,7 +14,7 @@ export class IniciosesionService {
   iniciar(usuario:Medico){
     console.log('dfkfhgdsfh-')
     console.log(usuario);
-
+/*
     const body = new HttpParams()
     .set('correo',usuario.correo)
     .set('contrasena',usuario.contrasena);
@@ -28,7 +28,9 @@ export class IniciosesionService {
         responseType: 'text'
       }
     );
+*/
     //return this.http.post<Usuario>(this.url,usuario);
     //hecho
+
   }
 }

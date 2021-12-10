@@ -1,0 +1,40 @@
+ion-toolbar {
+  --background: #063470;
+}
+
+html {
+  --background: #f5f5f3;
+}
+
+.form-container {
+  font-family: 95%  cursive;
+  max-width: 500px;
+  padding: 16px;
+  margin: 10px auto;
+  background-color: #f7f7f7;
+  border-radius: 4%;
+}
+
+.form-container p {
+  background: #FFE333;
+  padding: 20px 0;
+  font-size: 140%;
+  font-weight: 300;
+  text-align: center;
+  color: black;
+  margin: -16px;
+}
+
+.form-container ion-button {
+  background-color: #063470;
+  margin-top: 10px;
+  height: 38px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+ion-input {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/*# sourceMappingURL=registro-medico.page.css.map */
