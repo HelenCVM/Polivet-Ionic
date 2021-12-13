@@ -12,7 +12,6 @@ export class MascotaServiceService {
   private urlEspecie: string;
   constructor(public  http:HttpClient){
     this.url='/TesisVeterinaria/rest/prueba/registrarMascota'
-    this.urlEspecie='http://localhost:8080/TesisVeterinaria/rest/prueba/obtenerEspecieMascota'
    }
 
    crearMascota(mascota:Mascota){
