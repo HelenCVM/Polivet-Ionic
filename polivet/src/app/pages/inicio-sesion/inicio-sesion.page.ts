@@ -29,7 +29,7 @@ constructor(public router: Router,public inicioservice:IniciosesionService ) { }
 
   addInicio(dataBill) {
     this.inicioservice.iniciar(this.InicioDetails).subscribe((data: {}) => {
-      console.log('dghgdshghdf')
+     console.log('dghgdshghdf')
       console.log('data')
       let correop=data
       console.log('Estamos en el ADDINICIOSESION')

@@ -1,13 +1,13 @@
 export class Medico{
-  public cedula?:number;
+  public cedula?:string;
   public nombres?:string;
   public apellidos?:string;
+  public direccion?:string;
+  public fechaNac?:string;
   public correo?:string;
   public contrasena?:string;
-  public direccion?:string;
-  public fechaNac?:Date;
   public celular?:string;
   public titulo?:string;
-  public especialidad?:string
+  public especialidad_id?:string;
 }
 

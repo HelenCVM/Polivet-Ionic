@@ -44,7 +44,11 @@ const routes: Routes = [
   {
     path: 'consulta-medica/:idMascota',
     loadChildren: () => import('./pages/consulta-medica/consulta-medica.module').then( m => m.ConsultaMedicaPageModule)
+  },  {
+    path: 'registro-medico',
+    loadChildren: () => import('./pages/registro-medico/registro-medico.module').then( m => m.RegistroMedicoPageModule)
   },
+
 
 
 
