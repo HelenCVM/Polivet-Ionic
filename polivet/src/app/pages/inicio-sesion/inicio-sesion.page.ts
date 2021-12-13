@@ -20,16 +20,11 @@ constructor(public router: Router,public inicioservice:IniciosesionService ) { }
   ngOnInit(): void{
   }
 
-  loguin(){
-    console.log("probando")
-    //console.log('correo', this.correo)
-    //console.log("contra", this.contrasena)
-    this.router.navigate(['paginal-inicial'])
-  }
+  
 
   addInicio(dataBill) {
+    console.log('Addinicio')
     this.inicioservice.iniciar(this.InicioDetails).subscribe((data: {}) => {
-     console.log('dghgdshghdf')
       console.log('data')
       let correop=data
       console.log('Estamos en el ADDINICIOSESION')
@@ -37,7 +32,8 @@ constructor(public router: Router,public inicioservice:IniciosesionService ) { }
       if(correop =='No creado'){
         return this.router.navigate(['/inicio-sesion'])
       }else{
-        return this.router.navigate(['/paginal-inicial/',correop])
+        this.inicioservice.enviandocorreo(correop)
+        return this.router.navigate(['/paginal-inicial'])
       }
 
     })

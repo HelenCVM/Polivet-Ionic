@@ -61,6 +61,7 @@ export class ConsultamedicaService {
     .set('tratamiento',consultaM.tratamiento)
     .set('observaciones',consultaM.observaciones)
     .set('idMascota',consultaM.idMascota)
+    .set('medico',consultaM.medico)    
 
     return this.http.post(this.urlConsultaM, 
       body.toString(),

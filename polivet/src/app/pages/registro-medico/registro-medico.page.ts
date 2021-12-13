@@ -34,7 +34,7 @@ export class RegistroMedicoPage implements OnInit {
 
   guardarEspecialidad(event: CustomEvent){
     this.opcionEspecialidad=event.detail.value
-    console.log("especialidad",this.opcionEspecialidad,)
+    console.log("especialidad",this.opcionEspecialidad)
   }
 
 

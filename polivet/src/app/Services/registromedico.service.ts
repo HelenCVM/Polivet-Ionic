@@ -9,12 +9,12 @@ export class RegistromedicoService {
   private url: string;
 
   constructor(public  http:HttpClient) {
-    this.url='http://localhost:8081/TesisVeterinaria/rest/prueba/registrarPUsuario'
+    this.url='/TesisVeterinaria/rest/prueba/registrarPUsuario'
    }
 
   obtenerEspecialidad(){
     console.log("Estamos en el service especialidad")
-    return this.http.get("http://localhost:8081/TesisVeterinaria/rest/prueba/obtenerEspecialidad")
+    return this.http.get("/TesisVeterinaria/rest/prueba/obtenerEspecialidad")
   }
 
   crearUsuario(medico:Medico){

@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
 
-    path: 'paginal-inicial/:correop',
+    path: 'paginal-inicial',
     loadChildren: () => import('./pages/paginal-inicial/paginal-inicial.module').then(m => m.PaginalInicialPageModule)
   },
   {
@@ -44,7 +44,8 @@ const routes: Routes = [
   {
     path: 'consulta-medica/:idMascota',
     loadChildren: () => import('./pages/consulta-medica/consulta-medica.module').then( m => m.ConsultaMedicaPageModule)
-  },  {
+  },
+  {
     path: 'registro-medico',
     loadChildren: () => import('./pages/registro-medico/registro-medico.module').then( m => m.RegistroMedicoPageModule)
   },

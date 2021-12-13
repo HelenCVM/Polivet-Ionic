@@ -13,6 +13,7 @@ export class ConsultaMedica{
     public tratamiento?:string
     public observaciones?:string
     public idMascota?:string
+    public medico?:string
   }
   
   

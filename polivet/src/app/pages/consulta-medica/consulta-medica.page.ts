@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConstantesFiosologicas } from 'src/app/Modelo/ConstantesFisiologicas';
 import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
+import { IniciosesionService } from 'src/app/Services/iniciosesion.service';
 
 @Component({
   selector: 'app-consulta-medica',
@@ -28,7 +29,7 @@ export class ConsultaMedicaPage implements OnInit {
   pulso: string
   otras:string
   turgenciapiel:string
-  
+  correop:any
 
   public constantesFisioCab: any = [];
 
@@ -37,19 +38,26 @@ export class ConsultaMedicaPage implements OnInit {
   @Input() InicioDetails = {
     motivoConsulta: '', vacunacion: '',desparacitacion:'',estadoR:'',producto: '', fecha:'',
     procedencia:'',anamnesis:'',diagnostico: '',
-    pronostico: '', tratamiento: '', observaciones: '',idMascota:'' }
+    pronostico: '', tratamiento: '', observaciones: '',idMascota:'', medico:''}
 
 
 
-  constructor(private actRoute: ActivatedRoute, private consultaMedicaService: ConsultamedicaService) {
+  constructor(private actRoute: ActivatedRoute, private consultaMedicaService: ConsultamedicaService, public inicioservice: IniciosesionService) {
     this.idMascota = actRoute.snapshot.params.idMascota;
+
     console.log(this.idMascota)
     this.obtenerConstantesCab();
   }
 
 
 
-  ngOnInit() {
+   ngOnInit() {
+    this.inicioservice.$getObjectSource.subscribe(
+      data=>{
+        this.correop=data
+        console.log('reciboo desde paag inicial para consulta medica',this.correop)
+      }
+    )
   }
 
   obtenerConstantesCab() {
@@ -106,6 +114,7 @@ export class ConsultaMedicaPage implements OnInit {
     this.InicioDetails.fecha=this.opcionFechaVacuna
     this.InicioDetails.procedencia=this.opcionProcedencia
     this.InicioDetails.idMascota=this.idMascota
+    this.InicioDetails.medico=this.correop
     console.log('consulta --------------',this.InicioDetails)
     this.consultaMedicaService.crearConsultaM(this.InicioDetails)
     .subscribe((data) => {

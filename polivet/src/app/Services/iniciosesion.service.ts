@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Medico } from '../Modelo/Medico';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,10 @@ import { Medico } from '../Modelo/Medico';
 export class IniciosesionService {
   private url: string;
   constructor(private http:HttpClient) {
-    this.url='http://localhost:8081/TesisVeterinaria/rest/prueba/inicio';
+    this.url='/TesisVeterinaria/rest/prueba/inicio';
   }
+  private objectSource= new BehaviorSubject<{}>({});
+  $getObjectSource=this.objectSource.asObservable();
 
   iniciar(usuario:Medico){
     console.log('dfkfhgdsfh-')
@@ -32,5 +35,9 @@ export class IniciosesionService {
     //return this.http.post<Usuario>(this.url,usuario);
     //hecho
 
+  }
+
+  enviandocorreo(correo){
+   this.objectSource.next(correo)
   }
 }
