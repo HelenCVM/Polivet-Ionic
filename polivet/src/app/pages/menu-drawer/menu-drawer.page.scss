@@ -1,5 +1,16 @@
-ion-content, ion-item, ion-list{
+ion-content,ion-list,ion-item,ion-icon,ion-label,ion-menu,ion-menu-toggle,div{
     --background: #FFE333;
     --color: rgb(0, 0, 0);
   }
-  
+
+.inner-scroll scroll-y {
+  background: #FFE333;
+}
+
+.background-content{
+  background: #FFE333;
+}
+
+.md hydrated{
+  background: #FFE333;
+}

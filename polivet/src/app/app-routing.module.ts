@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+
 
 const routes: Routes = [
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/menu-drawer/menu-drawer.module').then( m => m.MenuDrawerPageModule)
   },
   {
-    path: 'mi-perfil/:correopda',
+    path: 'mi-perfil',
     loadChildren: () => import('./pages/mi-perfil/mi-perfil.module').then( m => m.MiPerfilPageModule)
   },
   {

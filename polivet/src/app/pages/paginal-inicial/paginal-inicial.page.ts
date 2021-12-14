@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
-import { IniciosesionService } from 'src/app/Services/iniciosesion.service';
+import { MiperfilService } from 'src/app/Services/miperfil.service';
 
 @Component({
   selector: 'app-paginal-inicial',
@@ -12,19 +12,19 @@ export class PaginalInicialPage implements OnInit {
   public correop:any
   public correopda:any
 
-  constructor(private actRoute:ActivatedRoute,  public router: Router,private http: HttpClient, public inicioservice: IniciosesionService) {
-   
-    //this.correop =actRoute.snapshot.params.correop;
+  constructor(private actRoute:ActivatedRoute,  public router: Router,private http: HttpClient, public miperfilservice: MiperfilService) {
+    this.miperfilservice.enviandocorreo(this.correop)
 
   }
 
   ngOnInit() {
-    this.inicioservice.$getObjectSource.subscribe(
+    this.miperfilservice.$getObjectSource.subscribe(
       data=>{
         this.correop=data
         console.log('reciboo desde paag inicial',this.correop)
       }
     )
+
   }
 
 }
