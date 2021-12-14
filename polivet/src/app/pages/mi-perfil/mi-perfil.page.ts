@@ -11,6 +11,7 @@ export class MiPerfilPage implements OnInit {
   public correopda:any
   public Medico: any=[];
   public correoperfil:any
+  public tipoespe:any
 
   constructor(private actRoute:ActivatedRoute,  public router: Router,private medicoservice: MiperfilService, public inicioservice: IniciosesionService) {
    }
@@ -28,6 +29,11 @@ export class MiPerfilPage implements OnInit {
       console.log('ESTE ES EL CORREO',this.correoperfil)
       this.Medico=data;
       console.log(data);
+      console.log('datos mas especificos')
+
+      console.log(this.Medico.especialidad_id.tipoEspecialidad)
+      console.log(this.Medico.usuario_id.correo)
+      this.tipoespe = this.Medico.especialidad_id.tipoEspecialidad
     }, (error) =>{
       console.log(error)
     }
