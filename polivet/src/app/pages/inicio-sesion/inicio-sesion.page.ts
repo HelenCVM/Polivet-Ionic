@@ -20,7 +20,7 @@ constructor(public router: Router,public inicioservice:IniciosesionService ) { }
   ngOnInit(): void{
   }
 
-  
+
 
   addInicio(dataBill) {
     console.log('Addinicio')

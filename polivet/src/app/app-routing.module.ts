@@ -52,17 +52,12 @@ const routes: Routes = [
   {
     path: 'historia-det',
     loadChildren: () => import('./pages/historia-det/historia-det.module').then( m => m.HistoriaDetPageModule)
-  },  {
+  },
+  {
     path: 'consultadet',
     loadChildren: () => import('./pages/consultadet/consultadet.module').then( m => m.ConsultadetPageModule)
-  },
-
-
-
-
-
-
-];
+  }
+]
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
