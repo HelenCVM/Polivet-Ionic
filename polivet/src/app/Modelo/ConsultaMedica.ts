@@ -14,6 +14,7 @@ export class ConsultaMedica{
     public observaciones?:string
     public idMascota?:string
     public medico?:string
+    
   }
   
   

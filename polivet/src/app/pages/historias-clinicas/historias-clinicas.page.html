@@ -27,25 +27,31 @@
 </ion-header>
 
 <ion-content>
-    <div align="center">
+    <div align="center" class="form-container">
         <br>
+        <ion-searchbar inputmode="numeric" placeholder="Ingrese Propietario" debounce="500"></ion-searchbar>
 
         <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Historias
-                Clínicas </em> </p>
+            Clinicas
+        </em>
 
-        <div class="input-group">
-            <div class="form-outline">
-                <ion-input type="search" id="form1" class="form-control" placeholder="Ingrese Propietario"
-                    style="text-align: center;"> </ion-input>
+    </p>
 
-            </div>
-            <ion-button type="button" class=" btn-primary">
-                <ion-icon name="search"></ion-icon>
+        <ion-card *ngFor="let item of historiaClinicaList ">
+            <ion-card-header>
+                <ion-card-title>No. Historia {{item.idHistorial}}</ion-card-title>
+            </ion-card-header>
 
-            </ion-button>
-        </div>
+            <ion-card-content  (click)="editarConsultasMedicasById(item.idHistorial)">
+                <ion-card-subtitle>Propietario: {{item.mascota_id.id_mascota_propietario.propietario}}</ion-card-subtitle>
+                <ion-card-subtitle>Ciudad: {{item.mascota_id.id_mascota_propietario.cuidad}}</ion-card-subtitle>
+                <ion-card-subtitle>Direccion: {{item.mascota_id.id_mascota_propietario.direccion}}</ion-card-subtitle>
+                <ion-card-subtitle>Telefono: {{item.mascota_id.id_mascota_propietario.telefono}}</ion-card-subtitle>
+                <ion-card-subtitle>Nombre mascota: {{item.mascota_id.nombre}}</ion-card-subtitle>
+            </ion-card-content>
+        </ion-card>
+
     </div>
 
-    <ion-searchbar inputmode="numeric" placeholder="Ingrese Propietario" debounce="500"></ion-searchbar>
 
 </ion-content>

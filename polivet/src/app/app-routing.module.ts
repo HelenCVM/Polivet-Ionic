@@ -49,6 +49,15 @@ const routes: Routes = [
     path: 'registro-medico',
     loadChildren: () => import('./pages/registro-medico/registro-medico.module').then( m => m.RegistroMedicoPageModule)
   },
+  {
+    path: 'historia-det',
+    loadChildren: () => import('./pages/historia-det/historia-det.module').then( m => m.HistoriaDetPageModule)
+  },  {
+    path: 'consultadet',
+    loadChildren: () => import('./pages/consultadet/consultadet.module').then( m => m.ConsultadetPageModule)
+  },
+
+
 
 
 
