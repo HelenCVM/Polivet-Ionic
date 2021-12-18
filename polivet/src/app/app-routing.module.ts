@@ -50,7 +50,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/registro-medico/registro-medico.module').then( m => m.RegistroMedicoPageModule)
   },
   {
-<<<<<<< HEAD
     path: 'recordar-contra',
     loadChildren: () => import('./pages/recordar-contra/recordar-contra.module').then( m => m.RecordarContraPageModule)
   },
@@ -65,16 +64,6 @@ const routes: Routes = [
 
 
 ];
-=======
-    path: 'historia-det',
-    loadChildren: () => import('./pages/historia-det/historia-det.module').then( m => m.HistoriaDetPageModule)
-  },
-  {
-    path: 'consultadet',
-    loadChildren: () => import('./pages/consultadet/consultadet.module').then( m => m.ConsultadetPageModule)
-  }
-]
->>>>>>> a5675efde11b2a0a7c42f6fae887f5c4c08b31dc
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
