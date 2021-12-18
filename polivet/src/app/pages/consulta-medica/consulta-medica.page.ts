@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConstantesFiosologicas } from 'src/app/Modelo/ConstantesFisiologicas';
 import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
 import { IniciosesionService } from 'src/app/Services/iniciosesion.service';
@@ -30,7 +30,7 @@ export class ConsultaMedicaPage implements OnInit {
   otras:string
   turgenciapiel:string
   correop:any
-
+  idconsulta:any
   public constantesFisioCab: any = [];
 
 
@@ -42,7 +42,8 @@ export class ConsultaMedicaPage implements OnInit {
 
 
 
-  constructor(private actRoute: ActivatedRoute, private consultaMedicaService: ConsultamedicaService, public inicioservice: IniciosesionService) {
+  constructor(private actRoute: ActivatedRoute, private consultaMedicaService: ConsultamedicaService,
+     public inicioservice: IniciosesionService,public router: Router) {
     this.idMascota = actRoute.snapshot.params.idMascota;
 
     console.log(this.idMascota)
@@ -118,18 +119,20 @@ export class ConsultaMedicaPage implements OnInit {
     console.log('consulta --------------',this.InicioDetails)
     this.consultaMedicaService.crearConsultaM(this.InicioDetails)
     .subscribe((data) => {
+      this.guardarConstantesFisio();
       
       console.log('Estamos en el metodod  de segunda consulta M')
-      console.log(data)  
+      this.idconsulta=data
+      console.log("id de consulta",this.idconsulta)  
 
       
     },(error)=>{
       console.log(error)
     }
     );
-
-
-   
+  
+  }
+  guardarConstantesFisio(){
     let constantePeso = new ConstantesFiosologicas(this.constatesCabList[0].constantes_idCab,this.peso);
     let constanteT= new ConstantesFiosologicas(this.constatesCabList[1].constantes_idCab,this.t);
     let constanteFCard = new ConstantesFiosologicas(this.constatesCabList[2].constantes_idCab,this.FCard);
@@ -155,9 +158,7 @@ export class ConsultaMedicaPage implements OnInit {
     this.constantesFisioCab.push(constanteEstadoM)
     console.log(this.constantesFisioCab)
     this.consultaMedicaService.crearConstantesF(this.constantesFisioCab)
-
-   
-   
+    this.router.navigate(['/paginal-inicial/'])
   }
 
 }

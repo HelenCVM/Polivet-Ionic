@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/menu-drawer/menu-drawer.module').then( m => m.MenuDrawerPageModule)
   },
   {
-    path: 'mi-perfil',
+    path: 'mi-perfil/:correopda',
     loadChildren: () => import('./pages/mi-perfil/mi-perfil.module').then( m => m.MiPerfilPageModule)
   },
   {
@@ -50,6 +50,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/registro-medico/registro-medico.module').then( m => m.RegistroMedicoPageModule)
   },
   {
+<<<<<<< HEAD
     path: 'recordar-contra',
     loadChildren: () => import('./pages/recordar-contra/recordar-contra.module').then( m => m.RecordarContraPageModule)
   },
@@ -64,6 +65,16 @@ const routes: Routes = [
 
 
 ];
+=======
+    path: 'historia-det',
+    loadChildren: () => import('./pages/historia-det/historia-det.module').then( m => m.HistoriaDetPageModule)
+  },
+  {
+    path: 'consultadet',
+    loadChildren: () => import('./pages/consultadet/consultadet.module').then( m => m.ConsultadetPageModule)
+  }
+]
+>>>>>>> a5675efde11b2a0a7c42f6fae887f5c4c08b31dc
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

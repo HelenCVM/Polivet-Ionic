@@ -9,7 +9,7 @@ export class PropietarioServiceService {
 
   private url: string;
   constructor(public  http:HttpClient) { 
-    this.url='http://localhost:8080/TesisVeterinaria/rest/prueba/registrarPropietario'
+    this.url='/TesisVeterinaria/rest/prueba/registrarPropietario'
 
 
   }
