@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <div align="right">
+      <img src="../assets/imagenes/Logo.png" height="50" alt="">
+    </div>
+  </ion-toolbar>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="addContra(ContraNuevaDetails)" #userForm="ngForm" >
+    <div class="form-container">
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Recordar contraseña! </em></p>
+
+    <ion-item>
+      <ion-input placeholder="Correo"  [(ngModel)]="ContraNuevaDetails.correo" style="text-align: center;" required="true"
+      [ngModelOptions]="{standalone: true}" >
+        <ion-icon name="mail-outline"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Codigo de recuperacion" [(ngModel)]="ContraNuevaDetails.contrasena" style="text-align: center;" required="true"
+      [ngModelOptions]="{standalone: true}" (ionChange)=compararContras($event)>
+        <ion-icon name="key"></ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="Contraseña nueva" [(ngModel)]="ContraNuevaDetails.contrasenaNueva" style="text-align: center;" required="true"
+      [ngModelOptions]="{standalone: true}" type="password">
+        <ion-icon name="key"></ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <div align="center">
+     <ion-grid>
+       <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+           <ion-button color="shade" type="submit"  [disabled]="!userForm.form.valid" >Enviar</ion-button>
+           <br>
+         </ion-col>
+
+       </ion-row>
+     </ion-grid>
+   </div>
+  </div>
+
+ </form>
+
+</ion-content>

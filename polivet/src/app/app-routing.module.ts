@@ -49,6 +49,16 @@ const routes: Routes = [
     path: 'registro-medico',
     loadChildren: () => import('./pages/registro-medico/registro-medico.module').then( m => m.RegistroMedicoPageModule)
   },
+  {
+    path: 'recordar-contra',
+    loadChildren: () => import('./pages/recordar-contra/recordar-contra.module').then( m => m.RecordarContraPageModule)
+  },
+  {
+    path: 'actualizar-contrasena',
+    loadChildren: () => import('./pages/actualizar-contrasena/actualizar-contrasena.module').then( m => m.ActualizarContrasenaPageModule)
+  },
+
+
 
 
 
