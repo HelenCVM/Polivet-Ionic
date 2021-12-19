@@ -56,12 +56,28 @@ const routes: Routes = [
   {
     path: 'consultadet',
     loadChildren: () => import('./pages/consultadet/consultadet.module').then( m => m.ConsultadetPageModule)
-  },  {
+  },
+  {
     path: 'agregar-consulta',
     loadChildren: () => import('./pages/agregar-consulta/agregar-consulta.module').then( m => m.AgregarConsultaPageModule)
-  }
+  }, 
+  {   path: 'recordar-contra',
+  loadChildren: () => import('./pages/recordar-contra/recordar-contra.module').then( m => m.RecordarContraPageModule)
+},
+{
+  path: 'actualizar-contrasena',
+  loadChildren: () => import('./pages/actualizar-contrasena/actualizar-contrasena.module').then( m => m.ActualizarContrasenaPageModule)
+},
 
-]
+
+];
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
@@ -69,3 +85,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
