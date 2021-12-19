@@ -56,7 +56,11 @@ const routes: Routes = [
   {
     path: 'consultadet',
     loadChildren: () => import('./pages/consultadet/consultadet.module').then( m => m.ConsultadetPageModule)
+  },  {
+    path: 'agregar-consulta',
+    loadChildren: () => import('./pages/agregar-consulta/agregar-consulta.module').then( m => m.AgregarConsultaPageModule)
   }
+
 ]
 @NgModule({
   imports: [

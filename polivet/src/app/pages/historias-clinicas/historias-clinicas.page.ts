@@ -35,7 +35,6 @@ this.obtenerConsultasMedicas();
   editarConsultasMedicasById(idHistorial){
     this.consultaService.enviandoIdHistoria(idHistorial)
     this.router.navigate(['/historia-det'])
-
     console.log(idHistorial)
   }
 }

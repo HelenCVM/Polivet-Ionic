@@ -13,19 +13,20 @@ consultasMedicas:any=[]
 consultaByHistoria: any= []
   constructor(private consultaService: ConsultamedicaService,private router : Router) { 
     console.log("Dett")
-  
-
-  }
-
-  ngOnInit() {
     this.consultaService.$getObjectSource.subscribe(
       data=>{
         this.idConsulta=data
         console.log('reciboo desde historia iniciar inicial',this.idConsulta)
         this.listHistoria()
         this.listConsutalbyHistoria()
+
       }
     )
+   
+  }
+
+  ngOnInit() {
+    
   }
   
   listHistoria(){
@@ -42,8 +43,13 @@ consultaByHistoria: any= []
       console.log(data,"historia")
     })
   }
-  editarConsultaByHistoriaId(){
+  editarConstantesDetByConsultaId(idConsultaMedica){
+    this.consultaService.enviandoIdConsulta(idConsultaMedica)
     this.router.navigate(['/consultadet'])
+
+  }
+  agregarNuevaConsulta(){
+    this.router.navigate(['/agregar-consulta'])
 
   }
 }

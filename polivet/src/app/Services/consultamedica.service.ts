@@ -11,17 +11,21 @@ export class ConsultamedicaService {
   private url: string
   private urlConstanteF: string
   private urlConsultaM: string
-  private urlidConsulta:string
+  private urlConsultaByHistoria: string
+
 
   private objectSource= new BehaviorSubject<{}>({});
   $getObjectSource=this.objectSource.asObservable();
+  private objectSource2= new BehaviorSubject<{}>({});
+  $getObjectSource2=this.objectSource2.asObservable();
+
 
   constructor(public http: HttpClient) {
     this.url = '/TesisVeterinaria/rest/prueba/obtenerConstantesCabecera'
     this.urlConstanteF = '/TesisVeterinaria/rest/prueba/agregarConstanteF'
     this.urlConsultaM = '/TesisVeterinaria/rest/prueba/registrarConsultaMedica'
-    this.urlidConsulta = '/TesisVeterinaria/rest/prueba/recuIdConsulta'
-  }
+    this.urlConsultaByHistoria='/TesisVeterinaria/rest/prueba/registrarConsultaMedicaByHistoria'
+  } 
 
   obtenerConstantesCab() {
     console.log("Estamos en constantes Cab")
@@ -77,21 +81,6 @@ export class ConsultamedicaService {
 
     );
   }
-  pasarIdConsulta(idconsulta){
-    console.log('desde pasarIdConsulta',idconsulta)
-    const body= new HttpParams()
-    .set('idconsulta',idconsulta)   
-
-    return this.http.post(this.urlidConsulta, 
-      body.toString(),
-      {
-        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
-        responseType: 'text'
-
-      }
-
-    );
-  }
 
   recuperoListDeConsultasMedicas(){
     return this.http.get("/TesisVeterinaria/rest/prueba/listarHistoriaClinica")
@@ -100,6 +89,10 @@ export class ConsultamedicaService {
 
   enviandoIdHistoria(idHistoria){
     this.objectSource.next(idHistoria)
+   }
+
+   enviandoIdConsulta(idConsultaMedica){
+    this.objectSource2.next(idConsultaMedica)
    }
 
    recuperoListHistoria(idConsulta){
@@ -111,5 +104,39 @@ export class ConsultamedicaService {
   consultamedicaByHistoria(idConsulta){
     return this.http.get("/TesisVeterinaria/rest/prueba/listarConsultaMedicaByIdHistoria/"+idConsulta)
 
+  }
+  detalleByConstanteDet(idConsulta){
+    return this.http.get("/TesisVeterinaria/rest/prueba/listarConstantesFisioByConsulta/"+idConsulta)
+
+  }
+  obtenerConsultaById(idConsulta){
+    return this.http.get("/TesisVeterinaria/rest/prueba/listarConsultaById/"+idConsulta)
+  }
+
+  crearConsultaMByHistoria(consultaM:ConsultaMedica){
+    console.log("consultaM", consultaM)
+    const body= new HttpParams()
+    .set('motivoConsulta',consultaM.motivoConsulta)
+    .set('vacunacion', consultaM.vacunacion)
+    .set('desparacitacion', consultaM.desparacitacion)
+    .set('estadoR', consultaM.estadoR)
+    .set('producto',consultaM.producto)
+    .set('fecha',consultaM.fecha)
+    .set('procedencia',consultaM.procedencia)
+    .set('anamnesis',consultaM.anamnesis)
+    .set('diagnostico',consultaM.diagnostico)
+    .set('pronostico',consultaM.pronostico)
+    .set('tratamiento',consultaM.tratamiento)
+    .set('observaciones',consultaM.observaciones)
+    .set('idMascota',consultaM.idMascota)
+    return this.http.post(this.urlConsultaByHistoria, 
+      body.toString(),
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
+        responseType: 'text'
+
+      }
+
+    );
   }
 }

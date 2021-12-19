@@ -1,9 +1,210 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>consultadet</ion-title>
+    <div align="right">
+      <img src="../assets/imagenes/Logo.png" height="50" alt="">
+    </div>
+
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu" color="light"> </ion-menu-button>
+    </ion-buttons>
+
   </ion-toolbar>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
 </ion-header>
 
+
 <ion-content>
+  <div class="form-container">
+    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Constantes Fisiologicas
+      </em></p>
+    <ion-grid *ngFor="let item of constantesDet; let sep">
+      <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <ion-label>{{item.constantesidCab.nombre}}
+            </ion-label>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <ion-label>
+              {{item.valorAsignado}}
+
+            </ion-label>
+          </ion-item>
+        </ion-col>
+
+
+      </ion-row>
+
+    </ion-grid>
+
+    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Motivo de la consulta
+
+      </em></p>
+    <ion-grid *ngFor="let itemConsulta of consultaByIds; let sep">
+
+      <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <ion-textarea>
+              {{itemConsulta.motivoConsulta}}
+            </ion-textarea>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Historia
+        </em></p>
+      <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <label>Vacunacíon:
+              <br>
+              {{itemConsulta.vacunacion}}
+            </label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <label>Despacitacíon:
+              <br>
+              {{itemConsulta.desparacitacion}}
+            </label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <label>Producto:
+              <br>
+              {{itemConsulta.producto}}
+            </label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <label>Fecha:
+              <br>
+              {{itemConsulta.fechas}}
+            </label>
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <label>Estado reproductivo:
+              {{itemConsulta.estadoReproductivo}}
+            </label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <label>Procedencia:
+              <br>
+              {{itemConsulta.procedencia}}
+            </label>
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+
+
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Anamnesis
+        </em></p>
+      <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <ion-textarea>
+              {{itemConsulta.anamnesis}}
+            </ion-textarea>
+
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Diagnostico
+        </em></p>
+      <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <ion-textarea>
+              {{itemConsulta.diagnostico}}
+            </ion-textarea>
+
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Pronostico
+        </em></p>
+      <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <ion-textarea>
+              {{itemConsulta.pronostico}}
+            </ion-textarea>
+
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Tratamiento
+        </em></p>
+      <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <ion-textarea>
+              {{itemConsulta.tratamiento}}
+            </ion-textarea>
+
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Observaciones
+        </em></p>
+      <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-item>
+            <ion-textarea>
+              {{itemConsulta.observaciones}}
+            </ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div align="center">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+            <ion-button color="shade" (click)="aceptar()">Aceptar</ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
 
 </ion-content>
