@@ -17,7 +17,7 @@ export class MascotaPage implements OnInit {
   public mascota: any
   razas: any=[];
   especies:any=[]
-  
+  idEspecie:any
 
   @Input() InicioDetails = {
     idPro:'',nombre: '', especie: '', raza: '',
@@ -28,7 +28,7 @@ export class MascotaPage implements OnInit {
   constructor(private actRoute: ActivatedRoute, public router: Router, public mascotaService: MascotaServiceService) {
     this.idPropietario = actRoute.snapshot.params.idPropietario;
     console.log("idpropie", this.idPropietario)
-    this.obtenerRaza();
+   
     this.obtenerEspecie();
   }
 
@@ -45,7 +45,8 @@ export class MascotaPage implements OnInit {
  
     this.opcionEspecie=event.detail.value
     console.log("especie",this.opcionEspecie,)
-
+    this.idEspecie=this.opcionEspecie;
+    this.obtenerRaza()
   }
   guardarRaza(event: CustomEvent) {
     this.opcionRaza=event.detail.value
@@ -84,26 +85,26 @@ export class MascotaPage implements OnInit {
     );
   }
 
-  obtenerRaza(){
-    this.mascotaService.obtenerRaza()
+  obtenerEspecie(){
+    this.mascotaService.obtenerEspecie()
     .subscribe((data) => {
-      this.razas=data
-      console.log('Estamos en el raza pag princi')
-      console.log(this.razas)  
-
-      
+      this.especies=data
+      console.log('Estamos en el especiee pag princi')
+      console.log(this.especies)  
+     
     },(error)=>{
       console.log(error)
     }
     );
   }
 
-  obtenerEspecie(){
-    this.mascotaService.obtenerEspecie()
+  obtenerRaza(){
+    console.log(this.idEspecie)
+    this.mascotaService.obtenerRaza(this.idEspecie)
     .subscribe((data) => {
-      this.especies=data
+      this.razas=data
       console.log('Estamos en el especieee pag princi')
-      console.log(this.especies)  
+    
 
       
     },(error)=>{

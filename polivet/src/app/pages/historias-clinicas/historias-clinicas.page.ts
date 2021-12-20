@@ -9,7 +9,7 @@ import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
 })
 export class HistoriasClinicasPage implements OnInit {
   historiaClinicaList:any=[]
-
+  filtroPropietario='';
   constructor(private consultaService: ConsultamedicaService, private router : Router) {
 this.obtenerConsultasMedicas();
 
@@ -36,5 +36,10 @@ this.obtenerConsultasMedicas();
     this.consultaService.enviandoIdHistoria(idHistorial)
     this.router.navigate(['/historia-det'])
     console.log(idHistorial)
+  }
+
+  buscarPaciente(event){
+    console.log("buscar", event.detail.value)
+    this.filtroPropietario=event.detail.value
   }
 }

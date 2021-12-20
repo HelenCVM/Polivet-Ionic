@@ -133,27 +133,27 @@ export class ConsultaMedicaPage implements OnInit {
   
   }
   guardarConstantesFisio(){
-    let constantePeso = new ConstantesFiosologicas(this.constatesCabList[0].constantes_idCab,this.peso);
-    let constanteT= new ConstantesFiosologicas(this.constatesCabList[1].constantes_idCab,this.t);
-    let constanteFCard = new ConstantesFiosologicas(this.constatesCabList[2].constantes_idCab,this.FCard);
-    let constanteFResp = new ConstantesFiosologicas(this.constatesCabList[3].constantes_idCab,this.FResp);
-    let constantemucosas= new ConstantesFiosologicas(this.constatesCabList[4].constantes_idCab,this.mucosas);
-    let constantepulso = new ConstantesFiosologicas(this.constatesCabList[5].constantes_idCab,this.pulso);
-    let constanteotras = new ConstantesFiosologicas(this.constatesCabList[6].constantes_idCab,this.otras);
-    let constanteturgenciapiel= new ConstantesFiosologicas(this.constatesCabList[7].constantes_idCab,this.turgenciapiel);
-    let constanteFAsa = new ConstantesFiosologicas(this.constatesCabList[8].constantes_idCab,this.opcionAsa);
-    let constantetEstadoF= new ConstantesFiosologicas(this.constatesCabList[9].constantes_idCab,this.opcionEstadoFisico);
-    let constanteEstadoM = new ConstantesFiosologicas(this.constatesCabList[10].constantes_idCab,this.opcionEstadoMental);
+    let constantePeso = new ConstantesFiosologicas(this.constatesCabList[0].constantes_idCab, this.peso);
+    let constanteT = new ConstantesFiosologicas(this.constatesCabList[1].constantes_idCab, this.t);
+    let constanteFCard = new ConstantesFiosologicas(this.constatesCabList[2].constantes_idCab, this.FCard);
+    let constanteFResp = new ConstantesFiosologicas(this.constatesCabList[3].constantes_idCab, this.FResp);
+    let constantemucosas = new ConstantesFiosologicas(this.constatesCabList[4].constantes_idCab, this.mucosas);
+    let constanteFAsa = new ConstantesFiosologicas(this.constatesCabList[5].constantes_idCab, this.opcionAsa);
+    let constanteturgenciapiel = new ConstantesFiosologicas(this.constatesCabList[6].constantes_idCab, this.turgenciapiel);
+    let constantepulso = new ConstantesFiosologicas(this.constatesCabList[7].constantes_idCab, this.pulso);
+    let constanteotras = new ConstantesFiosologicas(this.constatesCabList[8].constantes_idCab, this.otras);
+    let constantetEstadoF = new ConstantesFiosologicas(this.constatesCabList[9].constantes_idCab, this.opcionEstadoFisico);
+    let constanteEstadoM = new ConstantesFiosologicas(this.constatesCabList[10].constantes_idCab, this.opcionEstadoMental);
 
     this.constantesFisioCab.push(constantePeso)
     this.constantesFisioCab.push(constanteT)
     this.constantesFisioCab.push(constanteFCard)
     this.constantesFisioCab.push(constanteFResp)
     this.constantesFisioCab.push(constantemucosas)
+    this.constantesFisioCab.push(constanteFAsa)
+    this.constantesFisioCab.push(constanteturgenciapiel)
     this.constantesFisioCab.push(constantepulso)
     this.constantesFisioCab.push(constanteotras)
-    this.constantesFisioCab.push(constanteturgenciapiel)
-    this.constantesFisioCab.push(constanteFAsa)
     this.constantesFisioCab.push(constantetEstadoF)
     this.constantesFisioCab.push(constanteEstadoM)
     console.log(this.constantesFisioCab)

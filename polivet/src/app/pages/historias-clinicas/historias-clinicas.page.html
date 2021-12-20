@@ -29,7 +29,7 @@
 <ion-content>
     <div align="center" class="form-container">
         <br>
-        <ion-searchbar inputmode="numeric" placeholder="Ingrese Propietario" debounce="500"></ion-searchbar>
+        <ion-searchbar (ionChange)="buscarPaciente($event)" placeholder="Ingrese Propietario" debounce="500"></ion-searchbar>
 
         <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Historias
             Clinicas
@@ -37,7 +37,7 @@
 
     </p>
 
-        <ion-card *ngFor="let item of historiaClinicaList ">
+        <ion-card *ngFor="let item of historiaClinicaList | filtroPropietario: filtroPropietario ">
             <ion-card-header>
                 <ion-card-title>No. Historia {{item.idHistorial}}</ion-card-title>
             </ion-card-header>

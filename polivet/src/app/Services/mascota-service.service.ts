@@ -37,12 +37,12 @@ export class MascotaServiceService {
     );
   }
 
-  obtenerRaza(){
+  obtenerEspecie(){
     console.log("Estamos en el service")
     return this.http.get("/TesisVeterinaria/rest/prueba/obtenerEspecieMascota")
   }
-  obtenerEspecie(){
+  obtenerRaza(idEspecie){
     console.log("Estamos en el service especie")
-    return this.http.get("/TesisVeterinaria/rest/prueba/obtenerRazaMascota")
+    return this.http.get("/TesisVeterinaria/rest/prueba/obtenerRazaByEspecie/"+idEspecie)
   }
 }
