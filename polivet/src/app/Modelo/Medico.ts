@@ -9,5 +9,6 @@ export class Medico{
   public celular?:string;
   public titulo?:string;
   public especialidad_id?:string;
+  public usuario_id?:string;
 }
 

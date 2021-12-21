@@ -10,6 +10,7 @@ export class RegistromedicoService {
 
   constructor(public  http:HttpClient) {
     this.url='/TesisVeterinaria/rest/prueba/registrarPUsuario'
+    this.url='/TesisVeterinaria/rest/prueba/actualizarPMedico'
    }
 
   obtenerEspecialidad(){
@@ -30,6 +31,31 @@ export class RegistromedicoService {
     .set('celular', medico.celular)
     .set('titulo', medico.titulo)
     .set('especialidad_id', medico.especialidad_id)
+
+    return this.http.post(this.url,
+      body.toString(),
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
+        responseType: 'text'
+
+      }
+
+    );
+  }
+
+  actualizarMedico(medico:Medico){
+    console.log("----", medico)
+    const body= new HttpParams()
+    .set('cedula', medico.cedula)
+    .set('nombres', medico.nombres)
+    .set('apellidos', medico.apellidos)
+    .set('direccion', medico.direccion)
+    .set('fechaNac', medico.fechaNac)
+    .set('correo', medico.correo)
+    .set('celular', medico.celular)
+    .set('titulo', medico.titulo)
+    .set('especialidad_id', medico.especialidad_id)
+    .set('usuario_id',medico.usuario_id)
 
     return this.http.post(this.url,
       body.toString(),

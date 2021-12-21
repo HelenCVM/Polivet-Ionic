@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/menu-drawer/menu-drawer.module').then( m => m.MenuDrawerPageModule)
   },
   {
-    path: 'mi-perfil/:correopda',
+    path: 'mi-perfil',
     loadChildren: () => import('./pages/mi-perfil/mi-perfil.module').then( m => m.MiPerfilPageModule)
   },
   {
@@ -60,7 +60,7 @@ const routes: Routes = [
   {
     path: 'agregar-consulta',
     loadChildren: () => import('./pages/agregar-consulta/agregar-consulta.module').then( m => m.AgregarConsultaPageModule)
-  }, 
+  },
   {   path: 'recordar-contra',
   loadChildren: () => import('./pages/recordar-contra/recordar-contra.module').then( m => m.RecordarContraPageModule)
 },
