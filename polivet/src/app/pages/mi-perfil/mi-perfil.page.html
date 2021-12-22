@@ -61,9 +61,6 @@
         >
           <ion-icon name="finger-print"></ion-icon>
         </ion-input>
-        <ion-button class="button1" (click)="openModal()" ion-button>
-          <img src="../assets/imagenes/editar.png" height="10" alt="" /> Editar
-        </ion-button>
       </ion-item>
 
       <ion-item>
@@ -79,9 +76,6 @@
         >
           <ion-icon name="person-outline"></ion-icon>
         </ion-input>
-        <ion-button class="button1" (click)="openModal()" ion-button>
-          <img src="../assets/imagenes/editar.png" height="10" alt="" /> Editar
-        </ion-button>
       </ion-item>
 
       <ion-item>
@@ -97,9 +91,6 @@
         >
           <ion-icon name="person-outline"></ion-icon>
         </ion-input>
-        <ion-button class="button1" (click)="openModal()" ion-button>
-          <img src="../assets/imagenes/editar.png" height="10" alt="" /> Editar
-        </ion-button>
       </ion-item>
 
       <ion-item>
@@ -115,9 +106,6 @@
         >
           <ion-icon name="earth-outline"></ion-icon>
         </ion-input>
-        <ion-button class="button1" (click)="openModal()" ion-button>
-          <img src="../assets/imagenes/editar.png" height="10" alt="" /> Editar
-        </ion-button>
       </ion-item>
 
       <ion-item>
@@ -136,9 +124,6 @@
           [attr.readonly]="estadoFecha"
           (ionChange)="guardarFechaNac($event)"
         ></ion-datetime>
-        <ion-button class="button1" (click)="openModalFecha()" ion-button>
-          <img src="../assets/imagenes/editar.png" height="10" alt="" /> Editar
-        </ion-button>
       </ion-item>
 
       <ion-item>
@@ -156,9 +141,6 @@
         >
           <ion-icon name="call-outline"></ion-icon>
         </ion-input>
-        <ion-button class="button1" (click)="openModal()" ion-button>
-          <img src="../assets/imagenes/editar.png" height="10" alt="" /> Editar
-        </ion-button>
       </ion-item>
 
       <ion-item>
@@ -174,9 +156,6 @@
         >
           <ion-icon name="albums"></ion-icon>
         </ion-input>
-        <ion-button class="button1" (click)="openModal()" ion-button>
-          <img src="../assets/imagenes/editar.png" height="10" alt="" /> Editar
-        </ion-button>
       </ion-item>
 
       <ion-item>
@@ -192,9 +171,6 @@
         >
           <ion-icon name="mail-outline"></ion-icon>
         </ion-input>
-        <ion-button class="button1" (click)="openModal()" ion-button>
-          <img src="../assets/imagenes/editar.png" height="10" alt="" /> Editar
-        </ion-button>
       </ion-item>
 
       <ion-item>
@@ -219,16 +195,18 @@
             {{item.tipoEspecialidad}}
           </ion-select-option>
         </ion-select>
-        <ion-button class="button1" (click)="openModalespecialidad()" ion-button>
-          <img src="../assets/imagenes/editar.png" height="10" alt="" /> Editar
-        </ion-button>
       </ion-item>
 
       <div align="center">
         <ion-grid>
           <ion-row>
             <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-              <ion-button color="shade" type="submit" [disabled]="!userForm.form.valid">Actualiza</ion-button>
+              <ion-button color="shade" class="button1" (click)="openModal()" ion-button>
+                <img src="../assets/imagenes/editar.png" height="10" alt="" />Editar
+              </ion-button>
+            </ion-col>
+            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+              <ion-button color="shade" type="submit" [disabled]="!userForm.form.valid">Guardar</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>

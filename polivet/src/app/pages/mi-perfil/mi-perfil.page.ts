@@ -128,11 +128,15 @@ export class MiPerfilPage implements OnInit {
 
   openModal()
   {
-    if (this.estado === true) {
+    if (this.estado === true || this.estadoEspe === true || this.estadoFecha ===true) {
       this.estado = false;
+      this.estadoEspe = false;
+      this.estadoFecha = false;
       // show Modal
     } else {
       this.estado = true;
+      this.estadoEspe = true;
+      this.estadoFecha = true;
       // hide Modal
     }
   }
@@ -160,8 +164,8 @@ export class MiPerfilPage implements OnInit {
   }
 
   actualiza(){
-      this.openModalFecha
-      this.openModalespecialidad
+      //this.openModalFecha
+      //this.openModalespecialidad
 
   /*
     if (this.estadoFecha === true) {
@@ -204,3 +208,4 @@ export class MiPerfilPage implements OnInit {
     );
   }
 }
+
