@@ -4,7 +4,7 @@ import {Medico} from 'src/app/Modelo/Medico';
 import {IniciosesionService} from '../../Services/iniciosesion.service';
 import { MiperfilService } from 'src/app/Services/miperfil.service';
 import { NavController } from '@ionic/angular';
-import { PaginalInicialPage } from '../paginal-inicial/paginal-inicial.page';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.page.html',

@@ -14,6 +14,8 @@ export class PaginalInicialPage implements OnInit {
   public correopda:any
   public rol:any
   public datajs:any
+  public condition: boolean = true;
+  //true sale .false no sale
 
   constructor(public navCtrl: NavController,private actRoute:ActivatedRoute,  public router: Router,private http: HttpClient, public miperfilservice: MiperfilService,public inicioservice:IniciosesionService ) {
    // this.miperfilservice.enviandocorreo(this.correop)
@@ -29,6 +31,11 @@ export class PaginalInicialPage implements OnInit {
         this.rol = this.datajs.rol_id.descripcion
         console.log('rol---pagina inicio',this.rol)
         console.log(this.correop)
+        if(this.rol == 'medico'){
+          this.condition = false;
+        }else{
+          this.condition = true;
+        }
         this.miperfilservice.enviandocorreo(this.correop)
         console.log('reciboo desde paag inicial correo--',this.datajs)
       }

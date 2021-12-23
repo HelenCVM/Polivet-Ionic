@@ -28,15 +28,15 @@
 <ion-content padding fullscreen>
     <ion-slides pager="true">
         <ion-slide id="uno">
-             
+
         </ion-slide>
         <ion-slide id="dos">
-             
+
         </ion-slide>
         <ion-slide id="tres">
-             
+
         </ion-slide>
-       
+
     </ion-slides>
     <div align="center">
         <ion-grid fixed>
@@ -53,7 +53,7 @@
                     <img src="../../../assets/imagenes/HistoriaClinia.png" height="200" alt=""   routerLink="../propietario/">
                     <p style="font-family: Georgia, 'Times New Roman', Times, serif;"> <em> Nueva Historia</em></p>
                 </ion-col>
-              
+
             </ion-row>
             <br>
 
@@ -63,15 +63,24 @@
                     routerLink="../listar-propietarios/">
                 <p style="font-family: Georgia, 'Times New Roman', Times, serif;"> <em>Propietarios </em> </p>
             </ion-col>
-              
+
+            <ion-col *ngIf="condition" size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+              <img src="../../../assets/imagenes/medico.png" height="200" alt=""
+                  routerLink="../registro-medico">
+              <p style="font-family: Georgia, 'Times New Roman', Times, serif;"> <em>Nuevo medico </em> </p>
+          </ion-col>
+
  <!--               <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
 
                     <img src="../../../assets/imagenes/RecetaMedica.png" height="200" alt=""
                         routerLink="../receta-medica">
                     <p style="font-family: Georgia, 'Times New Roman', Times, serif;"> <em>Receta Médica </em> </p>
-                </ion-col>--> 
 
-            </ion-row>
+                 <ion-button hidden="{{condition}}" color="dark">Dark</ion-button>
+                <i *ngIf="condition"> Hola como estas </i>
+                  </ion-col>-->
+
+              </ion-row>
 
 
 

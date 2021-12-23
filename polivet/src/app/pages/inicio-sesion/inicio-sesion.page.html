@@ -45,11 +45,18 @@
       </ion-input>
 
     </ion-item>
-    <ion-item>
-      <ion-button style="justify-content: center; text-align: center;" type="submit" [disabled]="!userForm.form.valid"   >Iniciar sesion</ion-button>
-      <ion-button style="justify-content: center; text-align: center;" href="registro-medico"   >Crear cuenta</ion-button>
-      <ion-button style="justify-content: center; text-align: center;" href="recordar-contra"  > Recuperar contraseña</ion-button>
-    </ion-item>
+
+    <ion-row center>
+      <ion-col text-center>
+        <ion-button   type="submit" [disabled]="!userForm.form.valid"   >Iniciar sesion</ion-button>
+      </ion-col>
+     </ion-row>
+
+     <ion-row center>
+      <ion-col text-center>
+        <a routerLink="/recordar-contra">¿Deseas recordar la contraseña?</a>
+      </ion-col>
+     </ion-row>
 
   </div>
 </form>
