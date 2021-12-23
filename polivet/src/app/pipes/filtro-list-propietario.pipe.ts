@@ -1,9 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filtroPropietario'
+  name: 'filtroListPropietario'
 })
-export class FiltroPropietarioPipe implements PipeTransform {
+export class FiltroListPropietarioPipe implements PipeTransform {
+
 
   transform(arreglo: any[], texto:string, columna:string): any[] {
     if(texto==''){
@@ -13,12 +14,9 @@ export class FiltroPropietarioPipe implements PipeTransform {
    
     texto=texto.toLocaleLowerCase();
    return arreglo.filter(item=>{
-      return item.mascota_id.id_mascota_propietario.propietario.toLowerCase()
+      return item.propietario.toLowerCase()
       .includes(texto)
     })
    
   }
-  
-
-
 }

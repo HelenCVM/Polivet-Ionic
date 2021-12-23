@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
+import { PropietarioServiceService } from 'src/app/Services/propietario-service.service';
 
 @Component({
   selector: 'app-historia-det',
@@ -11,7 +12,8 @@ export class HistoriaDetPage implements OnInit {
 idConsulta:any
 consultasMedicas:any=[]
 consultaByHistoria: any= []
-  constructor(private consultaService: ConsultamedicaService,private router : Router) { 
+  constructor(private consultaService: ConsultamedicaService,private router : 
+    Router) { 
     console.log("Dett")
     this.consultaService.$getObjectSource.subscribe(
       data=>{
@@ -26,6 +28,7 @@ consultaByHistoria: any= []
   }
 
   ngOnInit() {
+  
     
   }
   
@@ -52,4 +55,5 @@ consultaByHistoria: any= []
     this.router.navigate(['/agregar-consulta'])
 
   }
+
 }
