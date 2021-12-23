@@ -14,6 +14,11 @@ export class IniciosesionService {
   private objectSource= new BehaviorSubject<{}>({});
   $getObjectSource=this.objectSource.asObservable();
 
+
+  private objectSourcee= new BehaviorSubject<{}>({});
+  $getObjectSourcee=this.objectSource.asObservable();
+
+
   iniciar(usuario:Medico){
     console.log('dfkfhgdsfh-')
     console.log(usuario);
@@ -39,5 +44,9 @@ export class IniciosesionService {
 
   enviandocorreo(correo){
    this.objectSource.next(correo)
+  }
+
+  enviandodatos(datos){
+    this.objectSourcee.next(datos)
   }
 }

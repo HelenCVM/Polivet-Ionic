@@ -11,6 +11,8 @@ export class MiperfilService {
   private objectSource= new BehaviorSubject<{}>({});
   $getObjectSource=this.objectSource.asObservable();
 
+
+
   getMedico(correopda){
     console.log(correopda)
     return this.http.get("/TesisVeterinaria/rest/prueba/medicoperfilcorreo/"+correopda);
@@ -20,5 +22,10 @@ export class MiperfilService {
     this.objectSource.next(correo)
    }
 
+   /*
+   enviandodatos(rol){
+    this.objectSourcee.next(rol)
+   }
 
+*/
 }

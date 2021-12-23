@@ -34,9 +34,9 @@ export class MiPerfilPage implements OnInit {
   }
 
 
-  constructor(private actRoute:ActivatedRoute,  public router: Router,private medicoservice: MiperfilService, public inicioservice: IniciosesionService,public registromedi:RegistromedicoService) {
+  constructor(private actRoute:ActivatedRoute,  public router: Router,private medicoservice: MiperfilService, public inicioservice: IniciosesionService,public registromedi:RegistromedicoService,public miperfilservice: MiperfilService) {
     this.obtenerEspecialidad();
-    this.inicioservice.$getObjectSource.subscribe(
+    this.miperfilservice.$getObjectSource.subscribe(
       data=>{
         this.correoperfil=data
         console.log('reciboo desde paag inicial',this.correoperfil)

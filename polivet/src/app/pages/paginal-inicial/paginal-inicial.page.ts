@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import { MiperfilService } from 'src/app/Services/miperfil.service';
-
+import {IniciosesionService} from '../../Services/iniciosesion.service';
+import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-paginal-inicial',
   templateUrl: './paginal-inicial.page.html',
@@ -11,19 +12,29 @@ import { MiperfilService } from 'src/app/Services/miperfil.service';
 export class PaginalInicialPage implements OnInit {
   public correop:any
   public correopda:any
+  public rol:any
+  public datajs:any
 
-  constructor(private actRoute:ActivatedRoute,  public router: Router,private http: HttpClient, public miperfilservice: MiperfilService) {
-    this.miperfilservice.enviandocorreo(this.correop)
+  constructor(public navCtrl: NavController,private actRoute:ActivatedRoute,  public router: Router,private http: HttpClient, public miperfilservice: MiperfilService,public inicioservice:IniciosesionService ) {
+   // this.miperfilservice.enviandocorreo(this.correop)
 
   }
 
   ngOnInit() {
-    this.miperfilservice.$getObjectSource.subscribe(
+    this.inicioservice.$getObjectSource.subscribe(
       data=>{
-        this.correop=data
-        console.log('reciboo desde paag inicial',this.correop)
+        console.log(data)
+        this.datajs=data
+        this.correop=this.datajs.correo
+        this.rol = this.datajs.rol_id.descripcion
+        console.log('rol---pagina inicio',this.rol)
+        console.log(this.correop)
+        this.miperfilservice.enviandocorreo(this.correop)
+        console.log('reciboo desde paag inicial correo--',this.datajs)
       }
     )
+
+
 
   }
 
