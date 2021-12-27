@@ -56,7 +56,7 @@ export class ConsultaMedicaPage implements OnInit {
     this.inicioservice.$getObjectSource.subscribe(
       data=>{
         this.correop=data
-        console.log('reciboo desde paag inicial para consulta medica',this.correop)
+        console.log('reciboo desde paag inicial para consulta medica',this.correop.correo)
       }
     )
   }
@@ -115,7 +115,7 @@ export class ConsultaMedicaPage implements OnInit {
     this.InicioDetails.fecha=this.opcionFechaVacuna
     this.InicioDetails.procedencia=this.opcionProcedencia
     this.InicioDetails.idMascota=this.idMascota
-    this.InicioDetails.medico=this.correop
+    this.InicioDetails.medico=this.correop.correo
     console.log('consulta --------------',this.InicioDetails)
     this.consultaMedicaService.crearConsultaM(this.InicioDetails)
     .subscribe((data) => {

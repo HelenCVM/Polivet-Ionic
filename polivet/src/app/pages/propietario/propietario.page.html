@@ -28,51 +28,55 @@
 
 
 <ion-content>
+ 
   <br>
   <br>
-  <form (ngSubmit)="guardar(InicioDetails)" #userForm="ngForm">
+  <form [formGroup]="form" (ngSubmit)="guardar(InicioDetails)" >
+   
+   
     <div class="form-container">
       <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Registro
           Propietario </em></p>
       <ion-item>
-        <ion-input type="numeric" placeholder="Cédula" [(ngModel)]="InicioDetails.idPropietario"
-          style="text-align: center;" required="true" maxLength="10" [ngModelOptions]="{standalone: true}">
+
+        <ion-input type="text" placeholder="Cédula" [(ngModel)]="InicioDetails.idPropietario"
+          style="text-align: center;"  formControlName="cedula" maxLength="10" (input)="inputValidator($event)" >
           <ion-icon name="finger-print"></ion-icon>
         </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-input placeholder="Propietario" [(ngModel)]="InicioDetails.nombrePropietario" style="text-align: center;"
-          required="true" [ngModelOptions]="{standalone: true}">
+        formControlName="propietario" type="text"  >
           <ion-icon name="person-outline"></ion-icon>
         </ion-input>
       </ion-item>
+
+
       <ion-item>
-        <ion-input placeholder="Ciudad" [(ngModel)]="InicioDetails.ciudad" style="text-align: center;" required="true"
-          [ngModelOptions]="{standalone: true}">
+        <ion-input placeholder="Ciudad" [(ngModel)]="InicioDetails.ciudad" style="text-align: center;"  formControlName="ciudad" type="text">
           <ion-icon name="locate"></ion-icon>
         </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-input placeholder="Dirección" [(ngModel)]="InicioDetails.direccion" style="text-align: center;"
-          required="true" [ngModelOptions]="{standalone: true}">
+        formControlName="direccion" type="text">
           <ion-icon name="earth-outline"></ion-icon>
         </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-input placeholder="Teléfono" [(ngModel)]="InicioDetails.telefono" style="text-align: center;"
-          required="true" maxLength="10" [ngModelOptions]="{standalone: true}">
+        formControlName="telefono" type="text" maxLength="10">
           <ion-icon name="call-outline"></ion-icon>
         </ion-input>
       </ion-item>
 
 
       <ion-item>
-        <ion-input placeholder="Correo" [(ngModel)]="InicioDetails.correo" style="text-align: center;" required="true"
-          email [ngModelOptions]="{standalone: true}">
-          <ion-icon name="mail-outline"></ion-icon>
+        <ion-input placeholder="Correo" [(ngModel)]="InicioDetails.correo" style="text-align: center;" formControlName="correo" type="text">
+          <ion-icon name="mail-outline" ></ion-icon>
         </ion-input>
       </ion-item>
 
@@ -85,7 +89,7 @@
             </ion-col>
 
             <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-              <ion-button color="shade" type="submit" [disabled]="!userForm.form.valid">Siguiente</ion-button>
+              <ion-button color="shade" type="submit" [disabled]="form.invalid">Siguiente</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -95,10 +99,5 @@
     </div>
 
   </form>
-
-
-
-
-
 
 </ion-content>

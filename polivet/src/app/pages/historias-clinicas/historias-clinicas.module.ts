@@ -8,6 +8,7 @@ import { HistoriasClinicasPageRoutingModule } from './historias-clinicas-routing
 
 import { HistoriasClinicasPage } from './historias-clinicas.page';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     IonicModule,
     HistoriasClinicasPageRoutingModule,
     PipesModule,
+    NgxPaginationModule,
   ],
   declarations: [HistoriasClinicasPage]
 })

@@ -10,6 +10,7 @@ import { PropietarioServiceService } from 'src/app/Services/propietario-service.
 export class PropietarioDetalePage implements OnInit {
   idPropietario:any
   propietario:any=[]
+  listMascotabyPropietario: any=[]
   constructor(private propietarioService:PropietarioServiceService,public router: Router) { 
    
     this.propietarioService.$getObjectSource.subscribe(
@@ -17,6 +18,7 @@ export class PropietarioDetalePage implements OnInit {
         this.idPropietario=data
         console.log("recibo id propie desde historia det", this.idPropietario)
         this.obtenerPropietarioBYId()
+        this.obtenerMascotaByid()
       }
     )
   }
@@ -29,6 +31,14 @@ export class PropietarioDetalePage implements OnInit {
     this.propietarioService.listarPropietarioById(this.idPropietario).subscribe((data=>{
       this.propietario=data
       console.log("consumiendo by id", this.propietario)
+    }))
+  }
+
+  obtenerMascotaByid(){
+    this.propietarioService.listarMascotaByIdPropietario(this.idPropietario).subscribe((data=>{
+      this.listMascotabyPropietario=data
+      console.log("Mascotassss",this.listMascotabyPropietario)
+
     }))
   }
  // this.router.navigate(['/mascota/',this.InicioDetails.idPropietario])

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { Propietario } from 'src/app/Modelo/Propietario';
 import { PropietarioServiceService } from 'src/app/Services/propietario-service.service';
@@ -18,13 +19,28 @@ export class PropietarioPage implements OnInit {
     correo: ''
   }
 
-  constructor(public propietarioService: PropietarioServiceService, public router: Router) {
+  public form: FormGroup
+  constructor(private formBuilder: FormBuilder,public propietarioService: PropietarioServiceService, public router: Router) {
 
 
   }
 
 
   ngOnInit(): void {
+    this.form=this.formBuilder.group( {
+      cedula:['',
+      [
+        Validators.required
+      ]
+      ],
+      propietario:['',[Validators.required, Validators.pattern(/^[a-zA-z]+$/)]],
+      ciudad:['',[Validators.required]],
+      direccion:['',[Validators.required]],
+      telefono:['',[Validators.required]],
+      correo:['',[Validators.required, Validators.email]],
+
+      
+    })
   }
 
 
@@ -45,4 +61,14 @@ export class PropietarioPage implements OnInit {
     this.router.navigate(['/paginal-inicial'])
   }
 
+  public inputValidator(event: any) {
+    //console.log(event.target.value);
+    const pattern = /^[0-9]*$/;   
+    //let inputChar = String.fromCharCode(event.charCode)
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^a-zA-Z0-9]/g, "");
+      // invalid character, prevent input
+  
+    }
+  }
 }

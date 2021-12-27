@@ -19,6 +19,8 @@ export class MascotaPage implements OnInit {
   especies:any=[]
   idEspecie:any
 
+    age: any
+    showAge:any
   @Input() InicioDetails = {
     idPro:'',nombre: '', especie: '', raza: '',
     sexo: '', fechaNac: '', edad: '',
@@ -58,7 +60,14 @@ export class MascotaPage implements OnInit {
   guardarFechaNac(evento) {
     this.miVariableHora = evento.detail.value
     this.dateFormat = this.miVariableHora.split('T')[0];
+
     console.log("holaa", this.dateFormat);
+    if(this.dateFormat){
+      const convertAge = new Date(this.dateFormat);
+      const timeDiff = Math.abs(Date.now() - convertAge.getTime());
+      this.showAge = Math.floor((timeDiff / (1000 * 3600 * 24))/365);
+      console.log(this.showAge)
+    }
 
   }
   guardarMascota() {
@@ -111,5 +120,8 @@ export class MascotaPage implements OnInit {
       console.log(error)
     }
     );
+  }
+  ageCalculator(){
+    
   }
 }

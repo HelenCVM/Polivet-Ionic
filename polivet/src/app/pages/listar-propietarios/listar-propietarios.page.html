@@ -27,15 +27,14 @@
 </ion-header>
 <ion-content>
   <div align="center" class="form-container">
-      <br>
-      <ion-searchbar (ionChange)="buscarPaciente($event)" placeholder="Ingrese Propietario" debounce="500"></ion-searchbar>
-
+      <ion-searchbar (ionChange)="buscarPacientebyId($event)" placeholder="Ingrese Propietario" debounce="500"></ion-searchbar>
+<br>
       <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Propietarios
       </em>
 
   </p>
 
-      <ion-card *ngFor="let item of listPropietario ">
+      <ion-card *ngFor="let item of listPropietario  |  paginate: {itemsPerPage:2, currentPage:cp} ">
           <ion-card-header>
               <ion-card-title>Propietario: {{item.propietario}}</ion-card-title>
           </ion-card-header>
@@ -47,6 +46,12 @@
               <ion-card-subtitle>Telefono: {{item.telefono}}</ion-card-subtitle>
           </ion-card-content>
       </ion-card>
+      <div>
+        <pagination-controls (pageChange)="cp = $event"   previousLabel="Antes"
+        nextLabel="Siguiente"></pagination-controls>
+        
+
+      </div>
 
   </div>
 

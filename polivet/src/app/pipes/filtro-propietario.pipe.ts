@@ -7,6 +7,8 @@ export class FiltroPropietarioPipe implements PipeTransform {
 
   transform(arreglo: any[], texto:string, columna:string): any[] {
     if(texto==''){
+      console.log("piepeeessssssss111s",arreglo)
+
       return arreglo;
     }
 

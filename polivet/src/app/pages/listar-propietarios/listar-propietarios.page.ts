@@ -8,31 +8,38 @@ import { PropietarioServiceService } from 'src/app/Services/propietario-service.
   styleUrls: ['./listar-propietarios.page.scss'],
 })
 export class ListarPropietariosPage implements OnInit {
-  listPropietario:any=[]
-  filtroPropietario:''
-  constructor(private propietarioService:PropietarioServiceService,private router : Router) {
-    this.obtenerListPropietarios()
-   }
+  cp = 1
+  listPropietario: any = []
+  filtroidPropietario: ''
+  constructor(private propietarioService: PropietarioServiceService, private router: Router) {
+    this.obtenerListPropietarios();
+  }
 
   ngOnInit() {
   }
 
-  obtenerListPropietarios(){
+  obtenerListPropietarios() {
     this.propietarioService.listarPropietarios()
-    .subscribe((data) => {
-      this.listPropietario=data
-      console.log("list propi", this.listPropietario)
-    })
+      .subscribe((data) => {
+        this.listPropietario = data
+        console.log("list propi", this.listPropietario)
+
+
+      }, (error) => {
+        console.log(error)
+      }
+      );
   }
-  
-  buscarPaciente(event){
-    console.log("buscar", event.detail.value)
-    this.filtroPropietario=event.detail.value
-  }
-  editarPropietario(idPropietario){
+
+
+  editarPropietario(idPropietario) {
     console.log("id propo", idPropietario)
     this.propietarioService.enviarIdPropietario(idPropietario)
     this.router.navigate(['/propietario-detale'])
 
+  }
+  buscarPacientebyId(event) {
+    console.log("buscar", event.detail.value)
+    this.filtroidPropietario = event.detail.value
   }
 }

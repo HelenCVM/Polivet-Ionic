@@ -27,17 +27,20 @@
 </ion-header>
 
 <ion-content>
-    <div align="center" class="form-container">
-        <br>
+   
+    <div class="form-container">
         <ion-searchbar (ionChange)="buscarPaciente($event)" placeholder="Ingrese Propietario" debounce="500"></ion-searchbar>
-
+        <br>
         <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Historias
             Clinicas
         </em>
 
     </p>
 
-        <ion-card *ngFor="let item of historiaClinicaList | filtroPropietario: filtroPropietario ">
+ 
+
+        <ion-card *ngFor="let item of historiaClinicaList | filtroPropietario: filtroPropietario | paginate: {itemsPerPage:2, currentPage:cp} ">
+          
             <ion-card-header>
                 <ion-card-title>No. Historia {{item.idHistorial}}</ion-card-title>
             </ion-card-header>
@@ -50,7 +53,14 @@
                 <ion-card-subtitle>Nombre mascota: {{item.mascota_id.nombre}}</ion-card-subtitle>
             </ion-card-content>
         </ion-card>
-
+       
+        <div>
+            <pagination-controls (pageChange)="cp = $event"   previousLabel="Antes"
+            nextLabel="Siguiente"></pagination-controls>
+            
+    
+          </div>
+        
     </div>
 
 
