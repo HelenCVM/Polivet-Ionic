@@ -30,13 +30,16 @@ export class PropietarioPage implements OnInit {
     this.form=this.formBuilder.group( {
       cedula:['',
       [
-        Validators.required
+        Validators.required,
+        Validators.pattern('^[0-9]+$'),
+        Validators.minLength(10)
       ]
       ],
-      propietario:['',[Validators.required, Validators.pattern(/^[a-zA-z]+$/)]],
-      ciudad:['',[Validators.required]],
+      propietario:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      ciudad:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]+$/)]],
       direccion:['',[Validators.required]],
-      telefono:['',[Validators.required]],
+      telefono:['',Validators.compose([
+        Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(10)])],
       correo:['',[Validators.required, Validators.email]],
 
       
