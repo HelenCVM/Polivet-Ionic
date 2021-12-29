@@ -46,9 +46,13 @@
 
     </ion-item>
 
+    <div style="text-align: center;color:#FF0000 ;" type="hidden" class="hero-list" *ngIf="correoo === 'No creado'" >
+      <h6 style="text-align: center;color:#110a0a ;"> </h6>Escriba el correo y contraseña correcta
+    </div>
+
     <ion-row center>
       <ion-col text-center>
-        <ion-button   type="submit" [disabled]="!userForm.form.valid"   >Iniciar sesion</ion-button>
+        <ion-button  type="submit" [disabled]="!userForm.form.valid"   >Iniciar sesion</ion-button>
       </ion-col>
      </ion-row>
 

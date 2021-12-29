@@ -75,6 +75,14 @@ const routes: Routes = [
     path: 'propietario-detale',
     loadChildren: () => import('./pages/propietario-detale/propietario-detale.module').then( m => m.PropietarioDetalePageModule)
   },
+  {
+    path: 'crearreceta',
+    loadChildren: () => import('./pages/crearreceta/crearreceta.module').then( m => m.CrearrecetaPageModule)
+  },
+  {
+    path: 'verreceta',
+    loadChildren: () => import('./pages/verreceta/verreceta.module').then( m => m.VerrecetaPageModule)
+  },
 
 
 

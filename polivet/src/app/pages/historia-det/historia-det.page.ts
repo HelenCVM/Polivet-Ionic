@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
 import { PropietarioServiceService } from 'src/app/Services/propietario-service.service';
-
+import {RecetaService} from 'src/app/Services/receta.service';
 @Component({
   selector: 'app-historia-det',
   templateUrl: './historia-det.page.html',
@@ -12,8 +12,8 @@ export class HistoriaDetPage implements OnInit {
 idConsulta:any
 consultasMedicas:any=[]
 consultaByHistoria: any= []
-  constructor(private consultaService: ConsultamedicaService,private router : 
-    Router) { 
+  constructor(private consultaService: ConsultamedicaService,private router :
+    Router,private recetaService: RecetaService) {
     console.log("Dett")
     this.consultaService.$getObjectSource.subscribe(
       data=>{
@@ -24,14 +24,14 @@ consultaByHistoria: any= []
 
       }
     )
-   
+
   }
 
   ngOnInit() {
-  
-    
+
+
   }
-  
+
   listHistoria(){
     this.consultaService.recuperoListHistoria(this.idConsulta).subscribe(data=>{
       console.log(data)
@@ -51,6 +51,19 @@ consultaByHistoria: any= []
     this.router.navigate(['/consultadet'])
 
   }
+
+  crearReceta(idConsultaMedica){
+    this.recetaService.enviandoIdConsulta(idConsultaMedica)
+    this.router.navigate(['/crearreceta'])
+
+  }
+
+  verReceta(idConsultaMedica){
+    this.recetaService.enviandoIdConsulta(idConsultaMedica)
+    this.router.navigate(['/verreceta'])
+
+  }
+
   agregarNuevaConsulta(){
     this.router.navigate(['/agregar-consulta'])
 
