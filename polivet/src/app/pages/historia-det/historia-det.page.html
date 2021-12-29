@@ -184,7 +184,7 @@
                     <ion-card-subtitle>Motivo Consulta: {{item.motivoConsulta}}</ion-card-subtitle>
                 </ion-card-content>
                 <ion-item>
-                  <ion-button style="width: 20%;position: absolute; right: 0;" color="shade" (click)="crearReceta(item.idConsultaMedica)">crear receta</ion-button>
+                  <ion-button [attr.disabled]="buttonDisabled" style="width: 20%;position: absolute; right: 0;" color="shade" (click)="crearReceta(item.idConsultaMedica)">crear receta</ion-button>
                 </ion-item>
                 <ion-item>
                   <ion-button style="width: 20%;position: absolute; right: 0;" color="shade" (click)="verReceta(item.idConsultaMedica)">ver receta  </ion-button>

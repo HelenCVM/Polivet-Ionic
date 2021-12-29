@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
 })
 export class VerrecetaPage implements OnInit {
   idConsultavreceta:any
+  Recetaver: any= []
+  numeroTamano: any
 
   constructor(private recetaService: RecetaService,public router: Router) {
     console.log('------')
+
    }
 
   ngOnInit() {
@@ -19,7 +22,7 @@ export class VerrecetaPage implements OnInit {
       data=>{
         this.idConsultavreceta=data
         console.log('recibo id de consulta',data)
-
+        this.listarecetaMedica()
       }
     )
   }
@@ -28,4 +31,16 @@ export class VerrecetaPage implements OnInit {
     this.router.navigate(['/historia-det'])
   }
 
+  listarecetaMedica(){
+    this.recetaService.listrecetaMedica(this.idConsultavreceta).subscribe(data => {
+      this.Recetaver = data
+      console.log('receta ver---',this.Recetaver)
+      let tam =Object.keys(this.Recetaver).length
+      this.numeroTamano = tam
+    })
+  }
+
+  mostrarRecetaEsp(idConsultavreceta){
+    console.log('mostrar receta a detalle')
+  }
 }

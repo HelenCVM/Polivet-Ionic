@@ -37,5 +37,9 @@ export class RecetaService {
     );
    }
 
+   listrecetaMedica(idConsulta){
+    return this.http.get("/TesisVeterinaria/rest/prueba/listasRecetaMedica/"+idConsulta)
+
+  }
 
 }
