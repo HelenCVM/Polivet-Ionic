@@ -5,6 +5,7 @@ import {IniciosesionService} from '../../Services/iniciosesion.service';
 import { MiperfilService } from 'src/app/Services/miperfil.service';
 import { NavController } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.page.html',
@@ -15,12 +16,14 @@ export class InicioSesionPage implements OnInit {
  datajson:any
  correo:any
  rol:any
+ estado: boolean = false
+ correoo:any
 
  @Input() InicioDetails = {
   correo:'', contrasena:''
 }
 
-constructor(public navCtrl: NavController,public router: Router,public inicioservice:IniciosesionService, public miperfilservice: MiperfilService ) { }
+constructor(public navCtrl: NavController,public router: Router,public inicioservice:IniciosesionService, public miperfilservice: MiperfilService, public alertController: AlertController) { }
 
   ngOnInit(): void{
 
@@ -33,6 +36,7 @@ constructor(public navCtrl: NavController,public router: Router,public inicioser
     this.inicioservice.iniciar(this.InicioDetails).subscribe((data: {}) => {
       console.log('data')
       let correop=data
+      this.correoo = data
       console.log('Estamos en el ADDINICIOSESION')
       console.log(correop)
       this.datajson = data
@@ -46,8 +50,11 @@ constructor(public navCtrl: NavController,public router: Router,public inicioser
         let corr=this.correo
         let rol= this.rol
         console.log('---correo',corr)
-      if(correop =='No creado'){
-        return this.router.navigate(['/inicio-sesion'])
+
+      if(this.correoo =='No creado'){
+
+        console.log('no creadoooo')
+        //return this.router.navigate(['/inicio-sesion'])
       }else{
 
         this.inicioservice.enviandocorreo(this.datajson)
@@ -61,5 +68,28 @@ constructor(public navCtrl: NavController,public router: Router,public inicioser
 
     })
   }
+
+  doAlert(){
+    if(this.estado  == true){
+      let alert = this.alertController.create({
+        message: 'Por favor ingrese el correo correcto',
+        buttons: ['OK']}).then(alert=> alert.present());
+    }
+  }
+
+  async showAlert() {
+    if(this.estado == true)
+    {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'SubTitle',
+      message: 'This is an alert message',
+      buttons: ['OK']
+    });
+    await alert.present();
+    const result = await alert.onDidDismiss();
+    console.log(result);
+  }
+}
 
 }

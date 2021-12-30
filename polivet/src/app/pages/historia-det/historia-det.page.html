@@ -32,7 +32,7 @@
         <ion-slide id="uno">
 
         </ion-slide>
-       
+
     </ion-slides>
     <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> CARRERA DE MEDICINA
             VETERINARIA Y ZOOTECNICA
@@ -163,15 +163,15 @@
             </ion-row>
             <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-                   
-                        <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Consultas Medicas:   
+
+                        <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Consultas Medicas:
                             </em></p>
                             <ion-button color="shade" (click)="agregarNuevaConsulta()">Agregar consulta medica</ion-button>
 
                 </ion-col>
-               
+
             </ion-row>
-           
+
 
 
             <ion-card *ngFor="let item of consultaByHistoria ">
@@ -182,8 +182,13 @@
                 <ion-card-content (click)="  editarConstantesDetByConsultaId(item.idConsultaMedica)">
                     <ion-card-subtitle>Fecha Consulta: {{item.fechaConsulta.split('T')[0]}}</ion-card-subtitle>
                     <ion-card-subtitle>Motivo Consulta: {{item.motivoConsulta}}</ion-card-subtitle>
-
                 </ion-card-content>
+                <ion-item>
+                  <ion-button [attr.disabled]="buttonDisabled" style="width: 20%;position: absolute; right: 0;" color="shade" (click)="crearReceta(item.idConsultaMedica)">crear receta</ion-button>
+                </ion-item>
+                <ion-item>
+                  <ion-button style="width: 20%;position: absolute; right: 0;" color="shade" (click)="verReceta(item.idConsultaMedica)">ver receta  </ion-button>
+                </ion-item>
             </ion-card>
 
 
