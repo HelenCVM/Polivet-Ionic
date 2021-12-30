@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MascotaServiceService } from 'src/app/Services/mascota-service.service';
 
@@ -26,8 +27,8 @@ export class MascotaPage implements OnInit {
     sexo: '', fechaNac: '', edad: '',
     coloYSenalesParti: ''
   }
-
-  constructor(private actRoute: ActivatedRoute, public router: Router, public mascotaService: MascotaServiceService) {
+  public form: FormGroup
+  constructor(private formBuilder: FormBuilder,private actRoute: ActivatedRoute, public router: Router, public mascotaService: MascotaServiceService) {
     this.idPropietario = actRoute.snapshot.params.idPropietario;
     console.log("idpropie", this.idPropietario)
    
@@ -35,6 +36,11 @@ export class MascotaPage implements OnInit {
   }
 
   ngOnInit() {
+    this.form=this.formBuilder.group( {
+      
+      mascota:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      coloYSenalesParti:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]+$/)]] 
+    })
   }
 
   guardarSexo(event: CustomEvent) {
@@ -66,8 +72,33 @@ export class MascotaPage implements OnInit {
       const convertAge = new Date(this.dateFormat);
       const timeDiff = Math.abs(Date.now() - convertAge.getTime());
       this.showAge = Math.floor((timeDiff / (1000 * 3600 * 24))/365);
-      console.log(this.showAge)
+      var todayDate=new Date();
+      var ageyear = todayDate.getFullYear() - convertAge.getFullYear();
+      var agemonth = todayDate.getMonth() - convertAge.getMonth();
+      var ageday = todayDate.getDate() - convertAge.getDate();
+ 
+      if(agemonth != 0 && ageyear !=0){
+        this.showAge=ageyear +" anios "+ " con "+ agemonth + ' meses y '  + ageday+ " dias"
+        console.log( ageyear +" anios "+ " con "+ agemonth + ' meses y '  + ageday+ " dias");
+  
+      } else if (agemonth!=0 && ageyear==0) {
+        this.showAge=agemonth + ' meses y '  + ageday+ " dias"
+        console.log(  agemonth + ' meses y '  + ageday+ " dias");
+  
+      } else {
+        
+      }
+
+      if(ageyear ==0 && agemonth==0){
+        this.showAge=ageday+ " dias"
+        console.log(ageday+ " dias");
+
+      }
+     
     }
+   
+
+
 
   }
   guardarMascota() {
@@ -77,6 +108,7 @@ export class MascotaPage implements OnInit {
     this.InicioDetails.raza=this.opcionRaza
     this.InicioDetails.fechaNac = this.dateFormat
     this.InicioDetails.idPro=this.idPropietario
+    this.InicioDetails.fechaNac=this.showAge
     console.log(this.InicioDetails)
     this.mascotaService.crearMascota(this.InicioDetails)
     .subscribe((data) => {
@@ -121,7 +153,5 @@ export class MascotaPage implements OnInit {
     }
     );
   }
-  ageCalculator(){
-    
-  }
+
 }

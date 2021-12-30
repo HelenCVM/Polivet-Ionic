@@ -67,15 +67,15 @@ const routes: Routes = [
 {
   path: 'actualizar-contrasena',
   loadChildren: () => import('./pages/actualizar-contrasena/actualizar-contrasena.module').then( m => m.ActualizarContrasenaPageModule)
-},  {
+},
+  {
     path: 'listar-propietarios',
     loadChildren: () => import('./pages/listar-propietarios/listar-propietarios.module').then( m => m.ListarPropietariosPageModule)
   },
   {
     path: 'propietario-detale',
     loadChildren: () => import('./pages/propietario-detale/propietario-detale.module').then( m => m.PropietarioDetalePageModule)
-  },
-  {
+  }, {
     path: 'crearreceta',
     loadChildren: () => import('./pages/crearreceta/crearreceta.module').then( m => m.CrearrecetaPageModule)
   },
@@ -87,22 +87,4 @@ const routes: Routes = [
     path: 'receta-detalle',
     loadChildren: () => import('./pages/receta-detalle/receta-detalle.module').then( m => m.RecetaDetallePageModule)
   },
-
-
-
-];
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
 

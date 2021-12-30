@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConstantesFiosologicas } from 'src/app/Modelo/ConstantesFisiologicas';
 import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
@@ -33,7 +34,7 @@ export class ConsultaMedicaPage implements OnInit {
   idconsulta:any
   public constantesFisioCab: any = [];
 
-
+  public form: FormGroup
 
   @Input() InicioDetails = {
     motivoConsulta: '', vacunacion: '',desparacitacion:'',estadoR:'',producto: '', fecha:'',
@@ -42,7 +43,7 @@ export class ConsultaMedicaPage implements OnInit {
 
 
 
-  constructor(private actRoute: ActivatedRoute, private consultaMedicaService: ConsultamedicaService,
+  constructor(private formBuilder: FormBuilder,private actRoute: ActivatedRoute, private consultaMedicaService: ConsultamedicaService,
      public inicioservice: IniciosesionService,public router: Router) {
     this.idMascota = actRoute.snapshot.params.idMascota;
 
@@ -53,6 +54,22 @@ export class ConsultaMedicaPage implements OnInit {
 
 
    ngOnInit() {
+    this.form=this.formBuilder.group( {
+      
+      peso:['',[Validators.required, Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]],
+      FCard:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
+      t:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
+      FResp:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
+      pulso:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
+      otras:['',[Validators.required]] ,
+      mucosas:['',[Validators.required]] ,
+      turgenciapiel:['',[Validators.required]] 
+
+
+
+    })
+
+
     this.inicioservice.$getObjectSource.subscribe(
       data=>{
         this.correop=data

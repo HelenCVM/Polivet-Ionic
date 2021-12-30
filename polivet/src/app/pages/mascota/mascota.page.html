@@ -29,82 +29,87 @@
 <ion-content>
     <br>
     <br>
-    <form (ngSubmit)="guardarMascota(InicioDetails)" #userForm="ngForm">
+    <form [formGroup]="form" (ngSubmit)="guardarMascota(InicioDetails)">
         <div class="form-container">
             <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Registro
                     Mascota </em></p>
 
             <ion-item>
                 <ion-input placeholder="Nombre Mascota" [(ngModel)]="InicioDetails.nombre" style="text-align: center;"
-                    required="true" [ngModelOptions]="{standalone: true}">
+                    formControlName="mascota">
                     <ion-icon name="paw"></ion-icon>
+                    <ion-label> Nombre:</ion-label>
+
                 </ion-input>
             </ion-item>
+            <div *ngIf="form.controls.mascota.errors">
+                <span *ngIf="form.controls.mascota.errors.pattern"> Ingrese solo letras </span>
+            </div>
+
 
             <ion-item>
                 <ion-label>Especie</ion-label>
                 <ion-select (ionChange)=guardarEspecie($event) placeholder="Seleccione " style="text-align: center;"
-                    okText="Ok" cancelText="Cancelar">
+                    okText="Ok" cancelText="Cancelar"   required="true">
                     <ion-select-option *ngFor="let item of especies" [value]="item.nombreEspecie">
-                        {{item.nombreEspecie}}                                           
+                        {{item.nombreEspecie}}
                     </ion-select-option>
-                   
+
                     <ion-icon name="mail-outline"></ion-icon>
                 </ion-select>
             </ion-item>
-
+           
             <ion-item>
                 <ion-label>Raza</ion-label>
                 <ion-select (ionChange)=guardarRaza($event) placeholder="Seleccione " style="text-align: center;"
-                    okText="Ok" cancelText="Cancelar">
+                    okText="Ok" cancelText="Cancelar" required="true">
                     <ion-select-option *ngFor="let item of razas" [value]="item.nombre">
-                        {{item.nombre}}                        
+                        {{item.nombre}}
                     </ion-select-option>
-                   
+
                     <ion-icon name="mail-outline"></ion-icon>
                 </ion-select>
-            </ion-item>
-
-            <ion-item>
-                <ion-label>Sexo</ion-label>
-                <ion-select (ionChange)=guardarSexo($event) placeholder="Seleccione " style="text-align: center;"
-                    okText="Ok" cancelText="Cancelar">
-                    <ion-select-option value="Macho">Macho</ion-select-option>
-                    <ion-select-option value="Hembra">Hembra</ion-select-option>
-                    <ion-icon name="mail-outline"></ion-icon>
-
-                </ion-select>
-            </ion-item>
-
-            <ion-item>
-                <ion-label>Fecha Nacimiento</ion-label>
-                <ion-datetime placeholder="Seleccione" display-timezone="utc" displayFormat="YYYY-MM-DD	" doneText="Ok"
-                    cancelText="Cancelar" (ionChange)=guardarFechaNac($event)></ion-datetime>
             </ion-item>
 
             <ion-item>
                 
-               
-                    <ion-label>Edad :  {{showAge}}
-                    </ion-label>
+                <ion-icon name="male-female-outline"></ion-icon><ion-label>Sexo</ion-label>
+                <ion-select (ionChange)=guardarSexo($event) placeholder="Seleccione " style="text-align: center;"
+                    okText="Ok" cancelText="Cancelar" required="true">
+                    <ion-select-option value="Macho">Macho</ion-select-option>
+                    <ion-select-option value="Hembra">Hembra</ion-select-option>
+                    <ion-icon name="mail"></ion-icon>
+
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="calendar"></ion-icon><ion-label>Fecha Nacimiento</ion-label>
+                <ion-datetime placeholder="Seleccione"  displayFormat="YYYY-MM-DD	" doneText="Ok"
+                    cancelText="Cancelar" (ionChange)=guardarFechaNac($event) required="true"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Edad : {{showAge}}
+                </ion-label>
             </ion-item>
 
             <ion-item>
                 <ion-textarea placeholder="Color y señales particulares..."
-                    [(ngModel)]="InicioDetails.coloYSenalesParti" style="text-align: center;" required="true"
-                    [ngModelOptions]="{standalone: true}">
+                    [(ngModel)]="InicioDetails.coloYSenalesParti" style="text-align: center;" formControlName="coloYSenalesParti" required="true">
 
                 </ion-textarea>
             </ion-item>
-
+            <div *ngIf="form.controls.coloYSenalesParti.errors">
+                <span *ngIf="form.controls.coloYSenalesParti.errors.pattern"> Ingrese solo letras </span>
+        
+              </div>
 
             <div align="center">
                 <ion-grid>
                     <ion-row>
-
-
                         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-                            <ion-button color="shade" type="submit" [disabled]="!userForm.form.valid">Siguiente
+                            <ion-button color="shade" type="submit" [disabled]="form.invalid">Siguiente
                             </ion-button>
                         </ion-col>
                     </ion-row>
