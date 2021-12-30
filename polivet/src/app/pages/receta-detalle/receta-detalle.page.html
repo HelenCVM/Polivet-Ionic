@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+
+  </ion-toolbar>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+</ion-header>
+
+<ion-content>
+  <br>
+
+  <br>
+
+  <div id="header">
+    <img center src="../assets/imagenes/Logo.png" height="50" alt="">
+    <br />
+  </div>
+   <form (ngSubmit)="guardar(RecetaDetalleDetails)" #userForm="ngForm">
+    <div class="form-container">
+      <p center style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 10pt;">Carreteras y Calle Vieja (parte lateral de la Universidad<br>
+        Politecnica Salesiana 2862213 ext. 1306</p>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Receta
+          Médica </em></p>
+          <ion-row center>
+            <ion-col text-center>
+              <ion-item>
+                <ion-label >Cuenca, {{fecha}}</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label >Propietario: {{propietario}}</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label >Mascota: {{mascotaNombre}}</ion-label>
+              </ion-item>
+            </ion-col>
+           </ion-row>
+
+      <ion-item>
+        <ion-label>Rp:</ion-label>
+        <ion-textarea rows="8" type="text" [(ngModel)]="RecetaDetalleDetails.rp"
+          style="text-align: center;" required="true" maxLength="10" [ngModelOptions]="{standalone: true}"  [attr.readonly]="estado">
+
+        </ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Prescripcion:</ion-label>
+        <ion-textarea rows="8" type="text"  [(ngModel)]="RecetaDetalleDetails.prescripcion" style="text-align: center;"
+          required="true" [ngModelOptions]="{standalone: true}"  [attr.readonly]="estado">
+        </ion-textarea>
+
+      </ion-item>
+
+      <!-- [attr.disabled]="buttonDisabled" -->
+
+    <div align="center">
+      <ion-grid>
+        <ion-row>
+         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+            <ion-button  style="width: 45%;" color="shade" (click)="aceptar()" >Atras</ion-button>
+          </ion-col>
+
+          <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+            <ion-button  color="shade" type="submit" [disabled]="!userForm.form.valid">Guardar</ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+            <ion-button color="shade" class="button1" (click)="openModal()" ion-button>
+              <img src="../assets/imagenes/editar.png" height="10" alt="" />Editar
+            </ion-button>
+          </ion-col>
+
+          <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+            <ion-button color="shade"  >Imprimir</ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </div>
+
+  </div>
+
+</form>
+
+</ion-content>

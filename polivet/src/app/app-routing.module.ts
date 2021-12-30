@@ -83,6 +83,10 @@ const routes: Routes = [
     path: 'verreceta',
     loadChildren: () => import('./pages/verreceta/verreceta.module').then( m => m.VerrecetaPageModule)
   },
+  {
+    path: 'receta-detalle',
+    loadChildren: () => import('./pages/receta-detalle/receta-detalle.module').then( m => m.RecetaDetallePageModule)
+  },
 
 
 

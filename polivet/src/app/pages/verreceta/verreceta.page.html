@@ -57,6 +57,9 @@
               <ion-card-subtitle>Rp: {{item.rp}}</ion-card-subtitle>
               <ion-card-subtitle>Rp: {{item.prescripcion}}</ion-card-subtitle>
           </ion-card-content>
+
+          <img center src="../assets/imagenes/delete.png" height="40" alt="" (click)="eliminarReceta(item.idReceta)">
+
       </ion-card>
       <div align="center">
         <ion-grid>
