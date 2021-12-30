@@ -28,7 +28,7 @@
 <ion-content>
 
     <br>
-    <form (ngSubmit)="guardarConsulta(InicioDetails)" #userForm="ngForm">
+    <form  [formGroup]="form"  (ngSubmit)="guardarConsulta(InicioDetails)">
 
         <div class="form-container">
             <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Consulta Médicas
@@ -42,54 +42,76 @@
             </p>
 
             <ion-grid>
-           
+
                 <ion-row>
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                         <ion-item>
-                            <ion-input placeholder="Peso" [(ngModel)]="peso" style="text-align: center;"
-                                required="true" [ngModelOptions]="{standalone: true}">
-                                <ion-icon name="paw"></ion-icon>
+                            <ion-input placeholder="Peso" [(ngModel)]="peso" style="text-align: center;"  formControlName="peso">
+                                <ion-icon name="barbell-outline"></ion-icon>
+                                <ion-label>Peso:</ion-label>
                             </ion-input>
                         </ion-item>
+                        <div *ngIf="form.controls.peso.errors">
+                            <span *ngIf="form.controls.peso.errors.pattern"> Ingrese solo números </span>                   
+                          </div>
                     </ion-col>
-                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-                        <ion-item>
-                            <ion-input placeholder="T" [(ngModel)]="t" style="text-align: center;"
-                                required="true" [ngModelOptions]="{standalone: true}">
-                                <ion-icon name="paw"></ion-icon>
-                            </ion-input>
-                        </ion-item>
 
-                    </ion-col>
+
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                         <ion-item>
-                            <ion-input placeholder="F.Card" [(ngModel)]="FCard"
-                                style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
-                                <ion-icon name="paw"></ion-icon>
+                            <ion-input placeholder="F.Card" [(ngModel)]="FCard" style="text-align: center;"
+                                formControlName="FCard">
+                                <ion-icon name="fitness-outline"></ion-icon>
+                                <ion-label>F.Card:</ion-label>
                             </ion-input>
                         </ion-item>
+                        <div *ngIf="form.controls.FCard.errors">
+                            <span *ngIf="form.controls.FCard.errors.pattern"> Ingrese solo números </span>                   
+                          </div>
                     </ion-col>
+
                 </ion-row>
                 <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-input placeholder="T" [(ngModel)]="t" style="text-align: center;" formControlName="t">
+                                <ion-icon name="thermometer"></ion-icon>
+                                <ion-label>T:</ion-label>
+                            </ion-input>
+                        </ion-item>
+                        <div *ngIf="form.controls.t.errors">
+                            <span *ngIf="form.controls.t.errors.pattern"> Ingrese solo números </span>                   
+                          </div>
+
+                    </ion-col>
 
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
 
                         <ion-item>
                             <ion-input placeholder="F.Res" [(ngModel)]="FResp" style="text-align: center;"
-                                required="true" [ngModelOptions]="{standalone: true}">
-                                <ion-icon name="paw"></ion-icon>
+                            formControlName="FResp">
+                                <ion-icon name="heart-outline"></ion-icon>
+                                <ion-label>F.Res:</ion-label>
                             </ion-input>
                         </ion-item>
+                        <div *ngIf="form.controls.FResp.errors">
+                            <span *ngIf="form.controls.FResp.errors.pattern"> Ingrese solo números </span>                   
+                          </div>
                     </ion-col>
-
+                </ion-row>
+                <ion-row>
 
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                         <ion-item>
                             <ion-input placeholder="Pulso" [(ngModel)]="pulso" style="text-align: center;"
-                                required="true" [ngModelOptions]="{standalone: true}">
-                                <ion-icon name="paw"></ion-icon>
+                            formControlName="pulso">
+                                <ion-icon name="pulse-outline"></ion-icon>
+                                <ion-label>Pulso:</ion-label>
                             </ion-input>
                         </ion-item>
+                        <div *ngIf="form.controls.pulso.errors">
+                            <span *ngIf="form.controls.pulso.errors.pattern"> Ingrese solo números </span>                   
+                          </div>
 
                     </ion-col>
 
@@ -98,8 +120,9 @@
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                         <ion-item>
                             <ion-input placeholder="Otras" [(ngModel)]="otras" style="text-align: center;"
-                                required="true" [ngModelOptions]="{standalone: true}">
-                                <ion-icon name="paw"></ion-icon>
+                            formControlName="otras">
+                                <ion-icon name="shuffle"></ion-icon>
+                                <ion-label>Otras:</ion-label>
                             </ion-input>
                         </ion-item>
 
@@ -112,20 +135,23 @@
                 <ion-row>
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                         <ion-item>
-                            <ion-input placeholder="Mucosas" [(ngModel)]="mucosas"
-                                style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
-                                <ion-icon name="paw"></ion-icon>
+                            <ion-input placeholder="Mucosas" [(ngModel)]="mucosas" style="text-align: center;"
+                            formControlName="mucosas">
+                                <ion-icon name="barcode-outline"></ion-icon>
+                                <ion-label>Mucosas:</ion-label>
                             </ion-input>
                         </ion-item>
 
                     </ion-col>
-
+                </ion-row>
+                <ion-row>
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
 
                         <ion-item>
                             <ion-input placeholder="Turgencia Piel" [(ngModel)]="turgenciapiel"
-                                style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
+                                style="text-align: center;" formControlName="turgenciapiel">
                                 <ion-icon name="paw"></ion-icon>
+                                <ion-label>Turgencia Piel:</ion-label>
                             </ion-input>
                         </ion-item>
 
@@ -137,6 +163,7 @@
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
 
                         <ion-item>
+                            <ion-icon name="paw-outline"></ion-icon>
                             <ion-label> ASA</ion-label>
                             <ion-select (ionChange)=guardarASA($event) placeholder="Seleccione "
                                 style="text-align: center;" okText="Ok" cancelText="Cancelar">
@@ -145,8 +172,6 @@
                                 <ion-select-option value="III">III</ion-select-option>
                                 <ion-select-option value="IV">IV</ion-select-option>
                                 <ion-select-option value="V">V</ion-select-option>
-                                <ion-icon name="mail-outline"></ion-icon>
-
                             </ion-select>
                         </ion-item>
 
@@ -157,6 +182,7 @@
 
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                         <ion-item>
+                            <ion-icon name="heart-circle-outline"></ion-icon>
                             <ion-label>Estado Fisico</ion-label>
                             <ion-select (ionChange)=guardarEstadoF($event) placeholder="Seleccione "
                                 style="text-align: center;" okText="Ok" cancelText="Cancelar">
@@ -176,6 +202,7 @@
                 <ion-row>
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                         <ion-item>
+                            <ion-icon name="sunny-outline"></ion-icon>
                             <ion-label>Estado Mental</ion-label>
                             <ion-select (ionChange)=guardarEstadoM($event) placeholder="Seleccione "
                                 style="text-align: center;" okText="Ok" cancelText="Cancelar">
@@ -192,7 +219,7 @@
 
 
             </ion-grid>
-         
+
             <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> 2. Motivo de la
                     consulta
                 </em>
@@ -220,6 +247,7 @@
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
 
                         <ion-item>
+                            <ion-icon name="eyedrop-outline"></ion-icon>
                             <ion-label> Vacunación</ion-label>
                             <ion-select (ionChange)=guardarVacunacion($event) placeholder="" style="text-align: center;"
                                 okText="Ok" cancelText="Cancelar">
@@ -234,6 +262,7 @@
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
 
                         <ion-item>
+                            <ion-icon name="flask-outline"></ion-icon>
                             <ion-label>Desparasitación</ion-label>
                             <ion-select (ionChange)=guardarDesparasitacion($event) placeholder=""
                                 style="text-align: center;" okText="Ok" cancelText="Cancelar">
@@ -247,6 +276,7 @@
 
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                         <ion-item>
+                            <ion-icon name="transgender"></ion-icon>
                             <ion-label>Estado Reproductivo</ion-label>
                             <ion-select (ionChange)=guardarEstadoR($event) placeholder="" style="text-align: center;"
                                 okText="Ok" cancelText="Cancelar">
@@ -270,16 +300,17 @@
                         <ion-item>
                             <ion-input placeholder="Producto" [(ngModel)]="InicioDetails.producto"
                                 style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
-                                <ion-icon name="transgender"></ion-icon>
+                                <ion-icon name="bandage-outline"></ion-icon>
                             </ion-input>
                         </ion-item>
                     </ion-col>
 
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                         <ion-item>
+                            <ion-icon name="calendar-outline"></ion-icon>
                             <ion-label>Fecha</ion-label>
-                            <ion-datetime placeholder="" display-timezone="utc" displayFormat="YYYY-MM-DD"
-                                doneText="Ok" cancelText="Cancelar" (ionChange)=guardarFechasV($event)></ion-datetime>
+                            <ion-datetime placeholder="" display-timezone="utc" displayFormat="YYYY-MM-DD" doneText="Ok"
+                                cancelText="Cancelar" (ionChange)=guardarFechasV($event)></ion-datetime>
                         </ion-item>
 
                     </ion-col>
@@ -287,6 +318,7 @@
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
 
                         <ion-item>
+                            <ion-icon name="locate"></ion-icon>
                             <ion-label>Procedencia</ion-label>
                             <ion-select (ionChange)=guardarProcedencia($event) placeholder=""
                                 style="text-align: center;" okText="Ok" cancelText="Cancelar">
@@ -308,7 +340,7 @@
 
                 </ion-textarea>
             </ion-item>
-                     
+
             <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Diagnostico
                 </em> </p>
             <ion-item>
@@ -350,7 +382,7 @@
                 <ion-grid>
                     <ion-row>
                         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-                            <ion-button color="shade" type="submit" [disabled]="!userForm.form.valid">Siguiente
+                            <ion-button color="shade" type="submit" [disabled]="form.invalid">Siguiente
                             </ion-button>
                         </ion-col>
                     </ion-row>

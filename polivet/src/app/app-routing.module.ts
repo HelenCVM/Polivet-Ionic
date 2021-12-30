@@ -67,7 +67,8 @@ const routes: Routes = [
 {
   path: 'actualizar-contrasena',
   loadChildren: () => import('./pages/actualizar-contrasena/actualizar-contrasena.module').then( m => m.ActualizarContrasenaPageModule)
-},  {
+},
+  {
     path: 'listar-propietarios',
     loadChildren: () => import('./pages/listar-propietarios/listar-propietarios.module').then( m => m.ListarPropietariosPageModule)
   },
@@ -75,6 +76,7 @@ const routes: Routes = [
     path: 'propietario-detale',
     loadChildren: () => import('./pages/propietario-detale/propietario-detale.module').then( m => m.PropietarioDetalePageModule)
   },
+ 
 
 
 

@@ -39,7 +39,7 @@
 
  
 
-        <ion-card *ngFor="let item of historiaClinicaList | filtroPropietario: filtroPropietario | paginate: {itemsPerPage:2, currentPage:cp} ">
+        <ion-card *ngFor="let item of historiaClinicaList | filtroPropietario: filtroPropietario | paginate: {itemsPerPage:5, currentPage:cp} ">
           
             <ion-card-header>
                 <ion-card-title>No. Historia {{item.idHistorial}}</ion-card-title>
@@ -47,6 +47,8 @@
 
             <ion-card-content  (click)="editarConsultasMedicasById(item.idHistorial)">
                 <ion-card-subtitle>Propietario: {{item.mascota_id.id_mascota_propietario.propietario}}</ion-card-subtitle>
+                <ion-card-subtitle>Cédula: {{item.mascota_id.id_mascota_propietario.idPropietario}}</ion-card-subtitle>
+
                 <ion-card-subtitle>Ciudad: {{item.mascota_id.id_mascota_propietario.cuidad}}</ion-card-subtitle>
                 <ion-card-subtitle>Direccion: {{item.mascota_id.id_mascota_propietario.direccion}}</ion-card-subtitle>
                 <ion-card-subtitle>Telefono: {{item.mascota_id.id_mascota_propietario.telefono}}</ion-card-subtitle>

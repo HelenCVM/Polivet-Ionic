@@ -64,14 +64,4 @@ export class PropietarioPage implements OnInit {
     this.router.navigate(['/paginal-inicial'])
   }
 
-  public inputValidator(event: any) {
-    //console.log(event.target.value);
-    const pattern = /^[0-9]*$/;   
-    //let inputChar = String.fromCharCode(event.charCode)
-    if (!pattern.test(event.target.value)) {
-      event.target.value = event.target.value.replace(/[^a-zA-Z0-9]/g, "");
-      // invalid character, prevent input
-  
-    }
-  }
 }
