@@ -82,7 +82,8 @@ const routes: Routes = [
   {
     path: 'verreceta',
     loadChildren: () => import('./pages/verreceta/verreceta.module').then( m => m.VerrecetaPageModule)
-  },  {
+  },
+  {
     path: 'raza-especie',
     loadChildren: () => import('./pages/raza-especie/raza-especie.module').then( m => m.RazaEspeciePageModule)
   },
@@ -90,6 +91,12 @@ const routes: Routes = [
     path: 'crud-raza',
     loadChildren: () => import('./pages/crud-raza/crud-raza.module').then( m => m.CrudRazaPageModule)
   },
+  {
+    path: 'receta-detalle',
+    loadChildren: () => import('./pages/receta-detalle/receta-detalle.module').then( m => m.RecetaDetallePageModule)
+  },
+
+
 
  
 
@@ -104,5 +111,6 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule {}
+
 
 

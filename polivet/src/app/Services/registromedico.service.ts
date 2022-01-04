@@ -7,10 +7,11 @@ import { Medico } from '../Modelo/Medico';
 })
 export class RegistromedicoService {
   private url: string;
+  private urll: string;
 
   constructor(public  http:HttpClient) {
     this.url='/TesisVeterinaria/rest/prueba/registrarPUsuario'
-    this.url='/TesisVeterinaria/rest/prueba/actualizarPMedico'
+    this.urll='/TesisVeterinaria/rest/prueba/actualizarPMedico'
    }
 
   obtenerEspecialidad(){
@@ -19,7 +20,6 @@ export class RegistromedicoService {
   }
 
   crearUsuario(medico:Medico){
-    console.log("----", medico)
     const body= new HttpParams()
     .set('cedula', medico.cedula)
     .set('nombres', medico.nombres)
@@ -44,7 +44,6 @@ export class RegistromedicoService {
   }
 
   actualizarMedico(medico:Medico){
-    console.log("----", medico)
     const body= new HttpParams()
     .set('cedula', medico.cedula)
     .set('nombres', medico.nombres)
@@ -57,7 +56,7 @@ export class RegistromedicoService {
     .set('especialidad_id', medico.especialidad_id)
     .set('usuario_id',medico.usuario_id)
 
-    return this.http.post(this.url,
+    return this.http.post(this.urll,
       body.toString(),
       {
         headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),

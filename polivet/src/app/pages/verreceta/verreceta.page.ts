@@ -14,10 +14,6 @@ export class VerrecetaPage implements OnInit {
 
   constructor(private recetaService: RecetaService,public router: Router) {
     console.log('------')
-
-   }
-
-  ngOnInit() {
     this.recetaService.$getObjectSource.subscribe(
       data=>{
         this.idConsultavreceta=data
@@ -25,6 +21,10 @@ export class VerrecetaPage implements OnInit {
         this.listarecetaMedica()
       }
     )
+   }
+
+  ngOnInit() {
+
   }
 
   aceptar(){
@@ -42,5 +42,16 @@ export class VerrecetaPage implements OnInit {
 
   mostrarRecetaEsp(idConsultavreceta){
     console.log('mostrar receta a detalle')
+    this.recetaService.enviandoIdConsulta(idConsultavreceta)
+    this.router.navigate(['/receta-detalle'])
   }
+
+  eliminarReceta(idConsultavreceta){
+    this.recetaService.eliminarlReceta(idConsultavreceta).subscribe(data => {
+      this.Recetaver = data
+      console.log('receta eliminar---',this.Recetaver)
+      this.router.navigate(['/historia-det'])
+    })
+  }
+
 }

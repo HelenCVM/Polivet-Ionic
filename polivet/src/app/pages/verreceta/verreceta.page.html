@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-
+    <ion-button  style="--background: #063470;" slot="start">
+      <ion-back-button style="--background: #063470;" defaultHref="/historia-det"> </ion-back-button>
+    </ion-button>
   </ion-toolbar>
 
   <meta charset="UTF-8">
@@ -57,6 +59,9 @@
               <ion-card-subtitle>Rp: {{item.rp}}</ion-card-subtitle>
               <ion-card-subtitle>Rp: {{item.prescripcion}}</ion-card-subtitle>
           </ion-card-content>
+
+          <img center src="../assets/imagenes/delete.png" height="40" alt="" (click)="eliminarReceta(item.idReceta)">
+
       </ion-card>
       <div align="center">
         <ion-grid>
