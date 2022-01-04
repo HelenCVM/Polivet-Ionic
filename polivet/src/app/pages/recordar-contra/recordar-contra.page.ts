@@ -13,6 +13,8 @@ export class RecordarContraPage implements OnInit {
 
   usuario:Medico
   datore:any
+  datorecorreo:any
+  estado: boolean = false
 
   @Input() RecordarDetails = {
     correo:''
@@ -24,6 +26,21 @@ export class RecordarContraPage implements OnInit {
 
    addRecordar(dataBill){
     console.log('add recordar')
+    this.recordarservice.OkCorreo(this.RecordarDetails).subscribe((data: {}) => {
+      console.log('data')
+      let correook=data
+      this.datorecorreo = data
+      console.log(this.datorecorreo)
+      if(this.datorecorreo =='No creado'){
+        console.log('no existe el correo')
+      }else{
+        console.log('si existe')
+        this. enviarCorreo()
+      }
+    })
+  }
+
+  enviarCorreo(){
     this.recordarservice.recordar(this.RecordarDetails).subscribe((data: {}) => {
       console.log('data')
       let datos=data

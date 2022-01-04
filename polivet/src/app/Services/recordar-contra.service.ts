@@ -11,10 +11,12 @@ import { BehaviorSubject } from 'rxjs';
 export class RecordarContraService {
   private url: string;
   private urll:string
+  private urlokcorreo:string
 
   constructor(private http:HttpClient) {
     this.url='/TesisVeterinaria/rest/prueba/recordarcontra';
     this.urll='/TesisVeterinaria/rest/prueba/recordarcontrados';
+    this.urlokcorreo = '/TesisVeterinaria/rest/prueba/CorreoOk';
   }
 
   private objectSource= new BehaviorSubject<{}>({});
@@ -36,6 +38,25 @@ export class RecordarContraService {
         responseType: 'text'
       }
     );
+}
+
+
+OkCorreo(usuario:Medico){
+  console.log('dfkfhgdsfh-')
+  console.log(usuario);
+
+  const body = new HttpParams()
+  .set('correo',usuario.correo)
+  console.log('dfkfhgdsfh--')
+  console.log(this.urlokcorreo)
+  return this.http.post(
+    this.urlokcorreo,
+    body.toString(),
+    {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
+      responseType: 'text'
+    }
+  );
 }
 
 enviandodatos(datos){

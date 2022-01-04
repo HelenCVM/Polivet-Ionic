@@ -26,7 +26,8 @@
  <form (ngSubmit)="addRecordar(RecordarDetails)" #userForm="ngForm" >
    <div class="form-container">
      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Recordar contraseña! </em></p>
-
+     <p center style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 10pt;">Nota:Escriba su correo electronico y revise su bandeja de entrada<br></p>
+     <br>
    <ion-item>
      <ion-input placeholder="Correo" [(ngModel)]="RecordarDetails.correo" style="text-align: center;" required="true"
      [ngModelOptions]="{standalone: true}" >
@@ -41,7 +42,7 @@
           <ion-button color="shade" type="submit"  [disabled]="!userForm.form.valid" >Enviar</ion-button>
           <br>
           <br>
-          <div style="text-align: center;color:#FF0000 ;" type="hidden" class="hero-list" *ngIf="datore === 'No creado'" (click)="doAlert()">
+          <div style="text-align: center;color:#FF0000 ;" type="hidden" class="hero-list" *ngIf="datorecorreo === 'No creado'" >
             <h6 style="text-align: center;color:#110a0a ;">Observacion: </h6>Escriba el correo correcto
           </div>
         </ion-col>
