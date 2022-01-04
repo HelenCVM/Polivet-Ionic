@@ -40,6 +40,10 @@ export class RecetaDetallePage implements OnInit {
     this.router.navigate(['/historia-det'])
   }
 
+  imprimir(){
+    console.log('Imprimir la receta')
+  }
+
   DetallerecetaMedica(){
     this.recetaService.listadetalleReceta(this.idDetallevreceta).subscribe(data => {
       this.Recetadetalle = data

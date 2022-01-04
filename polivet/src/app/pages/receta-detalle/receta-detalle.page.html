@@ -33,6 +33,11 @@
   </div>
    <form (ngSubmit)="guardar(RecetaDetalleDetails)" #userForm="ngForm">
     <div class="form-container">
+      <ion-fab vertical="top" horizontal="end" slot="fixed" >
+        <ion-fab-button style="--background: #063470;" (click)="imprimir()">
+          <ion-icon name="download-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
       <p center style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 10pt;">Carreteras y Calle Vieja (parte lateral de la Universidad<br>
         Politecnica Salesiana 2862213 ext. 1306</p>
       <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Receta
@@ -75,19 +80,14 @@
           <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
             <ion-button  color="shade" type="submit" [disabled]="!userForm.form.valid">Guardar</ion-button>
           </ion-col>
-        </ion-row>
 
-        <ion-row>
           <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
             <ion-button color="shade" class="button1" (click)="openModal()" ion-button>
               <img src="../assets/imagenes/editar.png" height="10" alt="" />Editar
             </ion-button>
           </ion-col>
 
-          <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-            <ion-button color="shade"  >Imprimir</ion-button>
-          </ion-col>
-
+          <!-- <ion-icon name="download-outline"></ion-icon> -->
         </ion-row>
       </ion-grid>
     </div>
