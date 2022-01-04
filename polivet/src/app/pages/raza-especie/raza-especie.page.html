@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar>
+    <div align="right">
+      <img src="../assets/imagenes/Logo.png" height="50" alt="" />
+    </div>
+
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu" color="light"> </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript"></script>
+</ion-header>
+<ion-content>
+  <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> CARRERA DE MEDICINA
+      VETERINARIA Y ZOOTECNICA
+    </em>
+  </h1>
+  <div class="form-container"  >
+    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> 
+      Especies </em></p>
+    <ion-grid class="ion-margin">
+      <ion-row class="ion-justify-content-start">
+        <ion-col size="5">
+          <ion-button color="shade" (click)="addNew()">
+            Añadir nuevo
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <br>
+      <ion-row style="border-bottom: groove;" >
+        
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-label>Especie</ion-label>
+        </ion-col>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-label>Editar</ion-label>
+        </ion-col>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-label>Eliminar</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row style="border-bottom: groove;" *ngFor="let item of especies | paginate: {itemsPerPage:4, currentPage:cp} ">
+       
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-label>{{item.nombreEspecie}} </ion-label>
+        </ion-col>  
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+            <img src="../assets/imagenes/editar.png" height="18" alt="" (click)="editar(item)" />
+        </ion-col>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <img src="../../../assets/imagenes/1214428.png" height="18" alt="" (click)="eliminar(item)" />
+      </ion-col>
+      </ion-row>
+      <div>
+        <pagination-controls (pageChange)="cp = $event"   previousLabel="Antes"
+        nextLabel="Siguiente"></pagination-controls>
+        
+
+      </div>
+      
+    </ion-grid>
+   
+  </div>
+
+
+  <form (ngSubmit)="guardarEspecie(raza)"  *ngIf="raza">
+    <div class="form-container">
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Registro
+          Especie </em></p>
+      <ion-item>
+        <ion-input placeholder="Nombre especie" [(ngModel)]="raza.nombreEspecie" style="text-align: center;"
+          [ngModelOptions]="{standalone: true}">
+          <ion-icon name="paw"></ion-icon>
+          <ion-label> Nombre:</ion-label>
+
+        </ion-input>
+      </ion-item>
+
+      <div align="center">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+              <ion-button color="shade" type="submit">Guardar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+
+    </div>
+  </form>
+
+
+</ion-content>
