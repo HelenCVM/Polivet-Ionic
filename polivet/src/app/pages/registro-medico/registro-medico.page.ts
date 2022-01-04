@@ -86,7 +86,7 @@ export class RegistroMedicoPage implements OnInit {
 
       this.medico=data
       console.log("recibo",this.medico)
-      this.router.navigate(['inicio-sesion'])
+      this.router.navigate(['paginal-inicial'])
     },(error)=>{
       console.log(error)
     }
