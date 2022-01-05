@@ -9,3 +9,11 @@ export class Mascota{
     coloYSenalesParti?:string
 
 }
+export class Raza{
+    especie_id?:number
+    nombreEspecie?:string
+    raza_id?:string
+    nombre?:string
+    
+
+}
