@@ -1,7 +1,8 @@
 import { Component, OnInit,Input} from '@angular/core';
 import {RecetaService} from 'src/app/Services/receta.service';
 import { Router } from '@angular/router';
-
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-receta-detalle',
   templateUrl: './receta-detalle.page.html',
@@ -30,6 +31,7 @@ export class RecetaDetallePage implements OnInit {
         this.DetallerecetaMedica()
       }
     )
+    //this.imprimir()
   }
 
   ngOnInit() {
@@ -40,8 +42,31 @@ export class RecetaDetallePage implements OnInit {
     this.router.navigate(['/historia-det'])
   }
 
-  imprimir(){
-    console.log('Imprimir la receta')
+  imprimir(): void {
+    const DATA = document.getElementById('htmlData');
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const options = {
+      background: 'white',
+      scale: 3,
+      logging: true,
+      letterRendering: true,
+      //useCORS: true
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('image/PNG');
+
+      // Add image Canvas to PDF
+      const bufferX = 15;
+      const bufferY = 15;
+      const imgProps = (doc as any).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      return doc;
+    }).then((docResult) => {
+      docResult.save(`${new Date().toISOString()}_receta.pdf`);
+    });
   }
 
   DetallerecetaMedica(){

@@ -27,12 +27,15 @@
 
   <br>
 
-  <div id="header">
-    <img center src="../assets/imagenes/Logo.png" height="50" alt="">
-    <br />
-  </div>
+
+
    <form (ngSubmit)="guardar(RecetaDetalleDetails)" #userForm="ngForm">
     <div class="form-container">
+      <div id="htmlData">
+      <div id="header">
+        <img center src="../assets/imagenes/Logo.png" height="50" alt="">
+        <br />
+      </div>
       <ion-fab vertical="top" horizontal="end" slot="fixed" >
         <ion-fab-button style="--background: #063470;" (click)="imprimir()">
           <ion-icon name="download-outline"></ion-icon>
@@ -73,7 +76,7 @@
       </ion-item>
 
       <!-- [attr.disabled]="buttonDisabled" -->
-
+    </div>
     <div align="center">
       <ion-grid>
         <ion-row>
