@@ -62,7 +62,9 @@ export class RecordarContraPage implements OnInit {
 
 }
 
-
+atras(){
+  this.router.navigate(['/inicio-sesion'])
+}
 
 
 }

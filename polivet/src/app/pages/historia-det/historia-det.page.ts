@@ -115,4 +115,8 @@ public buttonDisabled:boolean = false
 
   }
 
+  atras(){
+    this.router.navigate(['/historias-clinicas'])
+  }
+
 }

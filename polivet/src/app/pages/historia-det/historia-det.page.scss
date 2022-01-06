@@ -25,13 +25,22 @@ ion-toolbar{
       margin: -16px;
 
   }
-  
+
+  .form-container ion-button {
+    background-color: #063470;
+    margin-top: 10px;
+    height: 38px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
 
 ion-label{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-  
-  
+
+
 .form-container ion-button {
   background-color: #063470;
   margin-top: 10px;

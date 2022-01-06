@@ -11,8 +11,8 @@ export class PropietarioDetalePage implements OnInit {
   idPropietario:any
   propietario:any=[]
   listMascotabyPropietario: any=[]
-  constructor(private propietarioService:PropietarioServiceService,public router: Router) { 
-   
+  constructor(private propietarioService:PropietarioServiceService,public router: Router) {
+
     this.propietarioService.$getObjectSource.subscribe(
       data=>{
         this.idPropietario=data
@@ -24,7 +24,7 @@ export class PropietarioDetalePage implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
   obtenerPropietarioBYId(){
@@ -45,4 +45,8 @@ export class PropietarioDetalePage implements OnInit {
  agregarMascota(){
   this.router.navigate(['/mascota/',this.idPropietario])
  }
+
+ atras(){
+  this.router.navigate(['/listar-propietarios'])
+}
 }

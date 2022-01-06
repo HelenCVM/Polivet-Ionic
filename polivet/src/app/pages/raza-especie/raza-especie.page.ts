@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Raza } from 'src/app/Modelo/Mascota';
 import { MascotaServiceService } from 'src/app/Services/mascota-service.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-raza-especie',
@@ -16,7 +17,7 @@ export class RazaEspeciePage implements OnInit {
 
   public estado: boolean = true;
 
-  constructor(public mascotaService: MascotaServiceService) {
+  constructor(public mascotaService: MascotaServiceService,public router: Router) {
     this.obtenerEspecie()
   }
 
@@ -50,7 +51,7 @@ export class RazaEspeciePage implements OnInit {
     /*  this.mascotaService.crearEspecie(this.raza).subscribe((data => {
         console.log(data)
         this.obtenerEspecie()
-  
+
       }))*/
     if (this.estado == false) {
       console.log("hola")
@@ -89,15 +90,19 @@ export class RazaEspeciePage implements OnInit {
     if(res ==true){
       this.mascotaService.eliminarEspecie(item.especie_id).subscribe((data=>{
         this.obtenerEspecie()
-        console.log(data) 
-  
+        console.log(data)
+
       }))
     }else{
       console.log("nooooo")
       this.obtenerEspecie()
 
     }
-    
+
+  }
+
+  atras(){
+    this.router.navigate(['/paginal-inicial'])
   }
 
 

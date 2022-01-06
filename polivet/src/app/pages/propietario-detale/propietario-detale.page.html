@@ -33,7 +33,7 @@
     </em>
 </h1>
 <div class="form-container">
-    <ion-grid *ngFor="let item of propietario"> 
+    <ion-grid *ngFor="let item of propietario">
         <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Propietario  {{item.propietario}}
         </em>
     </p>
@@ -73,7 +73,7 @@
                 </ion-label>
             </ion-item>
         </ion-col>
-       
+
        </ion-row>
        <ion-row>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
@@ -87,16 +87,16 @@
        </ion-row>
        <ion-row>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-           
-                <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Mascotas:   
+
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Mascotas:
                     </em></p>
                     <ion-button color="shade" (click)="agregarMascota()">Agregar Mascota</ion-button>
 
         </ion-col>
-         
-        
 
-       
+
+
+
     </ion-row>
 
     <ion-row>
@@ -104,7 +104,7 @@
             <ion-card-header>
                 <ion-card-title>Nombre Paciente: {{item.nombre}}</ion-card-title>
             </ion-card-header>
-  
+
             <ion-card-content>
                 <ion-card-subtitle>Sexo: {{item.sexo}}</ion-card-subtitle>
                 <ion-card-subtitle>Especie: {{item.especie_id.especie_id.nombreEspecie}}</ion-card-subtitle>
@@ -115,8 +115,20 @@
             </ion-card-content>
         </ion-card>
     </ion-row>
-  
+
     </ion-grid>
 
+    <div align="center">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+            <ion-button color="shade" (click)="atras()" >Atras</ion-button>
+          </ion-col>
+          <br>
+        </ion-row>
+      </ion-grid>
+    </div>
 </div>
+
+
 </ion-content>

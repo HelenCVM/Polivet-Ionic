@@ -183,17 +183,39 @@
                     <ion-card-subtitle>Fecha Consulta: {{item.fechaConsulta.split('T')[0]}}</ion-card-subtitle>
                     <ion-card-subtitle>Motivo Consulta: {{item.motivoConsulta}}</ion-card-subtitle>
                 </ion-card-content>
-                <ion-item>
-                  <ion-button [attr.disabled]="buttonDisabled" style="width: 20%;position: absolute; right: 0;" color="shade" (click)="crearReceta(item.idConsultaMedica)">crear receta</ion-button>
-                </ion-item>
-                <ion-item>
-                  <ion-button style="width: 20%;position: absolute; right: 0;" color="shade" (click)="verReceta(item.idConsultaMedica)">ver receta  </ion-button>
-                </ion-item>
+
+
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col  size="3" offset="5" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-button  [attr.disabled]="buttonDisabled" color="shade" (click)="crearReceta(item.idConsultaMedica)">crear receta</ion-button>
+                      </ion-col>
+                      <br>
+                      <ion-col  size="3" offset="5" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-button   color="shade" (click)="verReceta(item.idConsultaMedica)">ver receta  </ion-button>
+                      </ion-col>
+                      <br>
+                    </ion-row>
+                  </ion-grid>
+
             </ion-card>
 
 
         </ion-grid>
 
-    </div>
+
+ <div align="center">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+        <ion-button color="shade" (click)="atras()" >Atras</ion-button>
+      </ion-col>
+      <br>
+    </ion-row>
+  </ion-grid>
+</div>
+</div>
+
+
 
 </ion-content>

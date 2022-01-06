@@ -25,15 +25,20 @@
   <script type="text/javascript"></script>
 </ion-header>
 <ion-content>
+  <br>
   <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> CARRERA DE MEDICINA
       VETERINARIA Y ZOOTECNICA
     </em>
   </h1>
   <div class="form-container"  >
-    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> 
+    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em>
       Especies </em></p>
     <ion-grid class="ion-margin">
       <ion-row class="ion-justify-content-start">
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-button color="shade" (click)="atras()" >Atras</ion-button>
+        </ion-col>
+        <br>
         <ion-col size="5">
           <ion-button color="shade" (click)="addNew()">
             Añadir nuevo
@@ -42,7 +47,7 @@
       </ion-row>
       <br>
       <ion-row style="border-bottom: groove;" >
-        
+
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
           <ion-label>Especie</ion-label>
         </ion-col>
@@ -54,10 +59,10 @@
         </ion-col>
       </ion-row>
       <ion-row style="border-bottom: groove;" *ngFor="let item of especies | paginate: {itemsPerPage:4, currentPage:cp} ">
-       
+
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
           <ion-label>{{item.nombreEspecie}} </ion-label>
-        </ion-col>  
+        </ion-col>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
             <img src="../assets/imagenes/editar.png" height="18" alt="" (click)="editar(item)" />
         </ion-col>
@@ -68,12 +73,12 @@
       <div>
         <pagination-controls (pageChange)="cp = $event"   previousLabel="Antes"
         nextLabel="Siguiente"></pagination-controls>
-        
+
 
       </div>
-      
+
     </ion-grid>
-   
+
   </div>
 
 

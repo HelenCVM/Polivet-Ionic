@@ -43,4 +43,8 @@ export class HistoriasClinicasPage implements OnInit {
     console.log("buscar", event.detail.value)
     this.filtroPropietario = event.detail.value
   }
+
+  atras(){
+    this.router.navigate(['/paginal-inicial'])
+  }
 }

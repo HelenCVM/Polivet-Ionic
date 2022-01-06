@@ -49,10 +49,20 @@
       <div>
         <pagination-controls (pageChange)="cp = $event"   previousLabel="Antes"
         nextLabel="Siguiente"></pagination-controls>
-        
+
 
       </div>
 
+ <div align="center">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+              <ion-button color="shade" (click)="atras()" >Atras</ion-button>
+            </ion-col>
+            <br>
+          </ion-row>
+        </ion-grid>
+      </div>
   </div>
 
 
