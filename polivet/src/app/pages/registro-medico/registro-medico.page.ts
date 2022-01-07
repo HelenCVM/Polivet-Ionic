@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {RegistromedicoService } from 'src/app/Services/registromedico.service'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro-medico',
@@ -21,11 +22,33 @@ export class RegistroMedicoPage implements OnInit {
     especialidad_id: '',usuario_id: ''
   }
 
-  constructor(public router: Router,private actRoute: ActivatedRoute,public registromedi:RegistromedicoService) {
+  public form: FormGroup
+
+  constructor(private formBuilder: FormBuilder,public router: Router,private actRoute: ActivatedRoute,public registromedi:RegistromedicoService) {
     this.obtenerEspecialidad();
    }
 
-  ngOnInit() {
+  ngOnInit():void {
+    this.form=this.formBuilder.group( {
+      cedula:['',
+      [
+        Validators.required,
+        Validators.pattern('^[0-9]+$'),
+        Validators.minLength(10)
+      ]
+      ],
+      nombres:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      apellidos:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      direccion:['',[Validators.required]],
+      fechnac:['',[Validators.required]],
+      telefono:['',Validators.compose([
+        Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(10)])],
+      titulo:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      espec:['',[Validators.required]],
+      correo:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[u]+[p]+[s]+.[e]+[d]+[u]+.[e]+[c.]+$')]],
+      contrasena:['',[Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z]).{8,}$')]]
+
+    })
   }
 
   atras(){

@@ -46,6 +46,7 @@
                     <ion-item>
                         <ion-icon name="calendar-number-outline"></ion-icon>
                         <ion-label> No Historia:
+                        <ion-label>  No Historia:
                             <br>
                             {{item.idHistorial}}
                         </ion-label>
@@ -195,6 +196,8 @@
 
 
                 </ion-card-content>
+
+
                 <div class="receta">
 
 
@@ -209,6 +212,12 @@
                                         style=" text-align: center;" alt=""
                                         (click)="crearReceta(item.idConsultaMedica)" />
                                     <ion-label style=" font-weight: bold;">Crear</ion-label>
+                            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start" style=" text-align: center;" >
+
+
+                                <ion-item>
+                                    <img src="../../../assets/imagenes/recertamas.png" height="30" style=" text-align: center;"  alt=""
+                                        (click)="crearReceta(item.idConsultaMedica)" /> <ion-label style=" font-weight: bold;" >Crear</ion-label>
 
                                 </ion-item>
                             </ion-col>
@@ -217,6 +226,7 @@
                                     <img src="../../../assets/imagenes/verrece.png" height="30" alt=""
                                         (click)="verReceta(item.idConsultaMedica)" />
                                     <ion-label style=" font-weight: bold; font-style: italic;">&nbsp;Ver</ion-label>
+                                        (click)="verReceta(item.idConsultaMedica)" /><ion-label style=" font-weight: bold; font-style: italic;">&nbsp;Ver</ion-label>
 
                                 </ion-item>
                             </ion-col>

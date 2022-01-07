@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MiperfilService} from '../../Services/miperfil.service';
 import { IniciosesionService } from 'src/app/Services/iniciosesion.service';
 import {RegistromedicoService } from 'src/app/Services/registromedico.service'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-mi-perfil',
@@ -33,8 +34,9 @@ export class MiPerfilPage implements OnInit {
     especialidad_id: '',usuario_id: ''
   }
 
+  public form: FormGroup
 
-  constructor(private actRoute:ActivatedRoute,  public router: Router,private medicoservice: MiperfilService, public inicioservice: IniciosesionService,public registromedi:RegistromedicoService,public miperfilservice: MiperfilService) {
+  constructor(private formBuilder: FormBuilder,private actRoute:ActivatedRoute,  public router: Router,private medicoservice: MiperfilService, public inicioservice: IniciosesionService,public registromedi:RegistromedicoService,public miperfilservice: MiperfilService) {
     this.obtenerEspecialidad();
     this.miperfilservice.$getObjectSource.subscribe(
       data=>{
@@ -45,6 +47,25 @@ export class MiPerfilPage implements OnInit {
   }
 
   ngOnInit():void {
+    this.form=this.formBuilder.group( {
+      cedula:['',
+      [
+        Validators.required,
+        Validators.pattern('^[0-9]+$'),
+        Validators.minLength(9)
+      ]
+      ],
+      nombres:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      apellidos:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      direccion:['',[Validators.required]],
+      fechnac:['',[Validators.required]],
+      telefono:['',Validators.compose([
+        Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(10)])],
+      titulo:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      espec:['',[Validators.required]],
+      correo:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[u]+[p]+[s]+.[e]+[d]+[u]+.[e]+[c.]+$')]]
+
+    })
     /*
     this.inicioservice.$getObjectSource.subscribe(
       data=>{

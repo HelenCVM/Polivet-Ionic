@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -8,10 +8,12 @@ import { RegistroMedicoPageRoutingModule } from './registro-medico-routing.modul
 
 import { RegistroMedicoPage } from './registro-medico.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     RegistroMedicoPageRoutingModule
   ],
