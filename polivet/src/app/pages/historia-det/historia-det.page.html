@@ -45,7 +45,7 @@
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
                         <ion-icon name="calendar-number-outline"></ion-icon>
-                        <ion-label>  No Historia:  
+                        <ion-label> No Historia:
                             <br>
                             {{item.idHistorial}}
                         </ion-label>
@@ -65,7 +65,7 @@
                         <ion-icon name="alarm-outline"></ion-icon>
                         <ion-label>Hora:
                             <br>
-                           {{item.hora}}
+                            {{item.hora}}
                         </ion-label>
                     </ion-item>
                 </ion-col>
@@ -77,7 +77,7 @@
                         <ion-icon name="paw-outline"></ion-icon>
                         <ion-label> Paciente:
                             <br>
-                          {{item.mascota_id.nombre}}
+                            {{item.mascota_id.nombre}}
                         </ion-label>
                     </ion-item>
                 </ion-col>
@@ -97,7 +97,8 @@
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
                         <ion-icon name="person-outline"></ion-icon>
-                        <ion-label>&nbsp; <em><b>Propietario:</b></em>  {{item.mascota_id.id_mascota_propietario.propietario}}
+                        <ion-label>&nbsp; <em><b>Propietario:</b></em>
+                            {{item.mascota_id.id_mascota_propietario.propietario}}
                             <br>
                             &nbsp;<em><b>Correo:</b></em> {{item.mascota_id.id_mascota_propietario.correo}}
                             <br>
@@ -180,7 +181,7 @@
 
 
 
-            <ion-card *ngFor="let item of consultaByHistoria ">
+            <ion-card *ngFor="let item of consultaByHistoria |  paginate: {itemsPerPage:2, currentPage:cp} ">
                 <!--  <ion-card-header>
                     <ion-card-title>No. Historia {{item.idHistorial}}</ion-card-title>
                 </ion-card-header>
@@ -194,66 +195,59 @@
 
 
                 </ion-card-content>
-<<<<<<< HEAD
                 <div class="receta">
 
 
                     <ion-grid>
                         <ion-row>
-                            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start" style=" text-align: center;" >
-                                
+                            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start"
+                                style=" text-align: center;">
+
 
                                 <ion-item>
-                                    <img src="../../../assets/imagenes/recertamas.png" height="30" style=" text-align: center;"  alt=""
-                                        (click)="crearReceta(item.idConsultaMedica)" /> <ion-label style=" font-weight: bold;" >Crear</ion-label>
-                                    
+                                    <img src="../../../assets/imagenes/recertamas.png" height="30"
+                                        style=" text-align: center;" alt=""
+                                        (click)="crearReceta(item.idConsultaMedica)" />
+                                    <ion-label style=" font-weight: bold;">Crear</ion-label>
+
                                 </ion-item>
                             </ion-col>
                             <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                                 <ion-item>
                                     <img src="../../../assets/imagenes/verrece.png" height="30" alt=""
-                                        (click)="verReceta(item.idConsultaMedica)" /><ion-label style=" font-weight: bold; font-style: italic;">&nbsp;Ver</ion-label>
-                                    
+                                        (click)="verReceta(item.idConsultaMedica)" />
+                                    <ion-label style=" font-weight: bold; font-style: italic;">&nbsp;Ver</ion-label>
+
                                 </ion-item>
                             </ion-col>
                         </ion-row>
 
                     </ion-grid>
                 </div>
-=======
-
-
-                  <ion-grid>
-                    <ion-row>
-                      <ion-col  size="3" offset="5" size-lg size-md size-sm size-xs class="ion-align-self-start">
-                        <ion-button  [attr.disabled]="buttonDisabled" color="shade" (click)="crearReceta(item.idConsultaMedica)">crear receta</ion-button>
-                      </ion-col>
-                      <br>
-                      <ion-col  size="3" offset="5" size-lg size-md size-sm size-xs class="ion-align-self-start">
-                        <ion-button   color="shade" (click)="verReceta(item.idConsultaMedica)">ver receta  </ion-button>
-                      </ion-col>
-                      <br>
-                    </ion-row>
-                  </ion-grid>
-
->>>>>>> 0a85077fabd4c2244bd225e5b2bedf4a813a5e57
             </ion-card>
 
 
         </ion-grid>
+        <div>
+            <pagination-controls (pageChange)="cp = $event"   previousLabel="Antes"
+            nextLabel="Siguiente"></pagination-controls>
 
 
- <div align="center">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-        <ion-button color="shade" (click)="atras()" >Atras</ion-button>
-      </ion-col>
-      <br>
-    </ion-row>
-  </ion-grid>
-</div>
-</div>
+          </div>
+
+
+
+        <div align="center">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-button color="shade" (click)="atras()">Atras</ion-button>
+                    </ion-col>
+                    <br>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </div>
 
 
 

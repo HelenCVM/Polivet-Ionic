@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { HistoriaDetPageRoutingModule } from './historia-det-routing.module';
 
 import { HistoriaDetPage } from './historia-det.page';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HistoriaDetPageRoutingModule
+    HistoriaDetPageRoutingModule,
+    NgxPaginationModule,
+
   ],
   declarations: [HistoriaDetPage]
 })

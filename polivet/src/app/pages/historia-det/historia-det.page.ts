@@ -9,6 +9,8 @@ import {RecetaService} from 'src/app/Services/receta.service';
   styleUrls: ['./historia-det.page.scss'],
 })
 export class HistoriaDetPage implements OnInit {
+  cp=1
+
 idConsulta:any
 consultasMedicas:any=[]
 consultaByHistoria: any= []

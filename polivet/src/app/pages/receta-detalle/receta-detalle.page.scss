@@ -20,6 +20,7 @@
     margin: 10px auto;
     background-color: #f7f7f7;
     border-radius: 4%;
+    text-align: center;
   }
 
   .form-container p {
@@ -58,8 +59,16 @@
   }
   .form-container  ion-grid{
     border-color: black; 
-    border-width: .01em; 
-    border-style:solid; margin-bottom : -1px;
-    background-color: lightgrey
+    border-width: .0001em; 
+    border-style:solid; margin-bottom : -2px;
+    background-color: rgb(240, 240, 240)
   }
 
+  .form-container  ion-button{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+  
+  } 
+  .form-container  ion-grid ion-label{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }

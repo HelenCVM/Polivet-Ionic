@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { PropietarioDetalePageRoutingModule } from './propietario-detale-routing.module';
 
 import { PropietarioDetalePage } from './propietario-detale.page';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PropietarioDetalePageRoutingModule
+    PropietarioDetalePageRoutingModule,
+    NgxPaginationModule,
+
   ],
   declarations: [PropietarioDetalePage]
 })

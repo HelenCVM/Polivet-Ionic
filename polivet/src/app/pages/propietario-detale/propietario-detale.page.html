@@ -1,159 +1,140 @@
 <ion-header>
-  <ion-toolbar>
-      <div align="right">
-          <img src="../assets/imagenes/Logo.png" height="50" alt="">
-      </div>
+    <ion-toolbar>
+        <div align="right">
+            <img src="../assets/imagenes/Logo.png" height="50" alt="">
+        </div>
 
-      <ion-buttons slot="start">
-          <ion-menu-button menu="main-menu" color="light"> </ion-menu-button>
-      </ion-buttons>
+        <ion-buttons slot="start">
+            <ion-menu-button menu="main-menu" color="light"> </ion-menu-button>
+        </ion-buttons>
 
-  </ion-toolbar>
+    </ion-toolbar>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 
 </ion-header>
 
 <ion-content>
-    <h1 >  <em> CARRERA DE MEDICINA
-        VETERINARIA Y ZOOTECNIA </em>
-       
-        
-</h1>
+    <h1> <em> CARRERA DE MEDICINA VETERINARIA Y ZOOTECNIA </em></h1>
 
-<div class="form-container">
-<<<<<<< HEAD
-    <ion-grid *ngFor="let item of propietario"> 
-        <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;">               <ion-icon name="person-outline"></ion-icon>
-            <em> Propietario  {{item.propietario}}
-=======
-    <ion-grid *ngFor="let item of propietario">
-        <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Propietario  {{item.propietario}}
->>>>>>> 0a85077fabd4c2244bd225e5b2bedf4a813a5e57
-        </em>
-    </p>
+    <div class="form-container">
+        <ion-grid *ngFor="let item of propietario">
+            
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em>
+                <ion-icon name="person-outline"></ion-icon>      Propietario {{item.propietario}}</em></p>
+            <ion-row>
+                <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                    <ion-item>
+                        <ion-icon name="person"></ion-icon>
+                        <ion-label> &nbsp; Propietario:
+                            <br>
+                            &nbsp; {{item.propietario}}
+                        </ion-label>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                    <ion-item>
+                        <ion-icon name="mail"></ion-icon>
 
-       <ion-row>
-        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-            <ion-item>
-                <ion-icon name="person"></ion-icon>
-                <ion-label> &nbsp;  Propietario:
-                    <br>
-                    &nbsp; {{item.propietario}}
-                </ion-label>
-            </ion-item>
-        </ion-col>
-        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-            <ion-item>
-                <ion-icon name="mail"></ion-icon>
+                        <ion-label> &nbsp;Correo:
+                            <br>
+                            &nbsp; {{item.correo}}
+                        </ion-label>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                    <ion-item>
+                        <ion-icon name="locate"></ion-icon>
 
-                <ion-label> &nbsp;Correo:
-                    <br>
-                    &nbsp; {{item.correo}}
-                </ion-label>
-            </ion-item>
-        </ion-col>
-       </ion-row>
-       <ion-row>
-        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-            <ion-item>
-                <ion-icon name="locate"></ion-icon>
+                        <ion-label> &nbsp;Ciudad:
+                            <br>
+                            &nbsp; {{item.cuidad}}
+                        </ion-label>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                    <ion-item>
+                        <ion-icon name="call"></ion-icon>
 
-                <ion-label> &nbsp;Ciudad:
-                    <br>
-                    &nbsp;  {{item.cuidad}}
-                </ion-label>
-            </ion-item>
-        </ion-col>
-        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-            <ion-item>
-                <ion-icon name="call"></ion-icon>
+                        <ion-label>&nbsp;Telefono:
+                            <br>
+                            &nbsp;{{item.telefono}}
+                        </ion-label>
+                    </ion-item>
+                </ion-col>
 
-                <ion-label>&nbsp;Telefono:
-                    <br>
-                    &nbsp;{{item.telefono}}
-                </ion-label>
-            </ion-item>
-        </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                    <ion-item>
+                        <ion-icon name="location"></ion-icon>
+                        <ion-label>&nbsp;Direccion:
+                            <br>
+                            &nbsp;{{item.direccion}}
+                        </ion-label>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
 
-       </ion-row>
-       <ion-row>
-        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-            <ion-item>
-                <ion-icon name="location"></ion-icon>
-                <ion-label>&nbsp;Direccion:
-                    <br>
-                    &nbsp;{{item.direccion}}
-                </ion-label>
-            </ion-item>
-        </ion-col>
-       </ion-row>
-       <ion-row>
-        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-<<<<<<< HEAD
-           
-            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;">  <ion-icon name="paw-outline"></ion-icon>  <em> Mascotas:   
-=======
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;">
+                        <ion-icon name="paw-outline"></ion-icon> <em> Mascotas:</em>
+                    </p>
+                    <ion-button color="shade" (click)="agregarMascota()">Agregar Mascota</ion-button>
 
-                <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Mascotas:
->>>>>>> 0a85077fabd4c2244bd225e5b2bedf4a813a5e57
-                    </em></p>
-                      <ion-button color="shade" (click)="agregarMascota()">Agregar Mascota</ion-button>
-
-        </ion-col>
-
-
-
-
-    </ion-row>
-
-   
-        <ion-card *ngFor="let item of listMascotabyPropietario ">
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-card *ngFor="let item of listMascotabyPropietario  |  paginate: {itemsPerPage:5, currentPage:cp} ">
             <ion-card-header>
                 <ion-card-title><em>Nombre Paciente: {{item.nombre}}</em> </ion-card-title>
             </ion-card-header>
 
             <ion-card-content>
                 <ion-card-subtitle>Sexo: {{item.sexo}}</ion-card-subtitle>
-                <ion-card-subtitle>Especie: {{item.especie_id.especie_id.nombreEspecie}}</ion-card-subtitle>
+                <ion-card-subtitle>Especie: {{item.especie_id.especie_id.nombreEspecie}}
+                </ion-card-subtitle>
                 <ion-card-subtitle>Raza: {{item.especie_id.nombre}}</ion-card-subtitle>
                 <ion-card-subtitle>Fecha Nacimiento: {{item.fechaNac}}</ion-card-subtitle>
                 <ion-card-subtitle>Edad: {{item.edad}}</ion-card-subtitle>
-                <ion-card-subtitle>Color y señal particulares: {{item.coloYSenalesParti}}</ion-card-subtitle>
+                <ion-card-subtitle>Color y señal particulares: {{item.coloYSenalesParti}}
+                </ion-card-subtitle>
             </ion-card-content>
         </ion-card>
-<<<<<<< HEAD
-   
-  
-=======
-    </ion-row>
+        <div>
+            <pagination-controls (pageChange)="cp = $event"   previousLabel="Antes"
+            nextLabel="Siguiente"></pagination-controls>
+    
+    
+          </div>
+    
+        <div align="center">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-button color="shade" (click)="atras()">Atras</ion-button>
+                    </ion-col>
+                    <br>
+                </ion-row>
+            </ion-grid>
+        </div>
 
->>>>>>> 0a85077fabd4c2244bd225e5b2bedf4a813a5e57
-    </ion-grid>
-
-    <div align="center">
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-            <ion-button color="shade" (click)="atras()" >Atras</ion-button>
-          </ion-col>
-          <br>
-        </ion-row>
-      </ion-grid>
     </div>
-</div>
 
 
 </ion-content>

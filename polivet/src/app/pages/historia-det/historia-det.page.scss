@@ -36,16 +36,6 @@ ion-toolbar{
   }
 
 
-<<<<<<< HEAD
-  
-  
-=======
-ion-label{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-
->>>>>>> 0a85077fabd4c2244bd225e5b2bedf4a813a5e57
 .form-container ion-button {
   background-color: #063470;
   margin-top: 10px;
@@ -79,7 +69,16 @@ h1{
   font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
-.form-container ion-label{
+.form-containerr ion-label{
   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.form-container  pagination-controls{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
 
 }
+.form-container  ion-button{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+
+} 

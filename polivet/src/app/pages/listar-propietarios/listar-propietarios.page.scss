@@ -40,7 +40,6 @@ ion-toolbar{
 
 ion-label{
     font-family: Georgia, 'Times New Roman', Times, serif;
-<<<<<<< HEAD
 
 }
 
@@ -58,6 +57,23 @@ ion-label{
   text-align: center;
 
 }
-=======
+ion-card{
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 10px 50px 8px 26px;
+  cursor: pointer;
 }
->>>>>>> 0a85077fabd4c2244bd225e5b2bedf4a813a5e57
+ion-card{
+      background-repeat: no-repeat;
+    background-position: right;
+    background-size: 90px;
+    text-align: center;
+}
+.form-container  ion-button{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+
+} 
+

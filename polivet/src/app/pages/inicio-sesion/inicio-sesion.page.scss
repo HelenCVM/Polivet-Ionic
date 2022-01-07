@@ -69,6 +69,8 @@ ion-toolbar{
       height: 38px;
       width: 300px;
       align-items: center;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+
     }
 
     img{
@@ -98,4 +100,16 @@ ion-toolbar{
   flex-direction: column;
   align-items: center;
 
+}
+h1{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+a{
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+ion-input{
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
