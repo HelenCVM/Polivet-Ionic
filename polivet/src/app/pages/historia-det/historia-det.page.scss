@@ -1,94 +1,96 @@
 ion-toolbar{
-    --background: #063470;
-   }
-   ion-toolbar{
-    --background: #063470;
-   }
-   html{
-    --background: #f5f5f3;
-  }
-  .form-container{
-    font-family: 95%  cursive;
-    max-width: 800px;
-    padding: 16px;
-    margin: 10px auto;
-    background-color: #f7f7f7;
-    border-radius: 4%;
-  }
-  .form-container p{
-      background: #FFE333;
-      padding: 20px 0;
-      font-size: 140%;
-      font-weight: 250;
-      text-align: center;
-      color: black;
-      margin: -16px;
-
-  }
-
-  .form-container ion-button {
-    background-color: #063470;
-    margin-top: 10px;
-    height: 38px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-
-
-
-
-ion-label{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  --background: #063470;
+ }
+ ion-toolbar{
+  --background: #063470;
+ }
+ ion-toolbar{
+  --background: #063470;
+ }
+ html{
+  --background: #f5f5f3;
 }
+.form-container{
+  font-family: 95%  cursive;
+  max-width: 1000px;
+  padding: 15px;
+  margin: 10px auto;
+  background-color: #f7f7f7;
+  border-radius: 4%;
+  text-align: center;
+}
+.form-container p{
+    background: #FFE333;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 250;
+    text-align: center;
+    color: black;
+    margin: -16px;
 
-
-
+}
 
 .form-container ion-button {
   background-color: #063470;
   margin-top: 10px;
   height: 38px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.form-container ion-label{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: justify;
 
 }
+.form-container ion-button {
+background-color: #063470;
+margin-top: 10px;
+height: 38px;
+align-items: center;
+}
+ion-input{
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 
 h1{
-  color: #063470;
-  text-align: center;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-style: oblique;
-  -webkit-text-stroke: 0.50px  #FFE333;
-  font-size: xx-large ;
-   background-color: #cfd0dc ;
+color: #063470;
+text-align: center;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-style: oblique;
+-webkit-text-stroke: 0.50px  #FFE333;
+font-size: xx-large ;  
+ background-color: #cfd0dc ; 
 
 }
-.form-container  ion-grid{
-  text-align: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.form-container ion-card ion-card-title{
+font-family: Georgia, 'Times New Roman', Times, serif; 
+
+font-weight: bold;
+text-align: center;
 }
-
-.form-container  ion-card{
-  text-align: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-
-.form-container  ion-card ion-card-subtitle{
-  font-family: Georgia, 'Times New Roman', Times, serif;
-
-}
-.form-containerr ion-label{
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.form-container ion-card ion-card-subtitle{
+font-family: Georgia, 'Times New Roman', Times, serif; 
+text-align: justify;
 }
 .form-container  pagination-controls{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  text-align: center;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+text-align: center;
+
+}
+.form-container ion-grid  ion-button {
+background-color: #063470;
+margin-top: 10px;
+height: 38px;
+align-items: center;
+text-align: center;
 
 }
 .form-container  ion-button{
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-style: italic;
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-style: italic;
 
 } 
-

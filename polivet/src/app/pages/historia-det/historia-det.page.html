@@ -3,13 +3,10 @@
         <div align="right">
             <img src="../assets/imagenes/Logo.png" height="50" alt="">
         </div>
-
         <ion-buttons slot="start">
             <ion-menu-button menu="main-menu" color="light"> </ion-menu-button>
         </ion-buttons>
-
     </ion-toolbar>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -23,30 +20,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-
 </ion-header>
-
-
 <ion-content>
-    <h1> <em> CARRERA DE MEDICINA
-            VETERINARIA Y ZOOTECNIA </em>
-
-
-    </h1>
-
+    <h1> <em> CARRERA DE MEDICINA VETERINARIA Y ZOOTECNIA </em></h1>
     <div class="form-container">
         <ion-grid *ngFor="let item of consultasMedicas; let sep">
-
             <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;">
-                <ion-icon name="reader-outline"></ion-icon> <em> Historial Clínico
-                </em>
+                <ion-icon name="reader-outline"></ion-icon> <em> Historial Clínico </em>
             </p>
             <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
                         <ion-icon name="calendar-number-outline"></ion-icon>
                         <ion-label> No Historia:
-                        <ion-label>  No Historia:
                             <br>
                             {{item.idHistorial}}
                         </ion-label>
@@ -61,6 +47,9 @@
                         </ion-label>
                     </ion-item>
                 </ion-col>
+                
+            </ion-row>
+            <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
                         <ion-icon name="alarm-outline"></ion-icon>
@@ -70,9 +59,6 @@
                         </ion-label>
                     </ion-item>
                 </ion-col>
-
-            </ion-row>
-            <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
                         <ion-icon name="paw-outline"></ion-icon>
@@ -92,9 +78,7 @@
                     </ion-item>
                 </ion-col>
             </ion-row>
-
             <ion-row>
-
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
                         <ion-icon name="person-outline"></ion-icon>
@@ -111,14 +95,11 @@
                         </ion-label>
                     </ion-item>
                 </ion-col>
-
             </ion-row>
             <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> 1.Datos del
                     paciente:
                 </em></p>
-
             <ion-row>
-
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
                         <ion-icon name="fish-outline"></ion-icon>
@@ -135,9 +116,6 @@
                         </ion-label>
                     </ion-item>
                 </ion-col>
-
-
-
             </ion-row>
             <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
@@ -147,7 +125,6 @@
                         </ion-label>
                     </ion-item>
                 </ion-col>
-
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
                         <ion-icon name="calendar-outline"></ion-icon>
@@ -156,9 +133,7 @@
                         </ion-label>
                     </ion-item>
                 </ion-col>
-
             </ion-row>
-
             <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
@@ -166,87 +141,48 @@
                         <ion-label>Sexo: {{item.mascota_id.sexo}}</ion-label>
                     </ion-item>
                 </ion-col>
-
             </ion-row>
             <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-
                     <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Consultas
                             Medicas:
                         </em></p>
                     <ion-button color="shade" (click)="agregarNuevaConsulta()">Agregar consulta medica</ion-button>
-
                 </ion-col>
-
             </ion-row>
-
-
-
             <ion-card *ngFor="let item of consultaByHistoria |  paginate: {itemsPerPage:2, currentPage:cp} ">
-                <!--  <ion-card-header>
-                    <ion-card-title>No. Historia {{item.idHistorial}}</ion-card-title>
-                </ion-card-header>
-    -->
+
                 <ion-card-content (click)="  editarConstantesDetByConsultaId(item.idConsultaMedica)">
                     <ion-card-subtitle>Fecha Consulta: {{item.fechaConsulta.split('T')[0]}}</ion-card-subtitle>
                     <ion-card-subtitle>Motivo Consulta: {{item.motivoConsulta}}</ion-card-subtitle>
-
-
-
-
-
                 </ion-card-content>
 
-
-                <div class="receta">
-
-
-                    <ion-grid>
-                        <ion-row>
-                            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start"
-                                style=" text-align: center;">
-
-
-                                <ion-item>
-                                    <img src="../../../assets/imagenes/recertamas.png" height="30"
-                                        style=" text-align: center;" alt=""
-                                        (click)="crearReceta(item.idConsultaMedica)" />
-                                    <ion-label style=" font-weight: bold;">Crear</ion-label>
-                            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start" style=" text-align: center;" >
-
-
-                                <ion-item>
-                                    <img src="../../../assets/imagenes/recertamas.png" height="30" style=" text-align: center;"  alt=""
-                                        (click)="crearReceta(item.idConsultaMedica)" /> <ion-label style=" font-weight: bold;" >Crear</ion-label>
-
-                                </ion-item>
-                            </ion-col>
-                            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-                                <ion-item>
-                                    <img src="../../../assets/imagenes/verrece.png" height="30" alt=""
-                                        (click)="verReceta(item.idConsultaMedica)" />
-                                    <ion-label style=" font-weight: bold; font-style: italic;">&nbsp;Ver</ion-label>
-                                        (click)="verReceta(item.idConsultaMedica)" /><ion-label style=" font-weight: bold; font-style: italic;">&nbsp;Ver</ion-label>
-
-                                </ion-item>
-                            </ion-col>
-                        </ion-row>
-
-                    </ion-grid>
-                </div>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start"
+                            style=" text-align: center;">
+                            <ion-item>
+                                <img src="../../../assets/imagenes/recertamas.png" height="30"
+                                    style=" text-align: center;" alt="" (click)="crearReceta(item.idConsultaMedica)" />
+                                <ion-label style=" font-weight: bold;">Crear</ion-label>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                            <ion-item>
+                                <img src="../../../assets/imagenes/verrece.png" height="30" alt=""
+                                    (click)="verReceta(item.idConsultaMedica)" />
+                                <ion-label style=" font-weight: bold; font-style: italic;">&nbsp;Ver
+                                </ion-label>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
             </ion-card>
-
-
         </ion-grid>
         <div>
-            <pagination-controls (pageChange)="cp = $event"   previousLabel="Antes"
-            nextLabel="Siguiente"></pagination-controls>
-
-
-          </div>
-
-
-
+            <pagination-controls (pageChange)="cp = $event" previousLabel="Antes" nextLabel="Siguiente">
+            </pagination-controls>
+        </div>
         <div align="center">
             <ion-grid>
                 <ion-row>
@@ -257,8 +193,6 @@
                 </ion-row>
             </ion-grid>
         </div>
+
     </div>
-
-
-
 </ion-content>

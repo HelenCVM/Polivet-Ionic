@@ -26,14 +26,15 @@
 </ion-header>
 
 <ion-content>
-  <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> CARRERA DE MEDICINA
-      VETERINARIA Y ZOOTECNICA
-    </em>
-  </h1>
+  <h1> <em> CARRERA DE MEDICINA
+    VETERINARIA Y ZOOTECNIA </em>
+
+
+</h1>
 
   <div class="form-container">
     <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em>
-        Razas </em></p>
+      <ion-icon name="paw-outline"></ion-icon> Razas </em></p>
 
     <ion-item>
       <ion-label>Especie</ion-label>
@@ -53,16 +54,16 @@
       <ion-row style="border-bottom: groove;">
 
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-          <ion-label>Especie</ion-label>
+          <ion-label style="font-weight: bold;">Especie</ion-label>
         </ion-col>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-          <ion-label>Raza</ion-label>
+          <ion-label style="font-weight: bold;">Raza</ion-label>
         </ion-col>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-          <ion-label>Editar</ion-label>
+          <ion-label style="font-weight: bold;">Editar</ion-label>
         </ion-col>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-          <ion-label>Eliminar</ion-label>
+          <ion-label style="font-weight: bold;">Eliminar</ion-label>
         </ion-col>
       </ion-row>
       <ion-row style="border-bottom: groove;" *ngFor="let item of razas | paginate: {itemsPerPage:4, currentPage:cp} ">
@@ -110,7 +111,7 @@
         <ion-input placeholder="Nombre raza" [(ngModel)]="raza.nombre" style="text-align: center;"
           [ngModelOptions]="{standalone: true}">
           <ion-icon name="paw"></ion-icon>
-          <ion-label> Nombre:</ion-label>
+          <ion-label>&nbsp; Nombre:</ion-label>
 
         </ion-input>
       </ion-item>

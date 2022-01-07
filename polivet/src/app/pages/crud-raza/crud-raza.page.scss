@@ -10,6 +10,8 @@ ion-toolbar{
     margin: 10px auto;
     background-color: #f7f7f7;
     border-radius: 4%;
+    text-align: center;
+
   }
   .form-container p{
       background: #FFE333;
@@ -23,9 +25,21 @@ ion-toolbar{
   }
   
 
-ion-label{
+  .form-container  ion-label{
     font-family: Georgia, 'Times New Roman', Times, serif;
-}
+    font-style: italic;
+  
+  } 
+  .form-container  ion-select{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+  
+  } 
+  .form-container  ion-select-option {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+  
+  }  
 .form-container ion-button {
   background-color: #063470;
   margin-top: 10px;
@@ -35,4 +49,25 @@ ion-label{
 }
 ion-input{
   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h1{
+  color: #063470;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: oblique;
+  -webkit-text-stroke: 0.50px  #FFE333;
+  font-size: xx-large ;
+   background-color: #cfd0dc ;
+
+}
+.form-container  ion-button{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  text-align: center;
+
+} 
+.form-container  pagination-controls{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+
 }
