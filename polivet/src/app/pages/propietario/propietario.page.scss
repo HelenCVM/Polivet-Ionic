@@ -6,7 +6,7 @@ ion-toolbar{
   }
   .form-container{
     font-family: 95%  cursive;
-    max-width: 500px;
+    max-width: 800px;
     padding: 16px;
     margin: 10px auto;
     background-color: #f7f7f7;
@@ -29,18 +29,24 @@ ion-toolbar{
     align-items: center;
   
 }
-ion-input{
+.form-container ion-input{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 span{
   color: red;
   align-content: center;
   text-align: center;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
-  
-ion-input ion-label{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
 
-}
+.form-container ion-input ion-label{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+
+} 
+.form-container  ion-label{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+
+} 

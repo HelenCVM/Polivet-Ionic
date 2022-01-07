@@ -36,27 +36,30 @@ export class AgregarConsultaPage implements OnInit {
   @Input() InicioDetails = {
     motivoConsulta: '', vacunacion: '', desparacitacion: '', estadoR: '', producto: '', fecha: '',
     procedencia: '', anamnesis: '', diagnostico: '',
-    pronostico: '', tratamiento: '', observaciones: '', idMascota: '' }
+    pronostico: '', tratamiento: '', observaciones: '', idMascota: ''
+  }
 
-    public form: FormGroup
+  public form: FormGroup
 
-  constructor(private formBuilder: FormBuilder,public inicioservice: IniciosesionService, public router: Router, private consultaMedicaService: ConsultamedicaService) { 
+  constructor(private formBuilder: FormBuilder, public inicioservice: IniciosesionService, public router: Router,
+    private consultaMedicaService: ConsultamedicaService) {
 
     this.obtenerConstantesCab();
+    this.listConsutalbyHistoria()
   }
 
   ngOnInit() {
 
-    this.form=this.formBuilder.group( {
-      
-      peso:['',[Validators.required, Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]],
-      FCard:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
-      t:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
-      FResp:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
-      pulso:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
-      otras:['',[Validators.required]] ,
-      mucosas:['',[Validators.required]] ,
-      turgenciapiel:['',[Validators.required]] 
+    this.form = this.formBuilder.group({
+
+      peso: ['', [Validators.required, Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]],
+      FCard: ['', [Validators.required, Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]],
+      t: ['', [Validators.required, Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]],
+      FResp: ['', [Validators.required, Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]],
+      pulso: ['', [Validators.required, Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]],
+      otras: ['', [Validators.required]],
+      mucosas: ['', [Validators.required]],
+      turgenciapiel: ['', [Validators.required]]
 
 
 
@@ -75,8 +78,9 @@ export class AgregarConsultaPage implements OnInit {
       this.constatesCabList = data
       console.log(data)
     })
-   
+
   }
+
 
 
   guardarASA(event: CustomEvent) {
@@ -126,21 +130,28 @@ export class AgregarConsultaPage implements OnInit {
     this.InicioDetails.estadoR = this.opcionEstadoReproductivo
     this.InicioDetails.fecha = this.opcionFechaVacuna
     this.InicioDetails.procedencia = this.opcionProcedencia
-    this.InicioDetails.idMascota=this.idHistoria
+    this.InicioDetails.idMascota = this.idHistoria
     console.log('consulta --------------', this.InicioDetails)
     this.consultaMedicaService.crearConsultaMByHistoria(this.InicioDetails)
       .subscribe((data) => {
-       this.guardarConstantesFisio();
+        this.guardarConstantesFisio();
+        this.obtenerConstantesCab();    
+        this.listConsutalbyHistoria()
+
+        this.router.navigate(['/historia-det'])
 
         console.log('Estamos en el metodod  de consulta M by historia')
 
         console.log("id de consulta", data)
 
 
+
       }, (error) => {
         console.log(error)
       }
       );
+      this.listConsutalbyHistoria()
+
 
   }
 
@@ -170,8 +181,16 @@ export class AgregarConsultaPage implements OnInit {
     this.constantesFisioCab.push(constanteEstadoM)
     console.log(this.constantesFisioCab)
     this.consultaMedicaService.crearConstantesF(this.constantesFisioCab)
-    this.router.navigate(['/historias-clinicas'])
+    this.listConsutalbyHistoria()
+
+
   }
 
+  listConsutalbyHistoria() {
+    this.consultaMedicaService.consultamedicaByHistoria(this.idConsultaMedica).subscribe(data => {
 
+      console.log('esta recibiendo las consultas ')
+      console.log(data, "historia")
+    })
+  }
 }

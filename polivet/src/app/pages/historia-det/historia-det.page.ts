@@ -32,6 +32,7 @@ public buttonDisabled:boolean = false
   }
 
   ngOnInit() {
+    this.listConsutalbyHistoria()
 
   }
 

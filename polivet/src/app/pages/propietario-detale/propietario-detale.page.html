@@ -27,31 +27,36 @@
 </ion-header>
 
 <ion-content>
-    <br>
-    <h1  style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> CARRERA DE MEDICINA
-        VETERINARIA Y ZOOTECNICA
-    </em>
+    <h1 >  <em> CARRERA DE MEDICINA
+        VETERINARIA Y ZOOTECNIA </em>
+       
+        
 </h1>
+
 <div class="form-container">
     <ion-grid *ngFor="let item of propietario"> 
-        <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Propietario  {{item.propietario}}
+        <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;">               <ion-icon name="person-outline"></ion-icon>
+            <em> Propietario  {{item.propietario}}
         </em>
     </p>
 
        <ion-row>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
             <ion-item>
-                <ion-label>Propietario:
+                <ion-icon name="person"></ion-icon>
+                <ion-label> &nbsp;  Propietario:
                     <br>
-                    {{item.propietario}}
+                    &nbsp; {{item.propietario}}
                 </ion-label>
             </ion-item>
         </ion-col>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
             <ion-item>
-                <ion-label>Correo:
+                <ion-icon name="mail"></ion-icon>
+
+                <ion-label> &nbsp;Correo:
                     <br>
-                    {{item.correo}}
+                    &nbsp; {{item.correo}}
                 </ion-label>
             </ion-item>
         </ion-col>
@@ -59,17 +64,21 @@
        <ion-row>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
             <ion-item>
-                <ion-label>Ciudad:
+                <ion-icon name="locate"></ion-icon>
+
+                <ion-label> &nbsp;Ciudad:
                     <br>
-                    {{item.cuidad}}
+                    &nbsp;  {{item.cuidad}}
                 </ion-label>
             </ion-item>
         </ion-col>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
             <ion-item>
-                <ion-label>Telefono:
+                <ion-icon name="call"></ion-icon>
+
+                <ion-label>&nbsp;Telefono:
                     <br>
-                    {{item.telefono}}
+                    &nbsp;{{item.telefono}}
                 </ion-label>
             </ion-item>
         </ion-col>
@@ -78,9 +87,10 @@
        <ion-row>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
             <ion-item>
-                <ion-label>Direccion:
+                <ion-icon name="location"></ion-icon>
+                <ion-label>&nbsp;Direccion:
                     <br>
-                    {{item.direccion}}
+                    &nbsp;{{item.direccion}}
                 </ion-label>
             </ion-item>
         </ion-col>
@@ -88,9 +98,9 @@
        <ion-row>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
            
-                <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Mascotas:   
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;">  <ion-icon name="paw-outline"></ion-icon>  <em> Mascotas:   
                     </em></p>
-                    <ion-button color="shade" (click)="agregarMascota()">Agregar Mascota</ion-button>
+                      <ion-button color="shade" (click)="agregarMascota()">Agregar Mascota</ion-button>
 
         </ion-col>
          
@@ -99,10 +109,10 @@
        
     </ion-row>
 
-    <ion-row>
+   
         <ion-card *ngFor="let item of listMascotabyPropietario ">
             <ion-card-header>
-                <ion-card-title>Nombre Paciente: {{item.nombre}}</ion-card-title>
+                <ion-card-title><em>Nombre Paciente: {{item.nombre}}</em> </ion-card-title>
             </ion-card-header>
   
             <ion-card-content>
@@ -114,7 +124,7 @@
                 <ion-card-subtitle>Color y señal particulares: {{item.coloYSenalesParti}}</ion-card-subtitle>
             </ion-card-content>
         </ion-card>
-    </ion-row>
+   
   
     </ion-grid>
 

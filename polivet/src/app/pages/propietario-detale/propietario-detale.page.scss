@@ -30,8 +30,10 @@ ion-toolbar{
   }
   
 
-ion-label{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  .form-container ion-label{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+
 }
 .form-container ion-button {
   background-color: #063470;
@@ -51,6 +53,20 @@ h1{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-style: oblique;
   -webkit-text-stroke: 0.50px  #FFE333;
-  font-size: 100px;
+  font-size: xx-large ;  
+   background-color: #cfd0dc ; 
+
+}
+.form-container ion-card ion-card-title{
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+  
+  font-weight: bold;
+  text-align: center;
+}
+.form-container ion-card ion-card-subtitle{
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+  text-align: justify;
+
+
 
 }

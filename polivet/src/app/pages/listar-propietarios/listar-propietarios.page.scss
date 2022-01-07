@@ -12,7 +12,7 @@ ion-toolbar{
   }
   .form-container{
     font-family: 95%  cursive;
-    max-width: 1000px;
+    max-width: 800px;
     padding: 15px;
     margin: 10px auto;
     background-color: #f7f7f7;
@@ -32,4 +32,20 @@ ion-toolbar{
 
 ion-label{
     font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.form-container ion-card ion-card-title{
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+  font-weight: bold;
+
+}
+.form-container  ion-card ion-card-subtitle{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.form-container  pagination-controls{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+
 }

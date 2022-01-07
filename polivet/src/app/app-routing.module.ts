@@ -95,13 +95,6 @@ const routes: Routes = [
     path: 'receta-detalle',
     loadChildren: () => import('./pages/receta-detalle/receta-detalle.module').then( m => m.RecetaDetallePageModule)
   },
-
-
-
- 
-
-
-
 ];
 @NgModule({
   imports: [

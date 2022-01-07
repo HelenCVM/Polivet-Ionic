@@ -43,12 +43,18 @@ span{
     color: red;
     align-content: center;
     text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   
   }
     
-  ion-input ion-label{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+  .form-container ion-input ion-label{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+  
+  } 
+  .form-container  ion-label{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
   
   } 
   
