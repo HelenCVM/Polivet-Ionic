@@ -3,15 +3,9 @@
     <div align="right">
       <img src="../assets/imagenes/Logo.png" height="50" alt="" />
     </div>
-<!--
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu" color="light"> </ion-menu-button>
     </ion-buttons>
--->
-<ion-button  style="--background: #063470;" slot="start">
-  <ion-back-button style="--background: #063470;" defaultHref="/paginal-inicial"> </ion-back-button>
-</ion-button>
-
   </ion-toolbar>
 
   <meta charset="UTF-8" />
@@ -205,6 +199,10 @@
       <div align="center">
         <ion-grid>
           <ion-row>
+            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+              <ion-button color="shade" (click)="atras()" >Atras</ion-button>
+            </ion-col>
+            <br>
             <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
               <ion-button color="shade" class="button1" (click)="openModal()" ion-button>
                 <img src="../assets/imagenes/editar.png" height="10" alt="" />Editar

@@ -194,6 +194,7 @@
 
 
                 </ion-card-content>
+<<<<<<< HEAD
                 <div class="receta">
 
 
@@ -219,11 +220,41 @@
 
                     </ion-grid>
                 </div>
+=======
+
+
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col  size="3" offset="5" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-button  [attr.disabled]="buttonDisabled" color="shade" (click)="crearReceta(item.idConsultaMedica)">crear receta</ion-button>
+                      </ion-col>
+                      <br>
+                      <ion-col  size="3" offset="5" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-button   color="shade" (click)="verReceta(item.idConsultaMedica)">ver receta  </ion-button>
+                      </ion-col>
+                      <br>
+                    </ion-row>
+                  </ion-grid>
+
+>>>>>>> 0a85077fabd4c2244bd225e5b2bedf4a813a5e57
             </ion-card>
 
 
         </ion-grid>
 
-    </div>
+
+ <div align="center">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+        <ion-button color="shade" (click)="atras()" >Atras</ion-button>
+      </ion-col>
+      <br>
+    </ion-row>
+  </ion-grid>
+</div>
+</div>
+
+
 
 </ion-content>

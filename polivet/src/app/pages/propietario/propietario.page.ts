@@ -43,7 +43,7 @@ export class PropietarioPage implements OnInit {
         Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(10)])],
       correo:['',[Validators.required, Validators.email]],
 
-      
+
     })
   }
 
@@ -55,12 +55,13 @@ export class PropietarioPage implements OnInit {
     this.propietarioService.crearPropietario(this.InicioDetails).subscribe((data: {}) => {
       let propietarios = data
       console.log('Estamos en el propietario')
-      console.log(this.propietario)     
+      console.log(this.propietario)
       console.log("routerrr")
 
     });
 
   }
+
   cancelar(){
     this.router.navigate(['/paginal-inicial'])
   }

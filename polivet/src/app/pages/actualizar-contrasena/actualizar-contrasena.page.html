@@ -23,6 +23,8 @@
 </ion-header>
 
 <ion-content>
+  <br>
+  <br>
   <form (ngSubmit)="addContra(ContraNuevaDetails)" #userForm="ngForm" >
     <div class="form-container">
       <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Recordar contraseña! </em></p>
@@ -50,6 +52,10 @@
     <div align="center">
      <ion-grid>
        <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-button color="shade" (click)="atras()" >Atras</ion-button>
+        </ion-col>
+        <br>
         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
            <ion-button color="shade" type="submit"  [disabled]="!userForm.form.valid" >Enviar</ion-button>
            <br>

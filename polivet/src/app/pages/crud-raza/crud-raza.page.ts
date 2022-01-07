@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Raza } from 'src/app/Modelo/Mascota';
 import { MascotaServiceService } from 'src/app/Services/mascota-service.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-crud-raza',
@@ -20,7 +21,7 @@ export class CrudRazaPage implements OnInit {
   razaId:any
 
 
-  constructor(public mascotaService: MascotaServiceService) {
+  constructor(public mascotaService: MascotaServiceService, public router: Router) {
     this.obtenerEspecie();
 
    }
@@ -32,8 +33,8 @@ export class CrudRazaPage implements OnInit {
     .subscribe((data) => {
       this.especies=data
       console.log('Estamos en el especiee pag princi', this.especies)
-      console.log(this.especies)  
-     
+      console.log(this.especies)
+
     },(error)=>{
       console.log(error)
     }
@@ -47,7 +48,7 @@ export class CrudRazaPage implements OnInit {
     return true
   }
   guardarEspecie(event: CustomEvent) {
- 
+
     this.opcionEspecie=event.detail.value
     console.log("especie",this.opcionEspecie,)
     this.idEspecie=this.opcionEspecie;
@@ -55,7 +56,7 @@ export class CrudRazaPage implements OnInit {
   }
 
   guardarEspecies(event: CustomEvent) {
- 
+
     this.especie=event.detail.value
     console.log("especie",this.especie,)
     this.raza.nombreEspecie=this.especie
@@ -67,9 +68,9 @@ export class CrudRazaPage implements OnInit {
     .subscribe((data) => {
       this.razas=data
       console.log('Estamos en el especieee pag princi', this.razas)
-    
 
-      
+
+
     },(error)=>{
       console.log(error)
     }
@@ -87,17 +88,17 @@ export class CrudRazaPage implements OnInit {
         this.obtenerRaza()
 
       }))
-     
+
 
     }else{
       console.log("raza", this.raza)
       this.mascotaService.crearRaza(this.raza).subscribe((data=>{
         console.log(data)
         this.obtenerRaza()
-  
+
       }))
     }
-   
+
 
   }
 
@@ -118,15 +119,19 @@ export class CrudRazaPage implements OnInit {
     if(res ==true){
       this.mascotaService.eliminarRaza(item.raza_id).subscribe((data=>{
         this.obtenerRaza()
-        console.log(data) 
-  
+        console.log(data)
+
       }))
     }else{
       console.log("nooooo")
       this.obtenerRaza()
 
     }
-    
+
+  }
+
+  atras(){
+    this.router.navigate(['/paginal-inicial'])
   }
 
 }

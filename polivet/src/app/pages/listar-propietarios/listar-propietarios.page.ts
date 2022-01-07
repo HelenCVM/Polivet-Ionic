@@ -42,4 +42,8 @@ export class ListarPropietariosPage implements OnInit {
     console.log("buscar", event.detail.value)
     this.filtroidPropietario = event.detail.value
   }
+
+  atras(){
+    this.router.navigate(['/paginal-inicial'])
+  }
 }

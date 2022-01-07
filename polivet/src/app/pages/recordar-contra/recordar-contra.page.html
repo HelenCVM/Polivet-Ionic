@@ -42,14 +42,21 @@
    <div align="center">
     <ion-grid>
       <ion-row>
+        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+          <ion-button color="shade" (click)="atras()" >Atras</ion-button>
+        </ion-col>
+        <br>
        <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
           <ion-button color="shade" type="submit"  [disabled]="!userForm.form.valid" >Enviar</ion-button>
           <br>
+        </ion-col>
+
+
           <br>
           <div style="text-align: center;color:#FF0000 ;" type="hidden" class="hero-list" *ngIf="datorecorreo === 'No creado'" >
             <h6 style="text-align: center;color:#110a0a ;">Observacion: </h6>Escriba el correo correcto
           </div>
-        </ion-col>
+
 
       </ion-row>
     </ion-grid>

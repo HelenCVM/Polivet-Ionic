@@ -207,5 +207,10 @@ export class MiPerfilPage implements OnInit {
     }
     );
   }
+
+  atras(){
+    this.router.navigate(['/paginal-inicial'])
+  }
+
 }
 

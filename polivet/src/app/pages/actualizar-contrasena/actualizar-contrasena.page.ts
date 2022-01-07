@@ -78,7 +78,9 @@ export class ActualizarContrasenaPage implements OnInit {
 
 
   }
-
+  atras(){
+    this.router.navigate(['/recordar-contra'])
+  }
 
 
 
