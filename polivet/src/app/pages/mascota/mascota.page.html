@@ -31,14 +31,14 @@
     <br>
     <form [formGroup]="form" (ngSubmit)="guardarMascota(InicioDetails)">
         <div class="form-container">
-            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Registro
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <ion-icon name="paw"></ion-icon> <em> Registro
                     Mascota </em></p>
 
             <ion-item>
                 <ion-input placeholder="Nombre Mascota" [(ngModel)]="InicioDetails.nombre" style="text-align: center;"
                     formControlName="mascota">
-                    <ion-icon name="paw"></ion-icon>
-                    <ion-label> Nombre:</ion-label>
+                    <ion-icon name="reader-outline"></ion-icon>                    
+                    <ion-label> &nbsp; Nombre:</ion-label>
 
                 </ion-input>
             </ion-item>
@@ -48,32 +48,30 @@
 
 
             <ion-item>
-                <ion-label>Especie</ion-label>
+                <ion-icon name="fish-outline"></ion-icon>                
+                <ion-label>&nbsp;Especie</ion-label>
                 <ion-select (ionChange)=guardarEspecie($event) placeholder="Seleccione " style="text-align: center;"
                     okText="Ok" cancelText="Cancelar"   required="true">
                     <ion-select-option *ngFor="let item of especies" [value]="item.nombreEspecie">
                         {{item.nombreEspecie}}
                     </ion-select-option>
-
-                    <ion-icon name="mail-outline"></ion-icon>
                 </ion-select>
             </ion-item>
            
             <ion-item>
-                <ion-label>Raza</ion-label>
+                <ion-icon name="paw-outline"></ion-icon>              
+                  <ion-label>&nbsp;Raza</ion-label>
                 <ion-select (ionChange)=guardarRaza($event) placeholder="Seleccione " style="text-align: center;"
                     okText="Ok" cancelText="Cancelar" required="true">
                     <ion-select-option *ngFor="let item of razas" [value]="item.nombre">
                         {{item.nombre}}
                     </ion-select-option>
-
-                    <ion-icon name="mail-outline"></ion-icon>
                 </ion-select>
             </ion-item>
 
             <ion-item>
                 
-                <ion-icon name="male-female-outline"></ion-icon><ion-label>Sexo</ion-label>
+                <ion-icon name="male-female-outline"></ion-icon><ion-label>&nbsp;Sexo</ion-label>
                 <ion-select (ionChange)=guardarSexo($event) placeholder="Seleccione " style="text-align: center;"
                     okText="Ok" cancelText="Cancelar" required="true">
                     <ion-select-option value="Macho">Macho</ion-select-option>
@@ -84,7 +82,7 @@
             </ion-item>
 
             <ion-item>
-                <ion-icon name="calendar"></ion-icon><ion-label>Fecha Nacimiento</ion-label>
+                <ion-icon name="calendar-outline"></ion-icon><ion-label>&nbsp;Fecha Nacimiento</ion-label>
                 <ion-datetime placeholder="Seleccione"  displayFormat="YYYY-MM-DD	" doneText="Ok"
                     cancelText="Cancelar" (ionChange)=guardarFechaNac($event) required="true"></ion-datetime>
             </ion-item>

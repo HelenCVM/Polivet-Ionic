@@ -12,7 +12,7 @@ ion-toolbar{
   }
   .form-container{
     font-family: 95%  cursive;
-    max-width: 800iopx;
+    max-width: 800px;
     padding: 15px;
     margin: 10px auto;
     background-color: #f7f7f7;
@@ -56,12 +56,22 @@ ion-card{
   cursor: pointer;
 }
 ion-card{
-  background-image: url(https://www.gifsanimados.org/data/media/202/perro-imagen-animada-0712.gif);
       background-repeat: no-repeat;
     background-position: right;
     background-size: 90px;
+    text-align: center;
 }
-ion-card-title{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
-  font-family: 95%  cursive;
+.form-container ion-card ion-card-title{
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+  font-weight: bold;
+
+}
+.form-container  ion-card ion-card-subtitle{
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+
+}
+.form-container  pagination-controls{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+
 }

@@ -28,26 +28,24 @@
 
 
 <ion-content>
-    <ion-slides>
-        <ion-slide id="uno">
+    <h1> <em> CARRERA DE MEDICINA
+            VETERINARIA Y ZOOTECNIA </em>
 
-        </ion-slide>
 
-    </ion-slides>
-    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> CARRERA DE MEDICINA
-            VETERINARIA Y ZOOTECNICA
-        </em>
-    </p>
+    </h1>
+
     <div class="form-container">
         <ion-grid *ngFor="let item of consultasMedicas; let sep">
 
-            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> HISTORIAL CLINICO
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;">
+                <ion-icon name="reader-outline"></ion-icon> <em> Historial Clínico
                 </em>
             </p>
             <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
-                        <ion-label>No Historia:
+                        <ion-icon name="calendar-number-outline"></ion-icon>
+                        <ion-label>  No Historia:  
                             <br>
                             {{item.idHistorial}}
                         </ion-label>
@@ -55,8 +53,8 @@
                 </ion-col>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
-
-                        <ion-label>Dia adminision:
+                        <ion-icon name="today-outline"></ion-icon>
+                        <ion-label>Adminision
                             <br>
                             {{item.diaDeAdminision.split('T')[0]}}
                         </ion-label>
@@ -64,10 +62,10 @@
                 </ion-col>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
-
+                        <ion-icon name="alarm-outline"></ion-icon>
                         <ion-label>Hora:
                             <br>
-                            {{item.hora}}
+                           {{item.hora}}
                         </ion-label>
                     </ion-item>
                 </ion-col>
@@ -76,14 +74,16 @@
             <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
-                        <ion-label>Paciente:
+                        <ion-icon name="paw-outline"></ion-icon>
+                        <ion-label> Paciente:
                             <br>
-                            {{item.mascota_id.nombre}}
+                          {{item.mascota_id.nombre}}
                         </ion-label>
                     </ion-item>
                 </ion-col>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
+                        <ion-icon name="medkit-outline"></ion-icon>
                         <ion-label>Veterinario Encargado:
                             <br>
                             {{item.cedula_id.nombres}} {{item.cedula_id.apellidos}}
@@ -96,15 +96,16 @@
 
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
-                        <ion-label>Propietario: {{item.mascota_id.id_mascota_propietario.propietario}}
+                        <ion-icon name="person-outline"></ion-icon>
+                        <ion-label>&nbsp; <em><b>Propietario:</b></em>  {{item.mascota_id.id_mascota_propietario.propietario}}
                             <br>
-                            Correo : {{item.mascota_id.id_mascota_propietario.correo}}
+                            &nbsp;<em><b>Correo:</b></em> {{item.mascota_id.id_mascota_propietario.correo}}
                             <br>
-                            Direccion: {{item.mascota_id.id_mascota_propietario.direccion}}
+                            &nbsp;<em><b>Direccion:</b></em> {{item.mascota_id.id_mascota_propietario.direccion}}
                             <br>
-                            Telefono: {{item.mascota_id.id_mascota_propietario.telefono}}
+                            &nbsp;<em><b>Telefono:</b></em> {{item.mascota_id.id_mascota_propietario.telefono}}
                             <br>
-                            Ciudad : {{item.mascota_id.id_mascota_propietario.cuidad}}
+                            &nbsp;<em><b>Ciudad:</b></em> {{item.mascota_id.id_mascota_propietario.cuidad}}
                         </ion-label>
                     </ion-item>
                 </ion-col>
@@ -118,14 +119,16 @@
 
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
-                        <ion-label>Especie:
-                            <br> {{item.mascota_id.especie_id.especie_id.nombreEspecie}}
+                        <ion-icon name="fish-outline"></ion-icon>
+                        <ion-label> Especie:
+                            <br>&nbsp; {{item.mascota_id.especie_id.especie_id.nombreEspecie}}
                         </ion-label>
                     </ion-item>
                 </ion-col>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
-                        <ion-label>Raza:
+                        <ion-icon name="paw-outline"></ion-icon>
+                        <ion-label> Raza:
                             <br>{{item.mascota_id.especie_id.nombre}}
                         </ion-label>
                     </ion-item>
@@ -137,7 +140,7 @@
             <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
-                        <ion-label>Edad:
+                        <ion-label> Edad:
                             <br>{{item.mascota_id.edad}}
                         </ion-label>
                     </ion-item>
@@ -145,8 +148,9 @@
 
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
+                        <ion-icon name="calendar-outline"></ion-icon>
                         <ion-label>Fecha Nacimiento:
-                            <br> {{item.mascota_id.fechaNac}}
+                            <br> &nbsp; {{item.mascota_id.fechaNac}}
                         </ion-label>
                     </ion-item>
                 </ion-col>
@@ -156,6 +160,7 @@
             <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
                     <ion-item>
+                        <ion-icon name="male-female-outline"></ion-icon>
                         <ion-label>Sexo: {{item.mascota_id.sexo}}</ion-label>
                     </ion-item>
                 </ion-col>
@@ -164,9 +169,10 @@
             <ion-row>
                 <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
 
-                        <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Consultas Medicas:
-                            </em></p>
-                            <ion-button color="shade" (click)="agregarNuevaConsulta()">Agregar consulta medica</ion-button>
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Consultas
+                            Medicas:
+                        </em></p>
+                    <ion-button color="shade" (click)="agregarNuevaConsulta()">Agregar consulta medica</ion-button>
 
                 </ion-col>
 
@@ -182,7 +188,39 @@
                 <ion-card-content (click)="  editarConstantesDetByConsultaId(item.idConsultaMedica)">
                     <ion-card-subtitle>Fecha Consulta: {{item.fechaConsulta.split('T')[0]}}</ion-card-subtitle>
                     <ion-card-subtitle>Motivo Consulta: {{item.motivoConsulta}}</ion-card-subtitle>
+
+
+
+
+
                 </ion-card-content>
+<<<<<<< HEAD
+                <div class="receta">
+
+
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start" style=" text-align: center;" >
+                                
+
+                                <ion-item>
+                                    <img src="../../../assets/imagenes/recertamas.png" height="30" style=" text-align: center;"  alt=""
+                                        (click)="crearReceta(item.idConsultaMedica)" /> <ion-label style=" font-weight: bold;" >Crear</ion-label>
+                                    
+                                </ion-item>
+                            </ion-col>
+                            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                                <ion-item>
+                                    <img src="../../../assets/imagenes/verrece.png" height="30" alt=""
+                                        (click)="verReceta(item.idConsultaMedica)" /><ion-label style=" font-weight: bold; font-style: italic;">&nbsp;Ver</ion-label>
+                                    
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+
+                    </ion-grid>
+                </div>
+=======
 
                 <div class="ion-text-right">
                   <ion-grid>
@@ -197,7 +235,12 @@
                       <br>
                     </ion-row>
                   </ion-grid>
+<<<<<<< HEAD
                 </div>
+=======
+
+>>>>>>> 0a85077fabd4c2244bd225e5b2bedf4a813a5e57
+>>>>>>> 3411d997e87e082d6369fa0e6d39985e519234db
             </ion-card>
 
 
