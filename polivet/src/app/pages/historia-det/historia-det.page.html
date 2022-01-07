@@ -184,20 +184,20 @@
                     <ion-card-subtitle>Motivo Consulta: {{item.motivoConsulta}}</ion-card-subtitle>
                 </ion-card-content>
 
-
+                <div class="ion-text-right">
                   <ion-grid>
                     <ion-row>
-                      <ion-col  size="3" offset="5" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                      <ion-col  size="5" offset="5"  size-xs class="ion-align-items-end">
                         <ion-button  [attr.disabled]="buttonDisabled" color="shade" (click)="crearReceta(item.idConsultaMedica)">crear receta</ion-button>
                       </ion-col>
                       <br>
-                      <ion-col  size="3" offset="5" size-lg size-md size-sm size-xs class="ion-align-self-start">
-                        <ion-button   color="shade" (click)="verReceta(item.idConsultaMedica)">ver receta  </ion-button>
+                      <ion-col  size="5" offset="5"   size-xs class="ion-align-items-end">
+                        <ion-button    color="shade" (click)="verReceta(item.idConsultaMedica)">ver receta  </ion-button>
                       </ion-col>
                       <br>
                     </ion-row>
                   </ion-grid>
-
+                </div>
             </ion-card>
 
 

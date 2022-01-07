@@ -37,7 +37,7 @@
 <ion-content>
   <br />
   <br />
-  <form (ngSubmit)="actualiza(MediDetails)" #userForm="ngForm">
+  <form [formGroup]="form" (ngSubmit)="actualiza(MediDetails)" #userForm="ngForm">
     <div class="form-container">
       <div id="header">
         <img src="assets/imagenes/medi.png" />
@@ -47,20 +47,26 @@
 
       <ion-item>
         <ion-input
-          type="numeric"
+          type="text"
           placeholder="Cédula"
           id="cedula"
           [(ngModel)]="MediDetails.cedula"
           style="text-align: center"
           required="true"
           maxLength="10"
-          [ngModelOptions]="{standalone: true}"
+          formControlName="cedula"
           [attr.readonly]="estado"
           (ionChange)="activar($event)"
         >
           <ion-icon name="finger-print"></ion-icon>
         </ion-input>
       </ion-item>
+
+      <div *ngIf="form.controls.cedula.errors">
+        <span *ngIf="form.controls.cedula.errors.pattern"> Ingrese solo números </span>
+
+
+      </div>
 
       <ion-item>
         <ion-input
@@ -69,13 +75,19 @@
           [(ngModel)]="MediDetails.nombres"
           style="text-align: center"
           required="true"
-          [ngModelOptions]="{standalone: true}"
+          formControlName="nombres"
           [attr.readonly]="estado"
           (ionChange)="activar($event)"
         >
           <ion-icon name="person-outline"></ion-icon>
         </ion-input>
       </ion-item>
+
+      <div *ngIf="form.controls.nombres.errors">
+        <span *ngIf="form.controls.nombres.errors.pattern">
+          Ingrese solo letras
+        </span>
+      </div>
 
       <ion-item>
         <ion-input
@@ -84,13 +96,19 @@
           [(ngModel)]="MediDetails.apellidos"
           style="text-align: center"
           required="true"
-          [ngModelOptions]="{standalone: true}"
+          formControlName="apellidos"
           [attr.readonly]="estado"
           (ionChange)="activar($event)"
         >
           <ion-icon name="person-outline"></ion-icon>
         </ion-input>
       </ion-item>
+
+      <div *ngIf="form.controls.apellidos.errors">
+        <span *ngIf="form.controls.apellidos.errors.pattern">
+          Ingrese solo letras
+        </span>
+      </div>
 
       <ion-item>
         <ion-input
@@ -99,13 +117,15 @@
           [(ngModel)]="MediDetails.direccion"
           style="text-align: center"
           required="true"
-          [ngModelOptions]="{standalone: true}"
+          formControlName="direccion"
           [attr.readonly]="estado"
           (ionChange)="activar($event)"
         >
           <ion-icon name="earth-outline"></ion-icon>
         </ion-input>
       </ion-item>
+
+
 
       <ion-item>
         <ion-label>Fecha de nacimiento</ion-label>
@@ -119,7 +139,7 @@
           [(ngModel)]="MediDetails.fechaNac"
           style="text-align: center"
           required="true"
-          [ngModelOptions]="{standalone: true}"
+          formControlName="fechnac"
           [attr.readonly]="estadoFecha"
           (ionChange)="guardarFechaNac($event)"
         ></ion-datetime>
@@ -134,13 +154,19 @@
           style="text-align: center"
           required="true"
           maxLength="10"
-          [ngModelOptions]="{standalone: true}"
+          formControlName="telefono"
           [attr.readonly]="estado"
           (ionChange)="activar($event)"
         >
           <ion-icon name="call-outline"></ion-icon>
         </ion-input>
       </ion-item>
+
+      <div *ngIf="form.controls.telefono.errors">
+        <span *ngIf="form.controls.telefono.errors.pattern"> Ingrese solo números </span>
+        <span *ngIf="form.controls.telefono.errors.minlength"> Ingrese 10 números  </span>
+      </div>
+
 
       <ion-item>
         <ion-input
@@ -149,13 +175,19 @@
           [(ngModel)]="MediDetails.titulo"
           style="text-align: center"
           required="true"
-          [ngModelOptions]="{standalone: true}"
+          formControlName="titulo"
           [attr.readonly]="estado"
           (ionChange)="activar($event)"
         >
           <ion-icon name="albums"></ion-icon>
         </ion-input>
       </ion-item>
+
+      <div *ngIf="form.controls.titulo.errors">
+        <span *ngIf="form.controls.titulo.errors.pattern">
+          Ingrese solo letras
+        </span>
+      </div>
 
       <ion-item>
         <ion-input
@@ -164,13 +196,19 @@
           [(ngModel)]="MediDetails.correo"
           style="text-align: center"
           required="true"
-          [ngModelOptions]="{standalone: true}"
+          formControlName="correo"
           [attr.readonly]="estado"
           (ionChange)="activar($event)"
         >
           <ion-icon name="mail-outline"></ion-icon>
         </ion-input>
       </ion-item>
+
+      <div *ngIf="form.controls.correo.errors">
+        <span *ngIf="form.controls.correo.errors.pattern">
+          Ingrese el correo bien
+        </span>
+      </div>
 
       <ion-item>
         <ion-label>Especialidad </ion-label>
@@ -184,7 +222,7 @@
           [(ngModel)]="MediDetails.especialidad_id"
           style="text-align: center"
           required="true"
-          [ngModelOptions]="{standalone: true}"
+          formControlName="espec"
           [attr.readonly]="estadoEspe"
         >
           <ion-select-option
