@@ -64,7 +64,7 @@
 
       <div *ngIf="form.controls.cedula.errors">
         <span *ngIf="form.controls.cedula.errors.pattern"> Ingrese solo números </span>
-
+        <span *ngIf="form.controls.cedula.errors.minlength"> Ingrese 10 números </span>
 
       </div>
 

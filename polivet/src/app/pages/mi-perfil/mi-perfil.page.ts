@@ -52,7 +52,7 @@ export class MiPerfilPage implements OnInit {
       [
         Validators.required,
         Validators.pattern('^[0-9]+$'),
-        Validators.minLength(9)
+        Validators.minLength(10)
       ]
       ],
       nombres:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
