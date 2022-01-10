@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {RegistromedicoService } from 'src/app/Services/registromedico.service'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-registro-medico',
@@ -15,6 +16,7 @@ export class RegistroMedicoPage implements OnInit {
   miVariableHora: string
   dateFormat: string
   idespe:any
+  private _localStorage: Storage;
 
   @Input() MedicoDetails = {
     cedula:'',nombres: '', apellidos: '', direccion: '',
@@ -24,11 +26,16 @@ export class RegistroMedicoPage implements OnInit {
 
   public form: FormGroup
 
-  constructor(private formBuilder: FormBuilder,public router: Router,private actRoute: ActivatedRoute,public registromedi:RegistromedicoService) {
+  constructor(private _localStorageRefService: LocalstoreService,private formBuilder: FormBuilder,public router: Router,private actRoute: ActivatedRoute,public registromedi:RegistromedicoService) {
+
+    this._localStorage = _localStorageRefService.localStorage
     this.obtenerEspecialidad();
    }
 
   ngOnInit():void {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
     this.form=this.formBuilder.group( {
       cedula:['',
       [

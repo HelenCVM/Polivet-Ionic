@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConstantesFiosologicas } from 'src/app/Modelo/ConstantesFisiologicas';
 import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
 import { IniciosesionService } from 'src/app/Services/iniciosesion.service';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-consulta-medica',
@@ -33,6 +34,7 @@ export class ConsultaMedicaPage implements OnInit {
   correop:any
   idconsulta:any
   public constantesFisioCab: any = [];
+  private _localStorage: Storage;
 
   public form: FormGroup
 
@@ -43,8 +45,10 @@ export class ConsultaMedicaPage implements OnInit {
 
 
 
-  constructor(private formBuilder: FormBuilder,private actRoute: ActivatedRoute, private consultaMedicaService: ConsultamedicaService,
+  constructor(private _localStorageRefService: LocalstoreService,private formBuilder: FormBuilder,private actRoute: ActivatedRoute, private consultaMedicaService: ConsultamedicaService,
      public inicioservice: IniciosesionService,public router: Router) {
+
+    this._localStorage = _localStorageRefService.localStorage
     this.idMascota = actRoute.snapshot.params.idMascota;
 
     console.log(this.idMascota)
@@ -54,8 +58,12 @@ export class ConsultaMedicaPage implements OnInit {
 
 
    ngOnInit() {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
+
     this.form=this.formBuilder.group( {
-      
+
       peso:['',[Validators.required, Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]],
       FCard:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
       t:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
@@ -63,7 +71,7 @@ export class ConsultaMedicaPage implements OnInit {
       pulso:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
       otras:['',[Validators.required]] ,
       mucosas:['',[Validators.required]] ,
-      turgenciapiel:['',[Validators.required]] 
+      turgenciapiel:['',[Validators.required]]
 
 
 
@@ -83,7 +91,7 @@ export class ConsultaMedicaPage implements OnInit {
       this.constatesCabList = data
       console.log(data)
     })
-   
+
   }
 
   guardarASA(event: CustomEvent) {
@@ -119,7 +127,7 @@ export class ConsultaMedicaPage implements OnInit {
   }
   guardarFechasV(event: CustomEvent) {
     this.opcionFechaVacuna = event.detail.value
-    this.opcionFechaVacuna = this.opcionFechaVacuna.split('T')[0]; 
+    this.opcionFechaVacuna = this.opcionFechaVacuna.split('T')[0];
     console.log(this.opcionFechaVacuna)
 
 
@@ -137,17 +145,17 @@ export class ConsultaMedicaPage implements OnInit {
     this.consultaMedicaService.crearConsultaM(this.InicioDetails)
     .subscribe((data) => {
       this.guardarConstantesFisio();
-      
+
       console.log('Estamos en el metodod  de segunda consulta M')
       this.idconsulta=data
-      console.log("id de consulta",this.idconsulta)  
+      console.log("id de consulta",this.idconsulta)
 
-      
+
     },(error)=>{
       console.log(error)
     }
     );
-  
+
   }
   guardarConstantesFisio(){
     let constantePeso = new ConstantesFiosologicas(this.constatesCabList[0].constantes_idCab, this.peso);

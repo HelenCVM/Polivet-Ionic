@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-consultadet',
@@ -11,14 +12,20 @@ export class ConsultadetPage implements OnInit {
   idConsultaDetalle:any
   constantesDet: any=[]
   consultaByIds:any=[]
-  constructor(private consultaService: ConsultamedicaService, public router: Router) { 
+  private _localStorage: Storage;
+
+  constructor(private _localStorageRefService: LocalstoreService,private consultaService: ConsultamedicaService, public router: Router) {
     console.log("Consulta detalle")
+    this._localStorage = _localStorageRefService.localStorage
   }
 
   ngOnInit() {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
     this.consultaService.$getObjectSource2.subscribe(
-      data=>{     
-        this.idConsultaDetalle=data 
+      data=>{
+        this.idConsultaDetalle=data
         console.log('reciboo desde historia detalle la consulta id',data)
         this.listDetalles()
         this.listConsultaById()

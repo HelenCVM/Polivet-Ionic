@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {RecetaService} from 'src/app/Services/receta.service';
 import { Router } from '@angular/router';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-crearreceta',
@@ -11,16 +12,21 @@ export class CrearrecetaPage implements OnInit {
   idConsultareceta:any
   public receta: any
   public buttonDisabled:boolean = false
+  private _localStorage: Storage;
 
   @Input() RecetaDetails = {
     prescripcion: '',rp: '',consulta_id: ''
   }
 
-  constructor(private recetaService: RecetaService,public router: Router) {
+  constructor(private _localStorageRefService: LocalstoreService,private recetaService: RecetaService,public router: Router) {
     console.log('------')
+    this._localStorage = _localStorageRefService.localStorage
   }
 
   ngOnInit() {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
     this.recetaService.$getObjectSource.subscribe(
       data=>{
         this.idConsultareceta=data

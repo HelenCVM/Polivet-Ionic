@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PropietarioServiceService } from 'src/app/Services/propietario-service.service';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-listar-propietarios',
@@ -11,11 +12,17 @@ export class ListarPropietariosPage implements OnInit {
   cp = 1
   listPropietario: any = []
   filtroidPropietario: ''
-  constructor(private propietarioService: PropietarioServiceService, private router: Router) {
+  private _localStorage: Storage;
+
+  constructor(private _localStorageRefService: LocalstoreService,private propietarioService: PropietarioServiceService, private router: Router) {
+    this._localStorage = _localStorageRefService.localStorage
     this.obtenerListPropietarios();
   }
 
   ngOnInit() {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
   }
 
   obtenerListPropietarios() {

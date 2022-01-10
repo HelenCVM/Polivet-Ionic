@@ -4,6 +4,7 @@ import { MiperfilService} from '../../Services/miperfil.service';
 import { IniciosesionService } from 'src/app/Services/iniciosesion.service';
 import {RegistromedicoService } from 'src/app/Services/registromedico.service'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-mi-perfil',
@@ -27,6 +28,7 @@ export class MiPerfilPage implements OnInit {
   espec:any
   especid:any
   public medico: any
+  private _localStorage: Storage;
 
   @Input() MediDetails = {
     cedula:'',nombres: '', apellidos: '', direccion: '',
@@ -36,7 +38,8 @@ export class MiPerfilPage implements OnInit {
 
   public form: FormGroup
 
-  constructor(private formBuilder: FormBuilder,private actRoute:ActivatedRoute,  public router: Router,private medicoservice: MiperfilService, public inicioservice: IniciosesionService,public registromedi:RegistromedicoService,public miperfilservice: MiperfilService) {
+  constructor(private _localStorageRefService: LocalstoreService,private formBuilder: FormBuilder,private actRoute:ActivatedRoute,  public router: Router,private medicoservice: MiperfilService, public inicioservice: IniciosesionService,public registromedi:RegistromedicoService,public miperfilservice: MiperfilService) {
+    this._localStorage = _localStorageRefService.localStorage
     this.obtenerEspecialidad();
     this.miperfilservice.$getObjectSource.subscribe(
       data=>{
@@ -47,6 +50,9 @@ export class MiPerfilPage implements OnInit {
   }
 
   ngOnInit():void {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
     this.form=this.formBuilder.group( {
       cedula:['',
       [

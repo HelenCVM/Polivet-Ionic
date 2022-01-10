@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-historias-clinicas',
@@ -11,12 +12,18 @@ export class HistoriasClinicasPage implements OnInit {
   cp=1
   historiaClinicaList: any = []
   filtroPropietario = '';
-  constructor(private consultaService: ConsultamedicaService, private router: Router) {
+  private _localStorage: Storage;
+
+  constructor(private _localStorageRefService: LocalstoreService,private consultaService: ConsultamedicaService, private router: Router) {
+    this._localStorage = _localStorageRefService.localStorage
     this.obtenerConsultasMedicas();
 
   }
 
   ngOnInit() {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
   }
 
   obtenerConsultasMedicas() {

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ConstantesFiosologicas } from 'src/app/Modelo/ConstantesFisiologicas';
 import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
 import { IniciosesionService } from '../../Services/iniciosesion.service';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-agregar-consulta',
@@ -33,6 +34,8 @@ export class AgregarConsultaPage implements OnInit {
   idHistoria: any
   idConsultaMedica: any
   public constantesFisioCab: any = [];
+  private _localStorage: Storage;
+
   @Input() InicioDetails = {
     motivoConsulta: '', vacunacion: '', desparacitacion: '', estadoR: '', producto: '', fecha: '',
     procedencia: '', anamnesis: '', diagnostico: '',
@@ -41,15 +44,17 @@ export class AgregarConsultaPage implements OnInit {
 
   public form: FormGroup
 
-  constructor(private formBuilder: FormBuilder, public inicioservice: IniciosesionService, public router: Router,
+  constructor(private _localStorageRefService: LocalstoreService,private formBuilder: FormBuilder, public inicioservice: IniciosesionService, public router: Router,
     private consultaMedicaService: ConsultamedicaService) {
-
+    this._localStorage = _localStorageRefService.localStorage
     this.obtenerConstantesCab();
     this.listConsutalbyHistoria()
   }
 
   ngOnInit() {
-
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
     this.form = this.formBuilder.group({
 
       peso: ['', [Validators.required, Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]],
@@ -135,7 +140,7 @@ export class AgregarConsultaPage implements OnInit {
     this.consultaMedicaService.crearConsultaMByHistoria(this.InicioDetails)
       .subscribe((data) => {
         this.guardarConstantesFisio();
-        this.obtenerConstantesCab();    
+        this.obtenerConstantesCab();
         this.listConsutalbyHistoria()
 
         this.router.navigate(['/historia-det'])
