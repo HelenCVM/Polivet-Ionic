@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Raza } from 'src/app/Modelo/Mascota';
 import { MascotaServiceService } from 'src/app/Services/mascota-service.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-crud-raza',
@@ -17,16 +18,20 @@ export class CrudRazaPage implements OnInit {
   raza: Raza;
   especie: any
   public estado: boolean = true;
-
+  private _localStorage: Storage;
   razaId:any
 
 
-  constructor(public mascotaService: MascotaServiceService, public router: Router) {
+  constructor(private _localStorageRefService: LocalstoreService,public mascotaService: MascotaServiceService, public router: Router) {
+    this._localStorage = _localStorageRefService.localStorage
     this.obtenerEspecie();
 
    }
 
   ngOnInit() {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
   }
   obtenerEspecie(){
     this.mascotaService.obtenerEspecie()

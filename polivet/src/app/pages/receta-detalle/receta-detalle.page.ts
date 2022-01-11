@@ -3,6 +3,7 @@ import {RecetaService} from 'src/app/Services/receta.service';
 import { Router } from '@angular/router';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import {LocalstoreService} from '../../Services/localstore.service';
 @Component({
   selector: 'app-receta-detalle',
   templateUrl: './receta-detalle.page.html',
@@ -16,13 +17,15 @@ export class RecetaDetallePage implements OnInit {
   propietario:any
   mascotaNombre:any
   public receta: any
+  private _localStorage: Storage;
 
   @Input() RecetaDetalleDetails = {
     idReceta: '',prescripcion: '',rp: '',consulta_id: ''
   }
 
-  constructor(private recetaService: RecetaService,public router: Router) {
+  constructor(private _localStorageRefService: LocalstoreService,private recetaService: RecetaService,public router: Router) {
     console.log('------')
+    this._localStorage = _localStorageRefService.localStorage
     this.recetaService.$getObjectSource.subscribe(
       data=>{
         this.idDetallevreceta=data
@@ -35,7 +38,9 @@ export class RecetaDetallePage implements OnInit {
   }
 
   ngOnInit() {
-
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
   }
 
   aceptar(){

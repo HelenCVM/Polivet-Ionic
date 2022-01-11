@@ -35,11 +35,11 @@
           Medico </em></p>
       <ion-item>
         <ion-input type="numeric" placeholder="Cédula" [(ngModel)]="MedicoDetails.cedula"
-          style="text-align: center;" required="true" maxLength="10" formControlName="cedula">
+          style="text-align: center;" required="true" maxLength="10" formControlName="cedula" (ionChange)="validadorDeCedula($event)">
           <ion-icon name="finger-print"></ion-icon>
         </ion-input>
       </ion-item>
-
+      <span *ngIf="!validador">Cedula Invalida</span>
       <div *ngIf="form.controls.cedula.errors">
         <span *ngIf="form.controls.cedula.errors.pattern"> Ingrese solo números </span>
         <span *ngIf="form.controls.cedula.errors.minlength"> Ingrese 10 números </span>

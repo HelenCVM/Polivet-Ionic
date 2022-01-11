@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RecetaService} from 'src/app/Services/receta.service';
 import { Router } from '@angular/router';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-verreceta',
@@ -11,9 +12,11 @@ export class VerrecetaPage implements OnInit {
   idConsultavreceta:any
   Recetaver: any= []
   numeroTamano: any
+  private _localStorage: Storage;
 
-  constructor(private recetaService: RecetaService,public router: Router) {
+  constructor(private _localStorageRefService: LocalstoreService,private recetaService: RecetaService,public router: Router) {
     console.log('------')
+    this._localStorage = _localStorageRefService.localStorage
     this.recetaService.$getObjectSource.subscribe(
       data=>{
         this.idConsultavreceta=data
@@ -24,7 +27,9 @@ export class VerrecetaPage implements OnInit {
    }
 
   ngOnInit() {
-
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
   }
 
   aceptar(){

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
 import { PropietarioServiceService } from 'src/app/Services/propietario-service.service';
 import {RecetaService} from 'src/app/Services/receta.service';
+import {LocalstoreService} from '../../Services/localstore.service';
 @Component({
   selector: 'app-historia-det',
   templateUrl: './historia-det.page.html',
@@ -16,9 +17,11 @@ consultasMedicas:any=[]
 consultaByHistoria: any= []
 consultaok:any= []
 public buttonDisabled:boolean = false
+private _localStorage: Storage;
 
-  constructor(private consultaService: ConsultamedicaService,private router :
+  constructor(private _localStorageRefService: LocalstoreService,private consultaService: ConsultamedicaService,private router :
     Router,private recetaService: RecetaService) {
+    this._localStorage = _localStorageRefService.localStorage
     console.log("Dett")
     this.consultaService.$getObjectSource.subscribe(
       data=>{
@@ -34,6 +37,9 @@ public buttonDisabled:boolean = false
   }
 
   ngOnInit() {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
     this.listConsutalbyHistoria()
 
   }

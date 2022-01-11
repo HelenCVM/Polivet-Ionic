@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { Propietario } from 'src/app/Modelo/Propietario';
 import { PropietarioServiceService } from 'src/app/Services/propietario-service.service';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-propietario',
@@ -12,7 +13,7 @@ import { PropietarioServiceService } from 'src/app/Services/propietario-service.
 export class PropietarioPage implements OnInit {
 
   propietario: Propietario = new Propietario();
-
+  private _localStorage: Storage;
   cedula:any
   @Input() InicioDetails = {
     idPropietario: '', nombrePropietario: '',
@@ -21,13 +22,17 @@ export class PropietarioPage implements OnInit {
   }
 
   public form: FormGroup
-  constructor(private formBuilder: FormBuilder,public propietarioService: PropietarioServiceService, public router: Router) {
+  constructor(private _localStorageRefService: LocalstoreService,private formBuilder: FormBuilder,public propietarioService: PropietarioServiceService, public router: Router) {
+    this._localStorage = _localStorageRefService.localStorage
 
 
   }
 
 
   ngOnInit(): void {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
     this.form=this.formBuilder.group( {
       cedula:['',
       [
@@ -71,29 +76,29 @@ export class PropietarioPage implements OnInit {
   validadorDeCedula(event) {
     let cedula=  event.detail.value
     let cedulaCorrecta = false;
-    
+
     if (cedula.length == 10)
-    {    
+    {
         let tercerDigito = parseInt(cedula.substring(2, 3));
         if (tercerDigito < 6) {
-        
+
             // El ultimo digito se lo considera dígito verificador
-            let coefValCedula = [2, 1, 2, 1, 2, 1, 2, 1, 2];       
+            let coefValCedula = [2, 1, 2, 1, 2, 1, 2, 1, 2];
             let verificador = parseInt(cedula.substring(9, 10));
             let suma:number = 0;
             let digito:number = 0;
             for (let i = 0; i < (cedula.length - 1); i++) {
-                digito = parseInt(cedula.substring(i, i + 1)) * coefValCedula[i];      
+                digito = parseInt(cedula.substring(i, i + 1)) * coefValCedula[i];
                 suma += ((parseInt((digito % 10)+'') + (parseInt((digito / 10)+''))));
-                console.log(suma+" suma"+coefValCedula[i]); 
+                console.log(suma+" suma"+coefValCedula[i]);
             }
-            
+
             suma= Math.round(suma);
-          
+
           //  console.log(verificador);
           //  console.log(suma);
           //  console.log(digito);
-  
+
             if ((Math.round(suma % 10) == 0) && (Math.round(suma % 10)== verificador)) {
                 cedulaCorrecta = true;
                 console.log('correcto')
@@ -116,11 +121,11 @@ export class PropietarioPage implements OnInit {
         console.log('incorrecto')
 
     }
-  
-  
+
+
   this.validador= cedulaCorrecta;
   console.log(this.validador)
-  
-    
+
+
   }
 }

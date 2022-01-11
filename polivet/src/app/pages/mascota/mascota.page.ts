@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MascotaServiceService } from 'src/app/Services/mascota-service.service';
+import {LocalstoreService} from '../../Services/localstore.service';
 
 @Component({
   selector: 'app-mascota',
@@ -22,24 +23,30 @@ export class MascotaPage implements OnInit {
 
     age: any
     showAge:any
+    private _localStorage: Storage;
+
   @Input() InicioDetails = {
     idPro:'',nombre: '', especie: '', raza: '',
     sexo: '', fechaNac: '', edad: '',
     coloYSenalesParti: ''
   }
   public form: FormGroup
-  constructor(private formBuilder: FormBuilder,private actRoute: ActivatedRoute, public router: Router, public mascotaService: MascotaServiceService) {
+  constructor(private _localStorageRefService: LocalstoreService,private formBuilder: FormBuilder,private actRoute: ActivatedRoute, public router: Router, public mascotaService: MascotaServiceService) {
+    this._localStorage = _localStorageRefService.localStorage
     this.idPropietario = actRoute.snapshot.params.idPropietario;
     console.log("idpropie", this.idPropietario)
-   
+
     this.obtenerEspecie();
   }
 
   ngOnInit() {
+    if(this._localStorage.length < 1){
+      this.router.navigate(['/inicio-sesion'])
+    }
     this.form=this.formBuilder.group( {
-      
+
       mascota:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
-      coloYSenalesParti:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]+$/)]] 
+      coloYSenalesParti:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]+$/)]]
     })
   }
 
@@ -50,7 +57,7 @@ export class MascotaPage implements OnInit {
 
   }
   guardarEspecie(event: CustomEvent) {
- 
+
     this.opcionEspecie=event.detail.value
     console.log("especie",this.opcionEspecie,)
     this.idEspecie=this.opcionEspecie;
@@ -76,17 +83,17 @@ export class MascotaPage implements OnInit {
       var ageyear = todayDate.getFullYear() - convertAge.getFullYear();
       var agemonth = todayDate.getMonth() - convertAge.getMonth();
       var ageday = todayDate.getDate() - convertAge.getDate();
- 
+
       if(agemonth != 0 && ageyear !=0){
         this.showAge=ageyear +" anios "+ " con "+ agemonth + ' meses y '  + ageday+ " dias"
         console.log( ageyear +" anios "+ " con "+ agemonth + ' meses y '  + ageday+ " dias");
-  
+
       } else if (agemonth!=0 && ageyear==0) {
         this.showAge=agemonth + ' meses y '  + ageday+ " dias"
         console.log(  agemonth + ' meses y '  + ageday+ " dias");
-  
+
       } else {
-        
+
       }
 
       if(ageyear ==0 && agemonth==0){
@@ -94,9 +101,9 @@ export class MascotaPage implements OnInit {
         console.log(ageday+ " dias");
 
       }
-     
+
     }
-   
+
 
 
 
@@ -112,14 +119,14 @@ export class MascotaPage implements OnInit {
     console.log(this.InicioDetails)
     this.mascotaService.crearMascota(this.InicioDetails)
     .subscribe((data) => {
-      
+
       console.log('Estamos en el propietario')
 
       this.mascota=data
-      console.log("recibo",this.mascota)   
+      console.log("recibo",this.mascota)
       this.router.navigate(['/consulta-medica/',this.mascota])
 
-      
+
     },(error)=>{
       console.log(error)
     }
@@ -131,8 +138,8 @@ export class MascotaPage implements OnInit {
     .subscribe((data) => {
       this.especies=data
       console.log('Estamos en el especiee pag princi')
-      console.log(this.especies)  
-     
+      console.log(this.especies)
+
     },(error)=>{
       console.log(error)
     }
@@ -145,9 +152,9 @@ export class MascotaPage implements OnInit {
     .subscribe((data) => {
       this.razas=data
       console.log('Estamos en el especieee pag princi')
-    
 
-      
+
+
     },(error)=>{
       console.log(error)
     }
