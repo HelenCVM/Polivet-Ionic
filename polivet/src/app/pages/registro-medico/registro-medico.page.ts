@@ -59,7 +59,7 @@ export class RegistroMedicoPage implements OnInit {
   }
 
   atras(){
-    this.router.navigate(['inicio-sesion'])
+    this.router.navigate(['paginal-inicial'])
   }
 
   guardarEspecialidad(event: CustomEvent){
