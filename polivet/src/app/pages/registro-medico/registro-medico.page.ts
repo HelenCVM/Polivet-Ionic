@@ -17,11 +17,14 @@ export class RegistroMedicoPage implements OnInit {
   dateFormat: string
   idespe:any
   private _localStorage: Storage;
-
+  selectedImage: any;
+  imageURL: any;
+  fotose:any;
+  //fotose:any[] = [];
   @Input() MedicoDetails = {
     cedula:'',nombres: '', apellidos: '', direccion: '',
     fechaNac: '',correo: '',contrasena: '',celular: '', titulo: '',
-    especialidad_id: '',usuario_id: ''
+     fotomedico: '',especialidad_id: '',usuario_id: ''
   }
 
   public form: FormGroup
@@ -51,6 +54,7 @@ export class RegistroMedicoPage implements OnInit {
       telefono:['',Validators.compose([
         Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(10)])],
       titulo:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      foto:['',[Validators.required]],
       espec:['',[Validators.required]],
       correo:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[u]+[p]+[s]+.[e]+[d]+[u]+.[e]+[c.]+$')]],
       contrasena:['',[Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z]).{8,}$')]]
@@ -58,8 +62,28 @@ export class RegistroMedicoPage implements OnInit {
     })
   }
 
+  guardarFoto(event){
+    const files = event.target.files;
+    console.log(files);
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageURL = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+    let archivos =event.target.files
+    let readerr = new FileReader();
+    readerr.readAsDataURL(archivos[0]);
+    readerr.onloadend = () => {
+      console.log(readerr.result)
+      this.fotose = readerr.result
+      console.log(this.fotose)
+    }
+
+  }
+
   atras(){
     this.router.navigate(['paginal-inicial'])
+
   }
 
   guardarEspecialidad(event: CustomEvent){
@@ -92,6 +116,8 @@ export class RegistroMedicoPage implements OnInit {
   guardar(){
     this.MedicoDetails.fechaNac = this.dateFormat
     this.MedicoDetails.especialidad_id=this.opcionEspecialidad
+    console.log('--fotose',this.fotose)
+    this.MedicoDetails.fotomedico = this.fotose
     console.log('datos de medico')
     console.log("cedula",this.MedicoDetails.cedula)
     console.log("nombres",this.MedicoDetails.nombres)
@@ -104,6 +130,7 @@ export class RegistroMedicoPage implements OnInit {
 
     console.log("celular",this.MedicoDetails.celular)
     console.log("titulo",this.MedicoDetails.titulo)
+     console.log("titulo",this.MedicoDetails.fotomedico)
     console.log("especialidad_id",this.MedicoDetails.especialidad_id)
     //this.registromedi.crearUsuario
 

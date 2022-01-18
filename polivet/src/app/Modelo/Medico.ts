@@ -8,6 +8,7 @@ export class Medico{
   public contrasena?:string;
   public celular?:string;
   public titulo?:string;
+  public fotomedico?:string;
   public especialidad_id?:string;
   public usuario_id?:string;
 }

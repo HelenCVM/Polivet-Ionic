@@ -36,11 +36,13 @@
 
 <ion-content>
   <br />
+  <!--   <ion-img src="{{contacto.url}}" height='60' width='60'></ion-img> -->
   <br />
   <form [formGroup]="form" (ngSubmit)="actualiza(MediDetails)" #userForm="ngForm">
     <div class="form-container">
       <div id="header">
-        <img src="assets/imagenes/medi.png" />
+        <!--<img src="assets/imagenes/medi.png" />-->
+        <ion-img src={{foto}} height='60' width='60'></ion-img>
         <br />
         <h1>Datos personales</h1>
       </div>

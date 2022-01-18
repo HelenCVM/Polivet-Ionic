@@ -112,6 +112,13 @@
       </div>
 
       <ion-item>
+        <ion-input placeholder="foto" [(ngModel)]="MedicoDetails.fotomedico" style="text-align: center;"
+          required="true"  (change)=guardarFoto($event) type="file" formControlName="foto" accept="image/png, image/jpeg">
+          <ion-icon name="document-attach-outline"></ion-icon>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
         <ion-label>Especialidad </ion-label>
         <ion-select (ionChange)=guardarEspecialidad($event) placeholder="Seleccione " style="text-align: center;"
             okText="Ok" cancelText="Cancelar" formControlName="espec">
