@@ -30,6 +30,7 @@ export class RegistromedicoService {
     .set('contrasena', medico.contrasena)
     .set('celular', medico.celular)
     .set('titulo', medico.titulo)
+    .set('fotomedico',medico.fotomedico)
     .set('especialidad_id', medico.especialidad_id)
 
     return this.http.post(this.url,

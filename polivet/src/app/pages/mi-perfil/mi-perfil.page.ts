@@ -5,6 +5,7 @@ import { IniciosesionService } from 'src/app/Services/iniciosesion.service';
 import {RegistromedicoService } from 'src/app/Services/registromedico.service'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {LocalstoreService} from '../../Services/localstore.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-mi-perfil',
@@ -29,6 +30,8 @@ export class MiPerfilPage implements OnInit {
   especid:any
   public medico: any
   private _localStorage: Storage;
+  public foto:any;
+  public fotoo:any;
 
   @Input() MediDetails = {
     cedula:'',nombres: '', apellidos: '', direccion: '',
@@ -38,13 +41,13 @@ export class MiPerfilPage implements OnInit {
 
   public form: FormGroup
 
-  constructor(private _localStorageRefService: LocalstoreService,private formBuilder: FormBuilder,private actRoute:ActivatedRoute,  public router: Router,private medicoservice: MiperfilService, public inicioservice: IniciosesionService,public registromedi:RegistromedicoService,public miperfilservice: MiperfilService) {
+  constructor(private sanitizer: DomSanitizer,private _localStorageRefService: LocalstoreService,private formBuilder: FormBuilder,private actRoute:ActivatedRoute,  public router: Router,private medicoservice: MiperfilService, public inicioservice: IniciosesionService,public registromedi:RegistromedicoService,public miperfilservice: MiperfilService) {
     this._localStorage = _localStorageRefService.localStorage
     this.obtenerEspecialidad();
     this.miperfilservice.$getObjectSource.subscribe(
       data=>{
         this.correoperfil=data
-        console.log('reciboo desde paag inicial',this.correoperfil)
+        console.log('reciboo desde paag inicial mi perfil',this.correoperfil)
       }
     )
   }
@@ -99,6 +102,11 @@ export class MiPerfilPage implements OnInit {
       this.espec = this.Medico.especialidad_id.tipoEspecialidad
       this.especid =this.Medico.especialidad_id.especialidad_id
       this.MediDetails.usuario_id = this.Medico.usuario_id.usuario_id
+      this.foto = this.Medico.fotoMedico
+
+      //this.fotoo= this.sanitizer.bypassSecurityTrustResourceUrl(image);
+
+      console.log(this.fotoo)
       console.log( this.MediDetails.cedula)
       console.log(this.Medico.especialidad_id.tipoEspecialidad)
       console.log(this.Medico.usuario_id.correo)
