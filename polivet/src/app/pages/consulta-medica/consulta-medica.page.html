@@ -26,7 +26,9 @@
 
 </ion-header>
 <ion-content>
+   
 
+    
     <br>
     <form  [formGroup]="form"  (ngSubmit)="guardarConsulta(InicioDetails)">
 
@@ -143,6 +145,7 @@
                         </ion-item>
 
                     </ion-col>
+                    
                 </ion-row>
                 <ion-row>
                     <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
@@ -212,6 +215,19 @@
                             </ion-select>
                         </ion-item>
                     </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+                        <ion-item>
+                            <ion-input placeholder="Tiempo de llenado capilar" [(ngModel)]="tiempocapilar" style="text-align: center;"
+                            formControlName="tiempocapilar">
+                                <ion-icon name="barcode-outline"></ion-icon>
+                                <ion-label>&nbsp;Tiempo de llenado capilar:</ion-label>
+                            </ion-input>
+                        </ion-item>
+
+                    </ion-col>
+                    
                 </ion-row>
 
 
@@ -334,16 +350,14 @@
             <ion-item>
                 <ion-textarea placeholder="Anamnesis" [(ngModel)]="InicioDetails.anamnesis" style="text-align: center;"
                     required="true" [ngModelOptions]="{standalone: true}">
-
                 </ion-textarea>
             </ion-item>
-
+           
             <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Diagnostico
                 </em> </p>
             <ion-item>
                 <ion-textarea placeholder="Diagnostico" [(ngModel)]="InicioDetails.diagnostico"
                     style="text-align: center;" required="true" [ngModelOptions]="{standalone: true}">
-
                 </ion-textarea>
             </ion-item>
 

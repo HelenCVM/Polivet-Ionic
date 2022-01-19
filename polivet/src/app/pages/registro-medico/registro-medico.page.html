@@ -3,7 +3,7 @@
     <div align="right">
       <img src="../assets/imagenes/Logo.png" height="50" alt="">
     </div>
-    <ion-button  style="--background: #063470;" slot="start">
+    <ion-button style="--background: #063470;" slot="start">
       <ion-back-button style="--background: #063470;" defaultHref="/paginal-inicial"> </ion-back-button>
     </ion-button>
   </ion-toolbar>
@@ -34,9 +34,11 @@
       <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Registro
           Medico </em></p>
       <ion-item>
-        <ion-input type="numeric" placeholder="Cédula" [(ngModel)]="MedicoDetails.cedula"
-          style="text-align: center;" required="true" maxLength="10" formControlName="cedula" (ionChange)="validadorDeCedula($event)">
+        <ion-input type="numeric" placeholder="Cédula" [(ngModel)]="MedicoDetails.cedula" style="text-align: center;"
+          required="true" maxLength="10" formControlName="cedula" (ionChange)="validadorDeCedula($event)">
           <ion-icon name="finger-print"></ion-icon>
+          <ion-label> &nbsp; Cedula:</ion-label>
+
         </ion-input>
       </ion-item>
       <span *ngIf="!validador">Cedula Invalida</span>
@@ -47,9 +49,10 @@
       </div>
 
       <ion-item>
-        <ion-input placeholder="Nombres" [(ngModel)]="MedicoDetails.nombres" style="text-align: center;"
-          required="true" formControlName="nombres" >
+        <ion-input placeholder="Nombres" [(ngModel)]="MedicoDetails.nombres" style="text-align: center;" required="true"
+          formControlName="nombres">
           <ion-icon name="person-outline"></ion-icon>
+          <ion-label> &nbsp; Nombres:</ion-label>
         </ion-input>
       </ion-item>
 
@@ -63,6 +66,7 @@
         <ion-input placeholder="Apellidos" [(ngModel)]="MedicoDetails.apellidos" style="text-align: center;"
           required="true" formControlName="apellidos">
           <ion-icon name="person-outline"></ion-icon>
+          <ion-label> &nbsp; Apellidos:</ion-label>
         </ion-input>
       </ion-item>
 
@@ -76,32 +80,41 @@
         <ion-input placeholder="Dirección" [(ngModel)]="MedicoDetails.direccion" style="text-align: center;"
           required="true" formControlName="direccion">
           <ion-icon name="earth-outline"></ion-icon>
+          <ion-label> &nbsp; Dirección:</ion-label>
         </ion-input>
       </ion-item>
 
 
       <ion-item>
+        <ion-icon name="calendar"></ion-icon>
         <ion-label>Fecha Nacimiento</ion-label>
         <ion-datetime placeholder="Seleccione" display-timezone="utc" displayFormat="YYYY-MM-DD	" doneText="Ok"
-            cancelText="Cancelar" (ionChange)=guardarFechaNac($event) formControlName="fechnac"></ion-datetime>
-    </ion-item>
+          cancelText="Cancelar" (ionChange)=guardarFechaNac($event) formControlName="fechnac">
+  
+        </ion-datetime>
+         
+      </ion-item>
 
       <ion-item>
         <ion-input placeholder="Teléfono" [(ngModel)]="MedicoDetails.celular" style="text-align: center;"
           required="true" maxLength="10" formControlName="telefono">
           <ion-icon name="call-outline"></ion-icon>
+          <ion-label> &nbsp; Teléfono:</ion-label>
+
         </ion-input>
       </ion-item>
 
       <div *ngIf="form.controls.telefono.errors">
         <span *ngIf="form.controls.telefono.errors.pattern"> Ingrese solo números </span>
-        <span *ngIf="form.controls.telefono.errors.minlength"> Ingrese 10 números  </span>
+        <span *ngIf="form.controls.telefono.errors.minlength"> Ingrese 10 números </span>
       </div>
 
       <ion-item>
-        <ion-input placeholder="Titulo" [(ngModel)]="MedicoDetails.titulo" style="text-align: center;"
-          required="true"  formControlName="titulo">
+        <ion-input placeholder="Titulo" [(ngModel)]="MedicoDetails.titulo" style="text-align: center;" required="true"
+          formControlName="titulo">
           <ion-icon name="albums"></ion-icon>
+          <ion-label> &nbsp; Titulo:</ion-label>
+
         </ion-input>
       </ion-item>
 
@@ -112,65 +125,71 @@
       </div>
 
       <ion-item>
-        <ion-input placeholder="foto" [(ngModel)]="MedicoDetails.fotomedico" style="text-align: center;"
-          required="true"  (change)=guardarFoto($event) type="file" formControlName="foto" accept="image/png, image/jpeg">
+        &nbsp;  &nbsp; <ion-input placeholder="foto" [(ngModel)]="MedicoDetails.fotomedico" style="text-align: center;" required="true"
+          (change)=guardarFoto($event) type="file" formControlName="foto" accept="image/png, image/jpeg">
           <ion-icon name="document-attach-outline"></ion-icon>
+          <ion-label> &nbsp; Fotografia:</ion-label>
+
+
         </ion-input>
       </ion-item>
 
       <ion-item>
+        <ion-icon name="sparkles"></ion-icon>
         <ion-label>Especialidad </ion-label>
         <ion-select (ionChange)=guardarEspecialidad($event) placeholder="Seleccione " style="text-align: center;"
-            okText="Ok" cancelText="Cancelar" formControlName="espec">
-            <ion-select-option *ngFor="let item of especialidad" [value]="item.especialidad_id">
-                {{item.tipoEspecialidad}}
-            </ion-select-option>
+          okText="Ok" cancelText="Cancelar" formControlName="espec">
+          <ion-select-option *ngFor="let item of especialidad" [value]="item.especialidad_id">
+            {{item.tipoEspecialidad}}
+          </ion-select-option>
         </ion-select>
 
-    </ion-item>
+      </ion-item>
 
-    <ion-item>
-      <ion-input placeholder="Correo" [(ngModel)]="MedicoDetails.correo" style="text-align: center;" required="true"
-        email formControlName="correo">
-        <ion-icon name="mail-outline"></ion-icon>
-      </ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-input placeholder="Correo" [(ngModel)]="MedicoDetails.correo" style="text-align: center;" required="true"
+          email formControlName="correo">
+          <ion-icon name="mail-outline"></ion-icon>
+          <ion-label> &nbsp; Correo:</ion-label>
+        </ion-input>
+      </ion-item>
 
-    <div *ngIf="form.controls.correo.errors">
-      <span *ngIf="form.controls.correo.errors.pattern">
-        Ingrese el correo bien
-      </span>
+      <div *ngIf="form.controls.correo.errors">
+        <span *ngIf="form.controls.correo.errors.pattern">
+          Ingrese el correo bien
+        </span>
+      </div>
+
+      <ion-item>
+        <ion-input placeholder="Contraseña" type="password" [(ngModel)]="MedicoDetails.contrasena"
+          style="text-align: center;" required="true" formControlName="contrasena">
+          <ion-icon name="key"></ion-icon>
+          <ion-label> &nbsp; Contraseña:</ion-label>
+        </ion-input>
+      </ion-item>
+      <div *ngIf="form.controls.contrasena.errors">
+        <span *ngIf="form.controls.contrasena.errors.pattern">
+          Ingrese la contraseña con los caracteres requeridos
+        </span>
+      </div>
+
+      <div align="center">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+              <ion-button color="shade" (click)="atras()">Atras</ion-button>
+            </ion-col>
+
+            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+              <ion-button color="shade" type="submit" [disabled]="!userForm.form.valid">Guardar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
     </div>
 
-    <ion-item>
-      <ion-input placeholder="Contraseña" type="password" [(ngModel)]="MedicoDetails.contrasena" style="text-align: center;" required="true"
-         formControlName="contrasena">
-        <ion-icon name="key"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <div *ngIf="form.controls.contrasena.errors">
-      <span *ngIf="form.controls.contrasena.errors.pattern">
-        Ingrese la contraseña con los caracteres requeridos
-      </span>
-    </div>
-
-    <div align="center">
-      <ion-grid>
-        <ion-row>
-         <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-            <ion-button color="shade" (click)="atras()" >Atras</ion-button>
-          </ion-col>
-
-          <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-            <ion-button color="shade" type="submit" [disabled]="!userForm.form.valid">Guardar</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-
-  </div>
-
-</form>
+  </form>
 
 
 </ion-content>

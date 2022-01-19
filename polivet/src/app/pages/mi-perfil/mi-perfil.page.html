@@ -10,56 +10,39 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-    crossorigin="anonymous"
-  />
-  <script
-    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script type="text/javascript"></script>
 </ion-header>
 
 <ion-content>
-  <br />
+  
   <!--   <ion-img src="{{contacto.url}}" height='60' width='60'></ion-img> -->
-  <br />
   <form [formGroup]="form" (ngSubmit)="actualiza(MediDetails)" #userForm="ngForm">
-    <div class="form-container">
-      <div id="header">
-        <!--<img src="assets/imagenes/medi.png" />-->
-        <ion-img src={{foto}} height='60' width='60'></ion-img>
-        <br />
-        <h1>Datos personales</h1>
-      </div>
+    <div id="header" align="center">
+      <!--<img src="assets/imagenes/medi.png" />-->
+      <img src={{foto}} height="300" width="300" style="   border-radius: 130px; align:center">
 
+
+    </div>
+    <div class="form-container">
+      
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;">
+        <ion-icon name="paw"></ion-icon> <em> Datos Personales </em>
+      </p>
       <ion-item>
-        <ion-input
-          type="text"
-          placeholder="Cédula"
-          id="cedula"
-          [(ngModel)]="MediDetails.cedula"
-          style="text-align: center"
-          required="true"
-          maxLength="10"
-          formControlName="cedula"
-          [attr.readonly]="estado"
-          (ionChange)="activar($event)"
-        >
+        <ion-input type="text" placeholder="Cédula" id="cedula" [(ngModel)]="MediDetails.cedula"
+          style="text-align: center" required="true" maxLength="10" formControlName="cedula" [attr.readonly]="estado"
+          (ionChange)="activar($event)">
           <ion-icon name="finger-print"></ion-icon>
         </ion-input>
       </ion-item>
@@ -71,16 +54,8 @@
       </div>
 
       <ion-item>
-        <ion-input
-          placeholder="nombres"
-          id="nombres"
-          [(ngModel)]="MediDetails.nombres"
-          style="text-align: center"
-          required="true"
-          formControlName="nombres"
-          [attr.readonly]="estado"
-          (ionChange)="activar($event)"
-        >
+        <ion-input placeholder="nombres" id="nombres" [(ngModel)]="MediDetails.nombres" style="text-align: center"
+          required="true" formControlName="nombres" [attr.readonly]="estado" (ionChange)="activar($event)">
           <ion-icon name="person-outline"></ion-icon>
         </ion-input>
       </ion-item>
@@ -92,16 +67,8 @@
       </div>
 
       <ion-item>
-        <ion-input
-          placeholder="apellidos"
-          id="apellidos"
-          [(ngModel)]="MediDetails.apellidos"
-          style="text-align: center"
-          required="true"
-          formControlName="apellidos"
-          [attr.readonly]="estado"
-          (ionChange)="activar($event)"
-        >
+        <ion-input placeholder="apellidos" id="apellidos" [(ngModel)]="MediDetails.apellidos" style="text-align: center"
+          required="true" formControlName="apellidos" [attr.readonly]="estado" (ionChange)="activar($event)">
           <ion-icon name="person-outline"></ion-icon>
         </ion-input>
       </ion-item>
@@ -113,16 +80,8 @@
       </div>
 
       <ion-item>
-        <ion-input
-          placeholder="direccion"
-          id="direccion"
-          [(ngModel)]="MediDetails.direccion"
-          style="text-align: center"
-          required="true"
-          formControlName="direccion"
-          [attr.readonly]="estado"
-          (ionChange)="activar($event)"
-        >
+        <ion-input placeholder="direccion" id="direccion" [(ngModel)]="MediDetails.direccion" style="text-align: center"
+          required="true" formControlName="direccion" [attr.readonly]="estado" (ionChange)="activar($event)">
           <ion-icon name="earth-outline"></ion-icon>
         </ion-input>
       </ion-item>
@@ -131,56 +90,29 @@
 
       <ion-item>
         <ion-label>Fecha de nacimiento</ion-label>
-        <ion-datetime
-          placeholder="Seleccione"
-          display-timezone="utc"
-          displayFormat="YYYY-MM-DD"
-          doneText="Ok"
-          cancelText="Cancelar"
-          id="fechaNac"
-          [(ngModel)]="MediDetails.fechaNac"
-          style="text-align: center"
-          required="true"
-          formControlName="fechnac"
-          [attr.readonly]="estadoFecha"
-          (ionChange)="guardarFechaNac($event)"
-        ></ion-datetime>
+        <ion-datetime placeholder="Seleccione" display-timezone="utc" displayFormat="YYYY-MM-DD" doneText="Ok"
+          cancelText="Cancelar" id="fechaNac" [(ngModel)]="MediDetails.fechaNac" style="text-align: center"
+          required="true" formControlName="fechnac" [attr.readonly]="estadoFecha" (ionChange)="guardarFechaNac($event)">
+        </ion-datetime>
       </ion-item>
 
       <ion-item>
-        <ion-input
-          type="numeric"
-          placeholder="celular"
-          id="celular"
-          [(ngModel)]="MediDetails.celular"
-          style="text-align: center"
-          required="true"
-          maxLength="10"
-          formControlName="telefono"
-          [attr.readonly]="estado"
-          (ionChange)="activar($event)"
-        >
+        <ion-input type="numeric" placeholder="celular" id="celular" [(ngModel)]="MediDetails.celular"
+          style="text-align: center" required="true" maxLength="10" formControlName="telefono" [attr.readonly]="estado"
+          (ionChange)="activar($event)">
           <ion-icon name="call-outline"></ion-icon>
         </ion-input>
       </ion-item>
 
       <div *ngIf="form.controls.telefono.errors">
         <span *ngIf="form.controls.telefono.errors.pattern"> Ingrese solo números </span>
-        <span *ngIf="form.controls.telefono.errors.minlength"> Ingrese 10 números  </span>
+        <span *ngIf="form.controls.telefono.errors.minlength"> Ingrese 10 números </span>
       </div>
 
 
       <ion-item>
-        <ion-input
-          placeholder="titulo"
-          id="titulo"
-          [(ngModel)]="MediDetails.titulo"
-          style="text-align: center"
-          required="true"
-          formControlName="titulo"
-          [attr.readonly]="estado"
-          (ionChange)="activar($event)"
-        >
+        <ion-input placeholder="titulo" id="titulo" [(ngModel)]="MediDetails.titulo" style="text-align: center"
+          required="true" formControlName="titulo" [attr.readonly]="estado" (ionChange)="activar($event)">
           <ion-icon name="albums"></ion-icon>
         </ion-input>
       </ion-item>
@@ -192,16 +124,8 @@
       </div>
 
       <ion-item>
-        <ion-input
-          placeholder="correo"
-          id="correo"
-          [(ngModel)]="MediDetails.correo"
-          style="text-align: center"
-          required="true"
-          formControlName="correo"
-          [attr.readonly]="estado"
-          (ionChange)="activar($event)"
-        >
+        <ion-input placeholder="correo" id="correo" [(ngModel)]="MediDetails.correo" style="text-align: center"
+          required="true" formControlName="correo" [attr.readonly]="estado" (ionChange)="activar($event)">
           <ion-icon name="mail-outline"></ion-icon>
         </ion-input>
       </ion-item>
@@ -214,23 +138,10 @@
 
       <ion-item>
         <ion-label>Especialidad </ion-label>
-        <ion-select
-          (ionChange)="guardarEspecialidad($event)"
-          placeholder="{{espec}}"
-          style="text-align: center"
-          okText="Ok"
-          cancelText="Cancelar"
-          id="especialidad"
-          [(ngModel)]="MediDetails.especialidad_id"
-          style="text-align: center"
-          required="true"
-          formControlName="espec"
-          [attr.readonly]="estadoEspe"
-        >
-          <ion-select-option
-            *ngFor="let item of especialidad"
-            [value]="item.especialidad_id"
-          >
+        <ion-select (ionChange)="guardarEspecialidad($event)" placeholder="{{espec}}" style="text-align: center"
+          okText="Ok" cancelText="Cancelar" id="especialidad" [(ngModel)]="MediDetails.especialidad_id"
+          style="text-align: center" required="true" formControlName="espec" [attr.readonly]="estadoEspe">
+          <ion-select-option *ngFor="let item of especialidad" [value]="item.especialidad_id">
             {{item.tipoEspecialidad}}
           </ion-select-option>
         </ion-select>
@@ -240,12 +151,12 @@
         <ion-grid>
           <ion-row>
             <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-              <ion-button color="shade" (click)="atras()" >Atras</ion-button>
+              <ion-button color="shade" (click)="atras()">Atras</ion-button>
             </ion-col>
             <br>
             <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
               <ion-button color="shade" class="button1" (click)="openModal()" ion-button>
-                <img src="../assets/imagenes/editar.png" height="10" alt="" />Editar
+                Editar
               </ion-button>
             </ion-col>
             <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">

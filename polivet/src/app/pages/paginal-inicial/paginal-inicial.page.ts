@@ -46,7 +46,7 @@ export class PaginalInicialPage implements OnInit {
           this.condition = true;
         }
         this.miperfilservice.enviandocorreo(this.correop)
-        console.log('reciboo desde paag inicial correo--',this.datajs)
+        console.log('reciboo desde paag inicial correo-- datosss desde la inicialllllll',this.datajs)
       }
     )
 
@@ -54,25 +54,6 @@ export class PaginalInicialPage implements OnInit {
 
   }
 
-  slides=[
-    {
-      img: "https://estaticos.muyinteresante.es/media/cache/1000x460_thumb/uploads/images/gallery/5b755a235cafe886f57f0c61/golden-cachorro_0.jpg"
-    },
-    {
-      img: "../../../assets/imagenes/2.png"
-    },
-    {
-      img: "../../../assets/imagenes/3.jpg"
-    },
-    {
-      img: "../../../assets/imagenes/4.jpg"
-    },
-    {
-      img: "../../../assets/imagenes/5.jpg"
-    },
-    {
-      img: "../../../assets/imagenes/6.jpg"
-    }
-  ]
+  
 
 }

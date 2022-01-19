@@ -100,7 +100,7 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
-        <ion-card *ngFor="let item of listMascotabyPropietario  |  paginate: {itemsPerPage:5, currentPage:cp} ">
+        <ion-card *ngFor="let item of listMascotabyPropietario  |  paginate: {itemsPerPage:1, currentPage:cp} ">
             <ion-card-header>
                 <ion-card-title><em>Nombre Paciente: {{item.nombre}}</em> </ion-card-title>
             </ion-card-header>

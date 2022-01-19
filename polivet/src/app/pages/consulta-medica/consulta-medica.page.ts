@@ -28,6 +28,7 @@ export class ConsultaMedicaPage implements OnInit {
   FCard: string
   FResp: string
   mucosas: string
+  tiempocapilar: string
   pulso: string
   otras:string
   turgenciapiel:string
@@ -54,9 +55,7 @@ export class ConsultaMedicaPage implements OnInit {
     console.log(this.idMascota)
     this.obtenerConstantesCab();
   }
-
-
-
+  
    ngOnInit() {
     if(this._localStorage.length < 1){
       this.router.navigate(['/inicio-sesion'])
@@ -71,7 +70,8 @@ export class ConsultaMedicaPage implements OnInit {
       pulso:['',[Validators.required,Validators.pattern(/^[0-9]+([,])?([0-9]+)?$/)]] ,
       otras:['',[Validators.required]] ,
       mucosas:['',[Validators.required]] ,
-      turgenciapiel:['',[Validators.required]]
+      turgenciapiel:['',[Validators.required]],
+      tiempocapilar:['',[Validators.required]]
 
 
 
@@ -169,6 +169,7 @@ export class ConsultaMedicaPage implements OnInit {
     let constanteotras = new ConstantesFiosologicas(this.constatesCabList[8].constantes_idCab, this.otras);
     let constantetEstadoF = new ConstantesFiosologicas(this.constatesCabList[9].constantes_idCab, this.opcionEstadoFisico);
     let constanteEstadoM = new ConstantesFiosologicas(this.constatesCabList[10].constantes_idCab, this.opcionEstadoMental);
+    let tiempocapilar = new ConstantesFiosologicas(this.constatesCabList[11].constantes_idCab, this.tiempocapilar);
 
     this.constantesFisioCab.push(constantePeso)
     this.constantesFisioCab.push(constanteT)
@@ -181,6 +182,8 @@ export class ConsultaMedicaPage implements OnInit {
     this.constantesFisioCab.push(constanteotras)
     this.constantesFisioCab.push(constantetEstadoF)
     this.constantesFisioCab.push(constanteEstadoM)
+    this.constantesFisioCab.push(tiempocapilar)
+
     console.log(this.constantesFisioCab)
     this.consultaMedicaService.crearConstantesF(this.constantesFisioCab)
     this.router.navigate(['/paginal-inicial/'])
