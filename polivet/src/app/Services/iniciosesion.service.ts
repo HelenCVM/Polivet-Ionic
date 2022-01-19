@@ -49,4 +49,9 @@ export class IniciosesionService {
   enviandodatos(datos){
     this.objectSourcee.next(datos)
   }
+
+  getMedico(idusuario){
+    console.log(idusuario)
+    return this.http.get("/TesisVeterinaria/rest/prueba/obtenerMedicoByCorreo/"+idusuario);
+  }
 }

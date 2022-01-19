@@ -18,6 +18,10 @@ export class PaginalInicialPage implements OnInit {
   public datajs:any
   public condition: boolean = true;
   private _localStorage: Storage;
+  public usuario_id:any
+  public medico: any
+  public nombres:any
+  public apellidos:any
   //true sale .false no sale
 
   constructor(private _localStorageRefService: LocalstoreService,public navCtrl: NavController,private actRoute:ActivatedRoute,  public router: Router,private http: HttpClient, public miperfilservice: MiperfilService,public inicioservice:IniciosesionService ) {
@@ -36,10 +40,20 @@ export class PaginalInicialPage implements OnInit {
       data=>{
         console.log(data)
         this.datajs=data
+        this.usuario_id = this.datajs.usuario_id
+        console.log(this.usuario_id)
         this.correop=this.datajs.correo
         this.rol = this.datajs.rol_id.descripcion
         console.log('rol---pagina inicio',this.rol)
         console.log(this.correop)
+        //getMedico
+        this.inicioservice.getMedico(this.usuario_id)
+        .subscribe((data) => {
+          this.medico = data
+          this.nombres = this.medico.nombres
+          this.apellidos = this.medico.apellidos
+          console.log('medico devuelto por el id usuario',this.medico)
+        })
         if(this.rol == 'medico'){
           this.condition = false;
         }else{
