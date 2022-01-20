@@ -25,7 +25,7 @@
 <ion-content>
   <br>
   <br>
-  <form (ngSubmit)="addContra(ContraNuevaDetails)" #userForm="ngForm" >
+  <form [formGroup]="form" (ngSubmit)="addContra(ContraNuevaDetails)" #userForm="ngForm" >
     <div class="form-container">
       <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Recordar contraseña! </em></p>
 
@@ -37,17 +37,23 @@
     </ion-item>
     <ion-item>
       <ion-input placeholder="Codigo de recuperacion" [(ngModel)]="ContraNuevaDetails.contrasena" style="text-align: center;" required="true"
-      [ngModelOptions]="{standalone: true}" (ionChange)=compararContras($event)>
+      formControlName="codigo" (ionChange)=compararContras($event)>
         <ion-icon name="key"></ion-icon>
       </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-input placeholder="Contraseña nueva" [(ngModel)]="ContraNuevaDetails.contrasenaNueva" style="text-align: center;" required="true"
-      [ngModelOptions]="{standalone: true}" type="password">
+      formControlName="nuevaContra" type="password">
         <ion-icon name="key"></ion-icon>
       </ion-input>
     </ion-item>
+
+    <div *ngIf="form.controls.nuevaContra.errors">
+      <span *ngIf="form.controls.nuevaContra.errors.pattern">
+        Ingrese la contraseña con los caracteres requeridos
+      </span>
+    </div>
 
     <div align="center">
      <ion-grid>

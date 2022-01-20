@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import {RecordarContraService} from '../../Services/recordar-contra.service';
 import {Usuario} from 'src/app/Modelo/Usuario';
 import { AlertController } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-actualizar-contrasena',
@@ -20,11 +21,16 @@ export class ActualizarContrasenaPage implements OnInit {
     correo:'',contrasena:'',contrasenaNueva:''
   }
 
-  constructor(private actRoute:ActivatedRoute,  public router: Router,private http: HttpClient,public recordarservice:RecordarContraService,public alertController: AlertController) {
+  public form: FormGroup
+  constructor(private actRoute:ActivatedRoute,private formBuilder: FormBuilder,  public router: Router,private http: HttpClient,public recordarservice:RecordarContraService,public alertController: AlertController) {
 
    }
 
   ngOnInit() {
+    this.form=this.formBuilder.group( {
+      codigo:['',[Validators.required]],
+      nuevaContra:['',[Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z]).{8,}$')]]
+    })
     this.recordarservice.$getObjectSource.subscribe(
       data=>{
         this.dataa=data
