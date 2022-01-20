@@ -1,6 +1,7 @@
 ion-content,ion-list,ion-item,ion-icon,ion-label,ion-menu,ion-menu-toggle,div{
-    --background: #FFE333;
     --color: rgb(0, 0, 0);
+    --background: #FFE333;
+
   }
 
 .inner-scroll scroll-y {
@@ -15,3 +16,12 @@ ion-content,ion-list,ion-item,ion-icon,ion-label,ion-menu,ion-menu-toggle,div{
   background: #FFE333;
 }
 
+
+.appcomponent{
+  --background: #FFE333;
+ }
+
+ .list-md{
+  --background: #FFE333;
+  background: #FFE333;
+ }

@@ -1,4 +1,4 @@
-<ion-app>
+<ion-app >
     <ion-menu menuId="main-menu" content-id="main">
         <ion-header>
             <ion-toolbar>
@@ -9,57 +9,59 @@
 
             </ion-toolbar>
         </ion-header>
-        <ion-content >
-           
+        <ion-content class="appcomponent">
 
-            <div align="center" *ngIf="medico">
+          <br>
+
+            <div class="appcomponent" align="center" *ngIf="medico">
 
                 <img src="{{medico.fotoMedico}}" width="200" height="200" alt=""
                     style="   border-radius: 130px; align:center">
                 <br>
             </div>
-            <div align="center" *ngIf="medico">
-                <label style=" font-family: Georgia, 'Times New Roman', Times, serif; 
+            <div class="appcomponent" align="center" *ngIf="medico">
+                <label style=" font-family: Georgia, 'Times New Roman', Times, serif;
                 text-align: center;
                 font-style: italic; color: black; font-weight: bold;"><em>
                         {{medico.nombres}} {{medico.apellidos}}
                     </em>                <br>
                 </label>
+                <br>
             </div>
-            <ion-list>
+            <ion-list class="appcomponent">
 
-                <ion-menu-toggle >
-                    <ion-item routerLink="mi-perfil">
+                <ion-menu-toggle class="appcomponent">
+                    <ion-item routerLink="mi-perfil" class="appcomponent">
                         <ion-icon name="medkit" slot="start"> </ion-icon>
-                        <ion-label style=" font-family: Georgia, 'Times New Roman', Times, serif; 
+                        <ion-label style=" font-family: Georgia, 'Times New Roman', Times, serif;
                         text-align: center;
                         font-style: italic;"> Mi Perfil</ion-label>
 
                     </ion-item>
                 </ion-menu-toggle>
                 <ion-menu-toggle>
-                    <ion-item routerLink="/raza-especie">
+                    <ion-item routerLink="/raza-especie" class="appcomponent">
                         <ion-icon name="paw" slot="start"> </ion-icon>
-                        <ion-label style=" font-family: Georgia, 'Times New Roman', Times, serif; 
+                        <ion-label style=" font-family: Georgia, 'Times New Roman', Times, serif;
                         text-align: center;
                         font-style: italic;"> Especie</ion-label>
 
                     </ion-item>
                 </ion-menu-toggle>
                 <ion-menu-toggle>
-                    <ion-item routerLink="/crud-raza">
+                    <ion-item routerLink="/crud-raza" class="appcomponent">
                         <ion-icon name="create" slot="start"> </ion-icon>
-                        <ion-label style=" font-family: Georgia, 'Times New Roman', Times, serif; 
+                        <ion-label style=" font-family: Georgia, 'Times New Roman', Times, serif;
                         text-align: center;
                         font-style: italic;"> Raza</ion-label>
 
                     </ion-item>
                 </ion-menu-toggle>
 
-                <ion-menu-toggle>
-                    <ion-item (click)="salir()">
+                <ion-menu-toggle class="appcomponent">
+                    <ion-item (click)="salir()" class="appcomponent">
                         <ion-icon name="log-out" slot="start"> </ion-icon>
-                        <ion-label style=" font-family: Georgia, 'Times New Roman', Times, serif; 
+                        <ion-label style=" font-family: Georgia, 'Times New Roman', Times, serif;
                         text-align: center;
                         font-style: italic;"> Salir</ion-label>
 
