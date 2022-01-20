@@ -54,6 +54,7 @@ export class RegistromedicoService {
     .set('correo', medico.correo)
     .set('celular', medico.celular)
     .set('titulo', medico.titulo)
+    .set('fotomedico', medico.fotomedico)
     .set('especialidad_id', medico.especialidad_id)
     .set('usuario_id',medico.usuario_id)
 

@@ -32,11 +32,13 @@ export class MiPerfilPage implements OnInit {
   private _localStorage: Storage;
   public foto:any;
   public fotoo:any;
+  imageURL: any;
+  fotose:any;
 
   @Input() MediDetails = {
     cedula:'',nombres: '', apellidos: '', direccion: '',
     fechaNac: '',correo: '',celular: '', titulo: '',
-    especialidad_id: '',usuario_id: ''
+    especialidad_id: '',fotomedico:'',usuario_id: ''
   }
 
   public form: FormGroup
@@ -72,7 +74,8 @@ export class MiPerfilPage implements OnInit {
         Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(10)])],
       titulo:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
       espec:['',[Validators.required]],
-      correo:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[u]+[p]+[s]+.[e]+[d]+[u]+.[e]+[c.]+$')]]
+      correo:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[u]+[p]+[s]+.[e]+[d]+[u]+.[e]+[c.]+$')]],
+      foto:['',[Validators.required]]
 
     })
     /*
@@ -98,6 +101,7 @@ export class MiPerfilPage implements OnInit {
       this.MediDetails.correo = this.Medico.usuario_id.correo
       this.MediDetails.celular = this.Medico.celular
       this.MediDetails.titulo = this.Medico.titulo
+      this.MediDetails.fotomedico = this.Medico.fotoMedico
       this.MediDetails.especialidad_id = this.Medico.especialidad_id.especialidad_id
       this.espec = this.Medico.especialidad_id.tipoEspecialidad
       this.especid =this.Medico.especialidad_id.especialidad_id
@@ -120,6 +124,25 @@ export class MiPerfilPage implements OnInit {
 
   }
 
+  guardarFoto(event){
+    const files = event.target.files;
+    console.log(files);
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageURL = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+    let archivos =event.target.files
+    let readerr = new FileReader();
+    readerr.readAsDataURL(archivos[0]);
+    readerr.onloadend = () => {
+      console.log(readerr.result)
+      this.fotose = readerr.result
+      console.log(this.fotose)
+      this.MediDetails.fotomedico = this.fotose
+    }
+
+  }
 
 
   guardarEspecialidad(event: CustomEvent){

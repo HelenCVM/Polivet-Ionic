@@ -25,7 +25,7 @@
 </ion-header>
 
 <ion-content>
-  
+
   <!--   <ion-img src="{{contacto.url}}" height='60' width='60'></ion-img> -->
   <form [formGroup]="form" (ngSubmit)="actualiza(MediDetails)" #userForm="ngForm">
     <div id="header" align="center">
@@ -35,7 +35,7 @@
 
     </div>
     <div class="form-container">
-      
+
       <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;">
         <ion-icon name="paw"></ion-icon> <em> Datos Personales </em>
       </p>
@@ -145,6 +145,16 @@
             {{item.tipoEspecialidad}}
           </ion-select-option>
         </ion-select>
+      </ion-item>
+
+      <ion-item>
+        &nbsp;  &nbsp; <ion-input placeholder="{{foto}}" [(ngModel)]="MediDetails.fotomedico" style="text-align: center;" required="true"
+          (change)=guardarFoto($event) type="file" formControlName="foto" accept="image/png, image/jpeg" [attr.readonly]="estado" (ionChange)="activar($event)">
+          <ion-icon name="document-attach-outline"></ion-icon>
+          <ion-label> &nbsp; Fotografia:</ion-label>
+
+
+        </ion-input>
       </ion-item>
 
       <div align="center">
