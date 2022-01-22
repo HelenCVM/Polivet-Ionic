@@ -32,7 +32,7 @@
   <form [formGroup]="form" (ngSubmit)="guardar(MedicoDetails)" #userForm="ngForm">
     <div class="form-container">
       <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"> <em> Registro
-          Medico </em></p>
+        Médico  </em></p>
       <ion-item>
         <ion-input type="numeric" placeholder="Cédula" [(ngModel)]="MedicoDetails.cedula" style="text-align: center;"
           required="true" maxLength="10" formControlName="cedula" (ionChange)="validadorDeCedula($event)">
@@ -90,9 +90,9 @@
         <ion-label>Fecha Nacimiento</ion-label>
         <ion-datetime placeholder="Seleccione" display-timezone="utc" displayFormat="YYYY-MM-DD	" doneText="Ok"
           cancelText="Cancelar" (ionChange)=guardarFechaNac($event) formControlName="fechnac">
-  
+
         </ion-datetime>
-         
+
       </ion-item>
 
       <ion-item>
