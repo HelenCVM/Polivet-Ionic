@@ -84,6 +84,7 @@ export class MascotaPage implements OnInit {
       var agemonth = todayDate.getMonth() - convertAge.getMonth();
       var ageday = todayDate.getDate() - convertAge.getDate();
       this.showAge=ageyear +" anios "
+      console.log(this.showAge)
 
      /* if(agemonth != 0 && ageyear !=0){
         this.showAge=ageyear +" anios "+ " con "+ agemonth + ' meses y '  + ageday+ " dias"

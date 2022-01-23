@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConsultamedicaService } from 'src/app/Services/consultamedica.service';
 import { PropietarioServiceService } from 'src/app/Services/propietario-service.service';
 import {LocalstoreService} from '../../Services/localstore.service';
 
@@ -11,10 +12,11 @@ import {LocalstoreService} from '../../Services/localstore.service';
 export class ListarPropietariosPage implements OnInit {
   cp = 1
   listPropietario: any = []
-  filtroidPropietario: ''
+  filtroPropietario = '';
   private _localStorage: Storage;
 
-  constructor(private _localStorageRefService: LocalstoreService,private propietarioService: PropietarioServiceService, private router: Router) {
+  constructor(private _localStorageRefService: LocalstoreService,private propietarioService: PropietarioServiceService, 
+    private router: Router,private consultaService: ConsultamedicaService) {
     this._localStorage = _localStorageRefService.localStorage
     this.obtenerListPropietarios();
   }
@@ -26,17 +28,17 @@ export class ListarPropietariosPage implements OnInit {
   }
 
   obtenerListPropietarios() {
-    this.propietarioService.listarPropietarios()
-      .subscribe((data) => {
-        this.listPropietario = data
-        console.log("list propi", this.listPropietario)
+    this.consultaService.recuperoListDeConsultasMedicas()
+    .subscribe((data) => {
+      this.listPropietario = data
+      console.log('Estamos en historias')
+      console.log(this.listPropietario)
 
-
-      }, (error) => {
-        console.log(error)
-      }
-      );
-  }
+    }, (error) => {
+      console.log(error)
+    }
+    );
+}
 
 
   editarPropietario(idPropietario) {
@@ -45,9 +47,9 @@ export class ListarPropietariosPage implements OnInit {
     this.router.navigate(['/propietario-detale'])
 
   }
-  buscarPacientebyId(event) {
+  buscarPaciente(event) {
     console.log("buscar", event.detail.value)
-    this.filtroidPropietario = event.detail.value
+    this.filtroPropietario = event.detail.value
   }
 
   atras(){
