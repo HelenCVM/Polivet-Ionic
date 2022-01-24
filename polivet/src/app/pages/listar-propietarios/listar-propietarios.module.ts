@@ -8,7 +8,7 @@ import { ListarPropietariosPageRoutingModule } from './listar-propietarios-routi
 
 import { ListarPropietariosPage } from './listar-propietarios.page';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { PipeModule } from 'src/app/pipe/pipe.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 //import { FiltroByIdPipe } from 'src/app/pipe/filtro-by-id.pipe';
 
 
@@ -18,8 +18,8 @@ import { PipeModule } from 'src/app/pipe/pipe.module';
     FormsModule,
     IonicModule,
     ListarPropietariosPageRoutingModule,
+    PipesModule,
     NgxPaginationModule,
-    PipeModule
 
 
   ],

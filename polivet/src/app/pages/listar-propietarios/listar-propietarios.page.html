@@ -1,68 +1,74 @@
 <ion-header>
   <ion-toolbar>
-      <div align="right">
-          <img src="../assets/imagenes/Logo.png" height="50" alt="">
-      </div>
+    <div align="right">
+      <img src="../assets/imagenes/Logo.png" height="50" alt="">
+    </div>
 
-      <ion-buttons slot="start">
-          <ion-menu-button menu="main-menu" color="light"> </ion-menu-button>
-      </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu" color="light"> </ion-menu-button>
+    </ion-buttons>
 
   </ion-toolbar>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"></script>
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"></script>
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
 
 </ion-header>
 <ion-content>
   <div align="center" class="form-container">
-      <ion-searchbar (ionChange)="buscarPacientebyId($event)" placeholder="Ingrese Propietario" debounce="500"></ion-searchbar>
-<br>
-      <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;"><ion-icon name="people-outline"></ion-icon> <em> Propietarios
+    <ion-searchbar (ionChange)="buscarPaciente($event)" placeholder="Ingrese Propietario" debounce="500">
+    </ion-searchbar>
+    <br>
+    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17pt;">
+      <ion-icon name="people-outline"></ion-icon> <em> Propietarios
       </em>
 
-  </p>
+    </p>
 
-      <ion-card *ngFor="let item of listPropietario  |  paginate: {itemsPerPage:5, currentPage:cp} ">
-          <ion-card-header>
-              <ion-card-title> <em>Propietario: {{item.propietario}}</em> </ion-card-title>
-          </ion-card-header>
+    <ion-card
+      *ngFor="let item of listPropietario  | filtroPropietario: filtroPropietario| paginate: {itemsPerPage:5, currentPage:cp} ">
+      <ion-card-header>
+        <ion-card-title> <em> Propietario: {{item.mascota_id.id_mascota_propietario.propietario}}</em></ion-card-title>
+      </ion-card-header>
 
-          <ion-card-content  (click)="editarPropietario(item.idPropietario)">
-              <ion-card-subtitle> Correo: {{item.correo}}</ion-card-subtitle>
-              <ion-card-subtitle>Ciudad: {{item.cuidad}}</ion-card-subtitle>
-              <ion-card-subtitle>Direccion: {{item.direccion}}</ion-card-subtitle>
-              <ion-card-subtitle>Telefono: {{item.telefono}}</ion-card-subtitle>
-          </ion-card-content>
-      </ion-card>
-      <div>
-        <pagination-controls (pageChange)="cp = $event"   previousLabel="Antes"
-        nextLabel="Siguiente"></pagination-controls>
+      <ion-card-content (click)="editarPropietario(item.mascota_id.id_mascota_propietario.idPropietario)">
+        <ion-card-subtitle>Cédula: {{item.mascota_id.id_mascota_propietario.idPropietario}}</ion-card-subtitle>
+
+        <ion-card-subtitle>Ciudad: {{item.mascota_id.id_mascota_propietario.cuidad}}</ion-card-subtitle>
+        <ion-card-subtitle>Direccion: {{item.mascota_id.id_mascota_propietario.direccion}}</ion-card-subtitle>
+        <ion-card-subtitle>Telefono: {{item.mascota_id.id_mascota_propietario.telefono}}</ion-card-subtitle>
+        <ion-card-subtitle>Nombre mascota: {{item.mascota_id.nombre}}</ion-card-subtitle>
+        <ion-card-subtitle>Fecha admision: {{item.diaDeAdminision.split('T')[0]}}</ion-card-subtitle>
+
+      </ion-card-content>
+    </ion-card>
+    <div>
+      <pagination-controls (pageChange)="cp = $event" previousLabel="Antes" nextLabel="Siguiente"></pagination-controls>
 
 
-      </div>
+    </div>
 
- <div align="center">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
-              <ion-button color="shade" (click)="atras()" >Atrás</ion-button>
-            </ion-col>
-            <br>
-          </ion-row>
-        </ion-grid>
-      </div>
+    <div align="center">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-lg size-md size-sm size-xs class="ion-align-self-start">
+            <ion-button color="shade" (click)="atras()">Atrás</ion-button>
+          </ion-col>
+          <br>
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
 
 
