@@ -138,7 +138,7 @@
 
       <ion-item>
         <ion-label>Especialidad </ion-label>
-        <ion-select (ionChange)="guardarEspecialidad($event)" placeholder="{{espec}}" style="text-align: center"
+        <ion-select interface="action-sheet" class="custom-options" (ionChange)="guardarEspecialidad($event)" placeholder="{{espec}}" style="text-align: center"
           okText="Ok" cancelText="Cancelar" id="especialidad" [(ngModel)]="MediDetails.especialidad_id"
           style="text-align: center" required="true" formControlName="espec" [attr.readonly]="estadoEspe">
           <ion-select-option *ngFor="let item of especialidad" [value]="item.especialidad_id">

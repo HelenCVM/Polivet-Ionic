@@ -34,7 +34,16 @@ html {
           align-items: center;
 }
 
+
 ion-input {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 /*# sourceMappingURL=registro-medico.page.css.map */
+
+.popover-content{
+  width: 95%
+}
+
+.my-custom-interface .select-interface-option {
+  color: red;
+}
