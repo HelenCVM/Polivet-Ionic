@@ -13,7 +13,7 @@ export class PropietarioServiceService {
   $getObjectSource = this.objectSource.asObservable();
 
   constructor(public http: HttpClient) {
-    this.url = '/TesisVeterinaria/rest/prueba/registrarPropietario'
+    this.url = 'https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/registrarPropietario'
 
 
   }
@@ -40,7 +40,7 @@ export class PropietarioServiceService {
 
   listarPropietarios() {
     console.log("Estamos en el listar propietarios especie")
-    return this.http.get("/TesisVeterinaria/rest/prueba/listarPropietario")
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/listarPropietario")
   }
   enviarIdPropietario(idPropietario) {
     this.objectSource.next(idPropietario)
@@ -48,11 +48,11 @@ export class PropietarioServiceService {
   }
   listarPropietarioById(idPropietario) {
     console.log("Estamos en el listar propietario by Id")
-    return this.http.get("/TesisVeterinaria/rest/prueba/PropietariobyId/" + idPropietario)
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/PropietariobyId/" + idPropietario)
   }
 
   listarMascotaByIdPropietario(idPropietario) {
     console.log("Estamos en el listar mascota by Id")
-    return this.http.get("/TesisVeterinaria/rest/prueba/MascotasByIdPropietario/" + idPropietario)
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/MascotasByIdPropietario/" + idPropietario)
   }
 }

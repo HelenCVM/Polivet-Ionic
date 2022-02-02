@@ -15,7 +15,7 @@ export class MiperfilService {
 
   getMedico(correopda){
     console.log(correopda)
-    return this.http.get("/TesisVeterinaria/rest/prueba/medicoperfilcorreo/"+correopda);
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/medicoperfilcorreo/"+correopda);
   }
 
   enviandocorreo(correo){

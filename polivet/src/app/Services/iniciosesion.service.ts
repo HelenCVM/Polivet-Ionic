@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class IniciosesionService {
   private url: string;
   constructor(private http:HttpClient) {
-    this.url='/TesisVeterinaria/rest/prueba/inicio';
+    this.url='https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/inicio';
   }
   private objectSource= new BehaviorSubject<{}>({});
   $getObjectSource=this.objectSource.asObservable();
@@ -52,6 +52,6 @@ export class IniciosesionService {
 
   getMedico(idusuario){
     console.log(idusuario)
-    return this.http.get("/TesisVeterinaria/rest/prueba/obtenerMedicoByCorreo/"+idusuario);
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/obtenerMedicoByCorreo/"+idusuario);
   }
 }

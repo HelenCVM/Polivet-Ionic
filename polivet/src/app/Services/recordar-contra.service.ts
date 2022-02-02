@@ -14,9 +14,9 @@ export class RecordarContraService {
   private urlokcorreo:string
 
   constructor(private http:HttpClient) {
-    this.url='/TesisVeterinaria/rest/prueba/recordarcontra';
-    this.urll='/TesisVeterinaria/rest/prueba/recordarcontrados';
-    this.urlokcorreo = '/TesisVeterinaria/rest/prueba/CorreoOk';
+    this.url='https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/recordarcontra';
+    this.urll='https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/recordarcontrados';
+    this.urlokcorreo = 'https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/CorreoOk';
   }
 
   private objectSource= new BehaviorSubject<{}>({});

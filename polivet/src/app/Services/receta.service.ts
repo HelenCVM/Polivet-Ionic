@@ -14,8 +14,8 @@ export class RecetaService {
   $getObjectSource=this.objectSource.asObservable();
 
   constructor(public http: HttpClient) {
- this.url='/TesisVeterinaria/rest/prueba/registrarRecetaM'
- this.urlActualiza='/TesisVeterinaria/rest/prueba/actualizaRecetaM'
+ this.url='https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/registrarRecetaM'
+ this.urlActualiza='https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/actualizaRecetaM'
   }
 
   enviandoIdConsulta(idConsultaMedica){
@@ -40,17 +40,17 @@ export class RecetaService {
    }
 
    listrecetaMedica(idConsulta){
-    return this.http.get("/TesisVeterinaria/rest/prueba/listasRecetaMedica/"+idConsulta)
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/listasRecetaMedica/"+idConsulta)
 
   }
 
   listadetalleReceta(idReceta){
-    return this.http.get("/TesisVeterinaria/rest/prueba/listaDetalleRecetaM/"+idReceta)
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/listaDetalleRecetaM/"+idReceta)
 
   }
 
   eliminarlReceta(idReceta){
-    return this.http.get("/TesisVeterinaria/rest/prueba/EliminarRecetaM/"+idReceta,{responseType: 'text'})
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/EliminarRecetaM/"+idReceta,{responseType: 'text'})
   }
 
   actualizarReceta(receta:RecetaMedica){

@@ -21,10 +21,10 @@ export class ConsultamedicaService {
 
 
   constructor(public http: HttpClient) {
-    this.url = '/TesisVeterinaria/rest/prueba/obtenerConstantesCabecera'
-    this.urlConstanteF = '/TesisVeterinaria/rest/prueba/agregarConstanteF'
-    this.urlConsultaM = '/TesisVeterinaria/rest/prueba/registrarConsultaMedica'
-    this.urlConsultaByHistoria='/TesisVeterinaria/rest/prueba/registrarConsultaMedicaByHistoria'
+    this.url = 'https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/obtenerConstantesCabecera'
+    this.urlConstanteF = 'https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/agregarConstanteF'
+    this.urlConsultaM = 'https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/registrarConsultaMedica'
+    this.urlConsultaByHistoria='https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/registrarConsultaMedicaByHistoria'
   }
 
   obtenerConstantesCab() {
@@ -83,7 +83,7 @@ export class ConsultamedicaService {
   }
 
   recuperoListDeConsultasMedicas(){
-    return this.http.get("/TesisVeterinaria/rest/prueba/listarHistoriaClinica")
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/listarHistoriaClinica")
 
   }
 
@@ -97,24 +97,24 @@ export class ConsultamedicaService {
 
    recuperoListHistoria(idConsulta){
     console.log('estamos recuperoListDeConsultasMedicasDetalle',idConsulta)
-    return this.http.get("/TesisVeterinaria/rest/prueba/listarConsultaMedica/"+idConsulta)
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/listarConsultaMedica/"+idConsulta)
 
   }
 
   consultamedicaByHistoria(idConsulta){
-    return this.http.get("/TesisVeterinaria/rest/prueba/listarConsultaMedicaByIdHistoria/"+idConsulta)
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/listarConsultaMedicaByIdHistoria/"+idConsulta)
 
   }
   detalleByConstanteDet(idConsulta){
-    return this.http.get("/TesisVeterinaria/rest/prueba/listarConstantesFisioByConsulta/"+idConsulta)
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/listarConstantesFisioByConsulta/"+idConsulta)
 
   }
   obtenerConsultaById(idConsulta){
-    return this.http.get("/TesisVeterinaria/rest/prueba/listarConsultaById/"+idConsulta)
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/listarConsultaById/"+idConsulta)
   }
 
   listaConsultaOk(idConsulta){
-    return this.http.get("/TesisVeterinaria/rest/prueba/listarConsultaok/"+idConsulta, {responseType: 'text'})
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/listarConsultaok/"+idConsulta, {responseType: 'text'})
   }
 
 

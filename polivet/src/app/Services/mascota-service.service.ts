@@ -12,7 +12,7 @@ export class MascotaServiceService {
   private url: string;
   private urlEspecie: string;
   constructor(public http: HttpClient, public alertController: AlertController) {
-    this.url = '/TesisVeterinaria/rest/prueba/registrarMascota'
+    this.url = 'https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/registrarMascota'
   }
 
   crearMascota(mascota: Mascota) {
@@ -40,17 +40,17 @@ export class MascotaServiceService {
 
   obtenerEspecie() {
     console.log("Estamos en el service")
-    return this.http.get("/TesisVeterinaria/rest/prueba/obtenerEspecieMascota")
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/obtenerEspecieMascota")
   }
   obtenerRaza(idEspecie) {
     console.log("Estamos en el service especie")
-    return this.http.get("/TesisVeterinaria/rest/prueba/obtenerRazaByEspecie/" + idEspecie)
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/obtenerRazaByEspecie/" + idEspecie)
   }
   crearEspecie(especie: Raza) {
     console.log("Crear especie", especie)
     const body = new HttpParams()
       .set('nombreEspecie', especie.nombreEspecie)
-    return this.http.post("/TesisVeterinaria/rest/prueba/registrarEspecie",
+    return this.http.post("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/registrarEspecie",
       body.toString(),
       {
         headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
@@ -66,7 +66,7 @@ export class MascotaServiceService {
     const body = new HttpParams()
       .set('idEspecie', especie)
       .set('nombreEspecie', nombreEspecie)
-    return this.http.post("/TesisVeterinaria/rest/prueba/editarEspecie",
+    return this.http.post("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/editarEspecie",
       body.toString(),
       {
         headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
@@ -80,7 +80,7 @@ export class MascotaServiceService {
     const body = new HttpParams()
       .set('idEspecie', especie)
 
-    return this.http.post("/TesisVeterinaria/rest/prueba/eliminarEspecie/",
+    return this.http.post("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/eliminarEspecie/",
       body.toString(),
       {
         headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
@@ -96,7 +96,7 @@ crearRaza(raza: Raza) {
   const body = new HttpParams()
     .set('nombreEspecie', raza.nombreEspecie)
     .set('nombreRaza', raza.nombre)
-  return this.http.post("/TesisVeterinaria/rest/prueba/registrarRaza",
+  return this.http.post("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/registrarRaza",
     body.toString(),
     {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
@@ -111,7 +111,7 @@ editarRaza(especie, nombreEspecie, nombreRaza) {
     .set('raza_id', especie)
     .set('nombreRaza', nombreRaza)
     .set('nombreEspecie',nombreEspecie )
-  return this.http.post("/TesisVeterinaria/rest/prueba/editarRaza",
+  return this.http.post("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/editarRaza",
     body.toString(),
     {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
@@ -125,7 +125,7 @@ eliminarRaza(raza) {
   const body = new HttpParams()
     .set('idRaza', raza)
 
-  return this.http.post("/TesisVeterinaria/rest/prueba/eliminarRaza",
+  return this.http.post("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/eliminarRaza",
     body.toString(),
     {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),

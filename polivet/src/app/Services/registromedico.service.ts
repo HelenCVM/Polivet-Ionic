@@ -10,13 +10,13 @@ export class RegistromedicoService {
   private urll: string;
 
   constructor(public  http:HttpClient) {
-    this.url='/TesisVeterinaria/rest/prueba/registrarPUsuario'
-    this.urll='/TesisVeterinaria/rest/prueba/actualizarPMedico'
+    this.url='https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/registrarPUsuario'
+    this.urll='https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/actualizarPMedico'
    }
 
   obtenerEspecialidad(){
     console.log("Estamos en el service especialidad")
-    return this.http.get("/TesisVeterinaria/rest/prueba/obtenerEspecialidad")
+    return this.http.get("https://cloudcomputing.ups.edu.ec/TesisVeterinariaApi/rest/prueba/obtenerEspecialidad")
   }
 
   crearUsuario(medico:Medico){
